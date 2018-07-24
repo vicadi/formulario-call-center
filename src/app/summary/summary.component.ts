@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SummaryComponent implements OnInit {
   showButton = false;
-  valueApproved = 0;
+  valueApproved : string;
   constructor() { }
   ngOnInit() {
     this.getRandomInt();
@@ -22,7 +22,9 @@ export class SummaryComponent implements OnInit {
   }
 
    getRandomInt(): void {
-    this.valueApproved = Math.floor((Math.random() * 10000000) + 1);
+    var pepito = Math.floor((Math.random() * (9999999 - 1000000) + 1000000));
+    this.valueApproved = pepito.toString();
+    this.valueApproved  = '$ '+ this.valueApproved.substring(0,1)+'.'+this.valueApproved .substring(1,4)+'.'+this.valueApproved .substring(4);
   }
 
 }
