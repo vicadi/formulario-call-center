@@ -1,23 +1,26 @@
-<div id="bloquePrincipal">
+<div id="bloquePrincipal" *ngIf="showFinnancial">
   <span class="titulo">Ahora ingresa tu</span>
   <span class="titulo">información financiera</span>
   <form>
     <div class="bloque">
         <span>¿Cuáles son tus ingresos mensuales?*</span>
-        <input type="text" maxlength="15" minlength="1" pattern="[0-9]{1,15}" required>
+        <input type="text" maxlength="15" minlength="1" pattern="[0-9]{1,15}" required name="ingresos">
     </div>
     <div class="bloque">
         <span>¿Cuáles son tus egresos mensuales?*</span>
-        <input type="text" maxlength="15" pattern="[0-9]{1,15}" required>
+        <input type="text" maxlength="15" pattern="[0-9]{1,15}" required name="egresos">
     </div> 
     <div class="bloque">
         <span>¿Cuáles son tus activos?*</span>
-        <input type="text" maxlength="15" pattern="[0-9]{1,15}" required>
+        <input type="text" maxlength="15" pattern="[0-9]{1,15}" required name="activos">
     </div>
     <div class="bloque">
         <span>¿Cuáles son tus pasivos?*</span>
-        <input type="text" maxlength="15" pattern="[0-9]{1,15}" required>
+        <input type="text" maxlength="15" pattern="[0-9]{1,15}" required name="pasivos">
     </div>
-    <input type="submit" value="SIGUIENTE"  class="boton btn-blue">
+    <span *ngIf="errorMessage">Todos los campos son obligatorios</span>
+    <input type="submit" value="SIGUIENTE" (click)="showComponent(ingresos,egresos,activos,pasivos)" class="boton btn-blue">
   </form>
 </div>
+
+<app-summary *ngIf="showSummary "></app-summary>
