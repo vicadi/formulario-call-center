@@ -1,0 +1,23 @@
+<div id="bloquePrincipal">
+  <span class="titulo">Ahora ingresa tu</span>
+  <span class="titulo">información financiera</span>
+  <form>
+    <div class="bloque">
+        <span>¿Cuáles son tus ingresos mensuales?*</span>
+        <input type="text" maxlength="15" minlength="1" pattern="[0-9]{1,15}" required>
+    </div>
+    <div class="bloque">
+        <span>¿Cuáles son tus egresos mensuales?*</span>
+        <input type="text" maxlength="15" pattern="[0-9]{1,15}" required>
+    </div> 
+    <div class="bloque">
+        <span>¿Cuáles son tus activos?*</span>
+        <input type="text" maxlength="15" pattern="[0-9]{1,15}" required>
+    </div>
+    <div class="bloque">
+        <span>¿Cuáles son tus pasivos?*</span>
+        <input type="text" maxlength="15" pattern="[0-9]{1,15}" required>
+    </div>
+    <input type="submit" value="SIGUIENTE"  class="boton btn-blue">
+  </form>
+</div>
