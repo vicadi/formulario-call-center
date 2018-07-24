@@ -1,0 +1,61 @@
+#bloquePrincipal{
+    margin: 7%;
+}
+.titulo{
+    font-family: Helvetica;
+    font-size: 40px;
+    color: #0e5fbf;
+    width: 100%;
+    display: block;
+}
+form{
+    margin-top: 7%;
+    display: block;
+}
+.bloque{
+    width: 40%;
+    float: left;
+    margin-bottom: 3%;
+}
+.bloque span{
+    width: 100%;
+    display: block;
+    margin-bottom: 2%;
+    font-family: Helvetica;
+    font-size: 18px;
+    color: #4a4a4a;
+}
+.bloque input{
+    width: 70%;
+    border-radius: 2px;
+    border: solid 2px #f0f0f0;
+    font-family: Helvetica;
+    font-size: 22px;
+    padding: 2%;
+}
+.boton{
+    float: right;
+    margin-bottom: -2%;
+    position: absolute;
+    bottom: 7%;
+    right: 7%;
+}
+.btn-blue {
+    width: 254px;
+    height: 51px;
+    background-color: #2879d9;
+    font-family: Helvetica;
+    font-size: 16px;
+    cursor: pointer;
+    letter-spacing: -0.1px;
+    text-align: center;
+    color: #ffffff;
+    outline: none;
+}
+.btn-blue-active {
+    background-color: #2879d9;
+}
+.btn-blue-inactive {
+    background-color: #dbdbdb;
+    cursor: not-allowed;
+}
