@@ -23,10 +23,8 @@ export class BasicinfoComponent implements OnInit{
     if(!event.match(/[^a-zA-Z]+/g)){
       return event;
     }else{
-      console.log("noo: " + event);
+      return event.substring(0, event.length - 1); 
     }
-    
-    return event.substring(0, event.length - 1); 
   } 
   
   submitted = false;
