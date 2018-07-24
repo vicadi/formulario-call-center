@@ -1,0 +1,62 @@
+.alignL {
+	margin-left: 90px;
+}
+
+.alignR {
+	margin-right: 62.8px;
+}
+
+.btn-blue {
+	width: 254px;
+	height: 51px;
+	background-color: #2879d9;
+	font-family: Helvetica;
+	font-size: 16px;
+	cursor: pointer;
+	letter-spacing: -0.1px;
+	text-align: center;
+	color: #ffffff;
+	outline: none;
+}
+
+.btn-blue-active {
+	background-color: #2879d9;
+}
+
+.btn-blue-inactive {
+	background-color: #dbdbdb;
+	cursor: not-allowed;
+}
+
+.Para-comenzar-ingre {
+	width: 655px;
+	height: 100px;
+	font-family: Helvetica;
+	font-size: 40px;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.25;
+	letter-spacing: -0.3px;
+	color: #0e5fbf;
+}
+
+.-Label-Desc {
+	width: 295px;
+	height: 22px;
+	font-family: Helvetica;
+	font-size: 18px;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: -0.1px;
+	color: #4a4a4a;
+}
+
+.Rectangle {
+	width: 294.2px;
+	height: 48.1px;
+	border-radius: 2px;
+	border: solid 2px #f0f0f0;
+}
