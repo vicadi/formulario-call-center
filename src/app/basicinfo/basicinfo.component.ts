@@ -11,6 +11,7 @@ import { FormsModule, ControlValueAccessor } from '@angular/forms';
 })
 
 export class BasicinfoComponent implements OnInit{
+  model = new BasicInfo('','','','');
 
   constructor() {
   }
@@ -18,13 +19,18 @@ export class BasicinfoComponent implements OnInit{
   ngOnInit() {
   }
   
-  checkS(value) {
-    if(!value.match(/[^a-zA-Z]+/g)){
-      return value;
+  checkS(event) {    
+    if(!event.match(/[^a-zA-Z]+/g)){
+      return event;
+    }else{
+      console.log("noo: " + event);
     }
-
-    return value.substring(0, value.length - 1); 
+    
+    return event.substring(0, event.length - 1); 
   } 
   
-  model = new BasicInfo('','','','');
+  submitted = false;
+
+  onSubmit() { this.submitted = true; }
+  
 }

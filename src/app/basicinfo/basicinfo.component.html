@@ -2,7 +2,7 @@
 <div class="alignL">
 	<h1 class="Para-comenzar-ingre">Para comenzar, ingresa      
 		tu información personal</h1>
-	<div>
+	<div class="container">
 		<form id="usrform">
 			<table>
 				<tr class="-Label-Desc">
@@ -16,14 +16,14 @@
 				</tr>
 				<tr class="-Label-Desc">
 					<td><label>¿Cuál es tu primer apellido?*</label><br> <input
-						class="Rectangle -Label-Desc" type="text" name="lastName1" required [(ngModel)] = "model.lastName1"  
+						class="Rectangle -Label-Desc" type="text" name="lastName1" required [(ngModel)] = "model.lastName1"
 						(keypress)="model.lastName1 = checkS(model.lastName1)"></td>
 					<td><label>¿Cuál es tu segundo apellido?</label><br> <input
-						class="Rectangle -Label-Desc" type="text" name="lastName2" required [(ngModel)] = "model.lastName2" 
+						class="Rectangle -Label-Desc" type="text" name="lastName2" required [(ngModel)] = "model.lastName2"
 						(keypress)="model.lastName2 = checkS(model.lastName2)"></td>
 				</tr>
 			</table>
-			<br> <input class="btn-blue" disabled="true" type="submit">
+			<br>  <button type="submit" class="btn-blue">Continuar</button>
 		</form>
 	</div>
 </div>
