@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="alignL">
+<div class="alignL" *ngIf="showBasicInfo">
 	<h1 class="Para-comenzar-ingre">Para comenzar, ingresa      
 		tu información personal</h1>
 	<div class="container">
@@ -23,8 +23,11 @@
 						(keypress)="model.lastName2 = checkS(model.lastName2)"></td>
 				</tr>
 			</table>
-			<br>  <button type="submit" class="btn-blue">Continuar</button>
+			<br>  <button type="submit" class="btn-blue" (click)="click()">Continuar</button>
 		</form>
 	</div>
 </div>
+
+<app-informacion-financiera *ngIf="showFinancialInfo"></app-informacion-financiera>
+
 

@@ -12,6 +12,8 @@ import { FormsModule, ControlValueAccessor } from '@angular/forms';
 
 export class BasicinfoComponent implements OnInit{
   model = new BasicInfo('','','','');
+  showBasicInfo:boolean = true;
+  showFinancialInfo:boolean = false;
 
   constructor() {
   }
@@ -30,5 +32,10 @@ export class BasicinfoComponent implements OnInit{
   submitted = false;
 
   onSubmit() { this.submitted = true; }
+  
+  click(){
+    this.showBasicInfo = false;
+    this.showFinancialInfo = true;
+  }
   
 }
