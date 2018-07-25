@@ -10,13 +10,15 @@ import { BasicinfoComponent } from './basicinfo/basicinfo.component';
 import { AppRoutingModule } from './/app-routing.module';
 
 import { FormsModule } from '@angular/forms';
+import { NavBarUserComponent } from './nav-bar-user/nav-bar-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InformacionFinancieraComponent,
     SummaryComponent,
-    BasicinfoComponent
+    BasicinfoComponent,
+    NavBarUserComponent
   ],
   imports: [
     BrowserModule,
