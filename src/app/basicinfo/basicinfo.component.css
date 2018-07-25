@@ -15,6 +15,31 @@ form {
 	display: block;
 }
 
+.bloqueMail {
+	width: 100%;
+	float: left;
+	margin-bottom: 3%;
+}
+
+.bloqueMail span {
+	width: 100%;
+	display: block;
+	margin-bottom: 2%;
+	font-family: Helvetica;
+	font-size: 18px;
+	color: #4a4a4a;
+}
+
+.bloqueMail input {
+	width: 70%;
+	height: 40%;
+	border-radius: 2px;
+	border: solid 2px #f0f0f0;
+	font-family: Helvetica;
+	font-size: 20px;
+	padding: 2%;
+}
+
 .bloque {
 	width: 40%;
 	float: left;
@@ -31,13 +56,21 @@ form {
 }
 
 .bloque input {
-	width: 70%;
 	border-radius: 2px;
 	border: solid 2px #f0f0f0;
 	font-family: Helvetica;
-	font-size: 22px;
+	font-size: 20px;
 	padding: 2%;
 }
+
+.bloque select {
+	border-radius: 2px;
+	border: solid 2px #f0f0f0;
+	font-family: Helvetica;
+	font-size: 20px;
+	padding: 2%;
+}
+
 
 .boton {
 	float: right;

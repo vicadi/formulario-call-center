@@ -4,24 +4,63 @@
 		<span class="titulo">Ingresa la información básica</span> 
 		<span class="titulo">de tu cliente</span>
 		<form>
-		<div class="bloque">
-        	<span>Primer nombre*</span>
-        	<input type="text" maxlength="15" minlength="1"  required name="firstName1"  [(ngModel)]="model.firstName1">
+			<div class="bloque">
+	        	<span>Primer nombre*</span>
+	        	<input type="text" maxlength="15" required name="firstName1"  [(ngModel)]="model.firstName1" 
+	        	(keyup)="validateFirstName1()">
+	        	<span *ngIf="showErrorFirstName1">{{errorMessageFirstName1}}</span>
+	    	</div>
+	    	<div class="bloque">
+	        	<span>Segundo nombre*</span>
+	        	<input type="text" maxlength="15" required name="firstName2" [(ngModel)]="model.firstName2"
+	        	(keyup)="validateFirstName2()">
+	        	<span *ngIf="showErrorFirstName2">{{errorMessageFirstName2}}</span>
+	    	</div> 
+	    	<div class="bloque">
+	        	<span>Primer Apellido*</span>
+	        	<input type="text" maxlength="15" required name="lastName1"  [(ngModel)]="model.lastName1"
+	        	(keyup)="validateLastName1()">
+	        	<span *ngIf="showErrorLastName1">{{errorMessageLastName1}}</span>
+	    	</div>
+	    	<div class="bloque">
+	        	<span>Segundo Apellido</span>
+	        	<input type="text" maxlength="15" required name="lastName2" [(ngModel)]="model.lastName2"
+	        	(keyup)="validateLastName2()">
+	        	<span *ngIf="showErrorLastName2">{{errorMessageLastName2}}</span>
+	    	</div>
+    	
+    	<div class="bloque">
+        	<span>Nº de Cédula</span>
+        	<input type="text" maxlength="13" required name="idNumber" [(ngModel)]="model.idNumber">
     	</div>
     	<div class="bloque">
-        	<span>Segundo nombre*</span>
-        	<input type="text" maxlength="15" required name="firstName2" (keyup)="checkValidation(model.firstName2, 'segundo nombre')" [(ngModel)]="model.firstName2">
-    	</div> 
+        	<span>Fecha de nacimiento*</span>
+        	<select name="birthDay" [(ngModel)]="model.birthDay" >
+				  <option name="birthDayS" *ngFor="let day of daysList" [ngValue]="day">{{day}}</option>
+			</select>
+			<select name="birthMonth" [(ngModel)]="model.birthMonth" >
+				  <option name="birthDayS" *ngFor="let month of monthList" [ngValue]="month">{{month}}</option>
+			</select>
+			<select name="birthYear" [(ngModel)]="model.birthYear">
+				  <option name="birthDayS" *ngFor="let year of yearList" [ngValue]="year">{{year}}</option>
+			</select>
+    	</div>
+    	<div class="bloqueMail">
+        	<span>Correo Electrónico*</span>
+        	<input type="email" maxlength="25" required name="email" [(ngModel)]="model.email">
+    	</div>
+    	
+    	
     	<div class="bloque">
-        	<span>Primer Apellido*</span>
-        	<input type="text" maxlength="15" required name="lastName1"  [(ngModel)]="model.lastName1">
+    		<span>Número de telefono*</span>
+        	<input type="checkbox" [checked]="checkNFijo" (change)="checkNFijo = !checkNFijo"> Fijo
+      		<input type="checkbox" [checked]="!checkNFijo" (change)="checkNFijo = !checkNFijo"> Celular
+      		<input type="text" maxlength="15" required name="numberT" [(ngModel)]="model.phoneNumber" >
     	</div>
     	<div class="bloque">
-        	<span>Segundo Apellido*</span>
-        	<input type="text" maxlength="15" required name="lastName2" (keyup)="checkValidation(model.lastName2, 'segundo apellido')" [(ngModel)]="model.lastName2">
     	</div>
     	<div class="bloque">
-    		<span *ngIf="error">{{errorMessage}}</span>
+    		<span>{{errorMessage}}</span>
 			<button class="btn-blue" [ngClass]="checkRequiredValues()? 'btn-blue-active':'btn-blue-inactive'" (click)="finish()" [disabled]="!checkRequiredValues()">SIGUIENTE</button>
 		</div>
 		</form>
