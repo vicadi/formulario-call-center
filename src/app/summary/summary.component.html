@@ -1,28 +1,51 @@
-<div class="align-center margin-top-60">
-  <div class="style-text blue-text font-40 margin-top-60">
-    ¡Genial! Tu tarjeta ha sido aprobada
+<div *ngIf="showSummary">
+  <div *ngIf="approved">
+    <div class="align-center margin-top-60" *ngIf="showPossitiveResult">
+      <div class="style-text blue-text font-40 margin-top-60">
+        ¡Genial! Tu tarjeta ha sido aprobada
+      </div>
+      <div class="icon-success margin-top-20"></div>
+      <div class="style-text gray-text font-24 margin-top-20">
+        Tu cupo actual es de
+      </div>
+      <div class="style-text gray-text font-80 ">
+        {{valueApproved}}
+      </div>
+    </div>
+ 
+    <div class="row margin-top-60">
+      <div class="margin-left-32-porc margin-right-32-porc">
+        <label class="align-justify style-text gray-text  container">El cliente aceptó de manera telefónica los términos y condiciones del contrato. La llamada quedo grabada para efectos
+          de calidad en el servicio. <span class="blue-text ">Ver documento adjunto.</span> 
+          <input type="checkbox">
+          <span class="checkmark" (click)="onSelect()" checked="checked"></span>
+        </label>
+      </div>
+    </div>
+    <div class="row align-center margin-top-60">
+      <div>
+        <button class="btn-blue" [ngClass]="showButton ? 'btn-blue-active':'btn-blue-inactive'" (click)="finish()" [disabled]="!showButton">SIGUIENTE</button>
+      </div>
+    </div>
   </div>
-  <div class="icon-success margin-top-20"></div>
-  <div class="style-text gray-text font-24 margin-top-20">
-    Tu cupo actual es de
-  </div>
-  <div class="style-text gray-text font-80 ">
-    {{valueApproved}}
+   
+  <div *ngIf="!approved">
+    <div class="align-center margin-top-60">
+      <div class="style-text purple-text font-40 denegation">
+        <p>La aprobación de tu cliente no ha <br/>
+        sido posible por este medio.</p>
+      </div>
+      <div class="style-text gray-text font-24 margin-top-30">
+        <p>Recuerda que puedes sugerirle a tu cliente realizar una<br/>
+        solicitud directamente en las oficinas del Banco Púrpura</p>
+      </div>
+    </div>
+ 
+    <div class="row align-center margin-top-60">
+      <div>
+        <button class="btn-blue" (click)="backHome()">VOLVER AL INICIO</button>
+      </div>
+    </div>
   </div>
 </div>
-
-<div class="row margin-top-60">
-  <div class="margin-left-32-porc margin-right-32-porc">
-    <label class="align-justify style-text gray-text  container">El cliente aceptó de manera telefónica los términos y condiciones del contrato. La llamada quedo grabada para efectos
-      de calidad en el servicio. <span class="blue-text ">Ver documento adjunto.</span> 
-      <input type="checkbox">
-      <span class="checkmark" (click)="onSelect()" checked="checked"></span>
-    </label>
-  </div>
-</div>
-
-<div class="row align-center margin-top-60">
-  <div>
-    <button class="btn-blue" [ngClass]="showButton ? 'btn-blue-active':'btn-blue-inactive'" (click)="finish()" [disabled]="!showButton">SIGUIENTE</button>
-  </div>
-</div>
+<app-home *ngIf="showHome"></app-home>
