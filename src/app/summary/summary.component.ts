@@ -14,7 +14,6 @@ export class SummaryComponent implements OnInit {
   valueApproved : string;
   approved: boolean = false;
 
-
   constructor() { }
   ngOnInit() {
     this.getValueApproved();
