@@ -11,7 +11,7 @@
 	        	<span *ngIf="showErrorFirstName1">{{errorMessageFirstName1}}</span>
 	    	</div>
 	    	<div class="bloque">
-	        	<span>Segundo nombre*</span>
+	        	<span>Segundo nombre</span>
 	        	<input type="text" maxlength="15" required name="firstName2" [(ngModel)]="model.firstName2"
 	        	(keyup)="validateFirstName2()">
 	        	<span *ngIf="showErrorFirstName2">{{errorMessageFirstName2}}</span>
@@ -29,40 +29,43 @@
 	        	<span *ngIf="showErrorLastName2">{{errorMessageLastName2}}</span>
 	    	</div>
     	
-    	<div class="bloque">
-        	<span>Nº de Cédula</span>
-        	<input type="text" maxlength="13" required name="idNumber" [(ngModel)]="model.idNumber">
-    	</div>
-    	<div class="bloque">
-        	<span>Fecha de nacimiento*</span>
-        	<select name="birthDay" [(ngModel)]="model.birthDay" >
-				  <option name="birthDayS" *ngFor="let day of daysList" [ngValue]="day">{{day}}</option>
-			</select>
-			<select name="birthMonth" [(ngModel)]="model.birthMonth" >
-				  <option name="birthDayS" *ngFor="let month of monthList" [ngValue]="month">{{month}}</option>
-			</select>
-			<select name="birthYear" [(ngModel)]="model.birthYear">
-				  <option name="birthDayS" *ngFor="let year of yearList" [ngValue]="year">{{year}}</option>
-			</select>
-    	</div>
-    	<div class="bloqueMail">
-        	<span>Correo Electrónico*</span>
-        	<input type="email" maxlength="25" required name="email" [(ngModel)]="model.email">
-    	</div>
-    	
-    	
-    	<div class="bloque">
-    		<span>Número de telefono*</span>
-        	<input type="checkbox" [checked]="checkNFijo" (change)="checkNFijo = !checkNFijo"> Fijo
-      		<input type="checkbox" [checked]="!checkNFijo" (change)="checkNFijo = !checkNFijo"> Celular
-      		<input type="text" maxlength="15" required name="numberT" [(ngModel)]="model.phoneNumber" >
-    	</div>
-    	<div class="bloque">
-    	</div>
-    	<div class="bloque">
-    		<span>{{errorMessage}}</span>
-			<button class="btn-blue" [ngClass]="checkRequiredValues()? 'btn-blue-active':'btn-blue-inactive'" (click)="finish()" [disabled]="!checkRequiredValues()">SIGUIENTE</button>
-		</div>
+	    	<div class="bloque">
+	        	<span>Nº de Cédula*</span>
+	        	<input type="number" maxlength="13" required name="idNumber" [(ngModel)]="model.idNumber"
+	        	(keyup)="validateIdNumber()">
+		       	<span *ngIf="showErrorIdNumber">{{errorMessageIdNumber}}</span>
+	    	</div>
+	    	<div class="bloque">
+	        	<span>Fecha de nacimiento*</span>
+	        	<select name="birthDay" [(ngModel)]="model.birthDay" (change)="validateBirthDate()">
+					  <option name="birthDayS" *ngFor="let day of daysList" [ngValue]="day">{{day}}</option>
+				</select>
+				<select name="birthMonth" [(ngModel)]="model.birthMonth" (change)="validateBirthDate()">
+					  <option name="birthDayS" *ngFor="let month of monthList" [ngValue]="month">{{month}}</option>
+				</select>
+				<select name="birthYear" [(ngModel)]="model.birthYear" (change)="validateBirthDate()">
+					  <option name="birthDayS" *ngFor="let year of yearList" [ngValue]="year">{{year}}</option>
+				</select>
+				<span *ngIf="showErrorBirthDate">{{errorMessageBirthDate}}</span>
+	    	</div>
+	    	<div class="bloqueMail">
+	        	<span>Correo Electrónico*</span>
+	        	<input type="email" maxlength="25" required name="email" [(ngModel)]="model.email"
+	        	(keyup)="validateEmail()">
+			    <span *ngIf="showErrorEmail">{{errorMessageEmail}}</span>
+	    	</div>
+	    	<div class="bloque">
+	    		<span>Número de telefono*</span>
+	        	<input type="checkbox" [checked]="checkNFijo" (change)="validateChangePhone()"> Fijo
+	      		<input type="checkbox" [checked]="!checkNFijo" (change)="validateChangePhone()"> Celular
+	      		<input type="number" maxlength="15" required name="numberT" [(ngModel)]="model.phoneNumber"
+	      		(keyup)="validatePhoneNumber()">
+			    <span *ngIf="showErrorPhoneNumber">{{errorMessagePhoneNumber}}</span>
+	    	</div>
+	    	<div class="bloque">
+	    		{{checkRequiredValues()}}
+				<button class="btn-blue" [ngClass]="checkRequiredValues() ? 'btn-blue-active':'btn-blue-inactive'" (click)="finish()" [disabled]="!checkRequiredValues()">SIGUIENTE</button>
+			</div>
 		</form>
 	</div>
 </div>

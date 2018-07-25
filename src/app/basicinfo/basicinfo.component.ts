@@ -34,11 +34,11 @@ export class BasicinfoComponent implements OnInit{
   monthList = [];
   yearList = [];
   
+  showErrorFirstName1:boolean = false;
   errorMessageFirstName1 = '';
-  showErrorFirstName1 = false;
   
+  showErrorFirstName2:boolean = false;
   errorMessageFirstName2 = '';
-  showErrorFirstName2 = false;
   
   showErrorLastName1:boolean = false;
   errorMessageLastName1 = '';
@@ -46,9 +46,19 @@ export class BasicinfoComponent implements OnInit{
   showErrorLastName2:boolean = false;
   errorMessageLastName2 = '';
   
-  constructor() {
-    
-  }
+  showErrorIdNumber:boolean = false;
+  errorMessageIdNumber = '';
+  
+  showErrorBirthDate:boolean = false;
+  errorMessageBirthDate = '';
+  
+  showErrorEmail:boolean = false;
+  errorMessageEmail = '';
+  
+  showErrorPhoneNumber:boolean = false;
+  errorMessagePhoneNumber = '';
+  
+  constructor() {}
 
   ngOnInit() {
     this.daysList = Array(31).fill(0).map((x,i)=>i+1);
@@ -74,69 +84,6 @@ export class BasicinfoComponent implements OnInit{
   
   submitted = false;
   onSubmit() { this.submitted = true; }
-  
-  checkRequiredValues():boolean {
-    var check:boolean = true;
-  
-    if(this.model.firstName2 != ''){
-        if(!this.checkS(this.model.firstName2)){
-          check = false;
-          this.errorMessage = 'El campo de segundo nombre solo puede contener letras (A-Z) y espacios';
-        }
-        if(this.model.firstName2.length < 3){
-          check = false;
-          this.errorMessage = 'El campo de segundo nombre tiene que tener mas de 3 letras';
-        }
-      }
-      if(this.model.lastName2 != ''){
-        if(!this.checkS(this.model.lastName2)){
-          check = false;
-          this.errorMessage = 'El campo de segundo apellido solo puede contener letras (A-Z) y espacios';
-        }
-        if(this.model.lastName2.length < 3){
-          check = false;
-          this.errorMessage = 'El campo de segundo apellido tiene que tener mas de 3 letras';
-        }
-      }
-      
-      if(this.model.idNumber.length < 6 ){
-        check = false;
-        this.errorMessage = 'El campo de cedula tiene que tener mas de 6 numeros';
-      }
-      
-      if(this.model.birthDay == '' || this.model.birthMonth == '' || this.model.birthYear == ''){
-        check = false;
-        this.errorMessage = 'El campo de fecha de nacimiento es obligatoria';
-      }
-      
-      if(this.model.email == ''){
-        check = false;
-        this.errorMessage = 'El campo de correo electronico es obligatorio';
-      }else if(!this.checkEmail(this.model.email)){
-        check = false;
-        this.errorMessage = 'El campo de correo electronico es incorrecto';
-      }
-      
-      if(this.model.phoneNumber == ''){
-        check = false;
-        this.errorMessage = 'El campo de número telefonico es obligatorio';
-      }else if(this.checkNFijo){
-        if(this.model.phoneNumber.length != 7){
-          check = false;
-          this.errorMessage = 'Si el número es fijo debe tener 7 números';
-        }
-      }else if (!this.checkNFijo){
-        if(this.model.phoneNumber.length != 10){
-          check = false;
-          this.errorMessage = 'Si el número es celular debe tener 10 números';
-        }else if(this.model.phoneNumber.charAt(0) != '3'){
-          check = false;
-          this.errorMessage = 'Si el número es celular debe empezar contener un indicativo con rango entre 300 y 399';
-        }
-      }
-  
-    return check;
-  }
   
   validateFirstName1():boolean{
     var value = this.model.firstName1;
@@ -212,6 +159,95 @@ export class BasicinfoComponent implements OnInit{
     return this.showErrorLastName2;
   }
   
+  validateIdNumber():boolean{
+    if(this.model.idNumber != ''){
+      if(this.model.idNumber.toString().length < 6 ){
+        this.showErrorIdNumber = true;
+        this.errorMessageIdNumber = 'El campo de cedula tiene que tener mas de 6 numeros';
+      }else{
+        this.showErrorIdNumber = false;
+        this.errorMessageIdNumber = '';
+      }
+    }
+    return this.showErrorIdNumber;
+  }
+  
+  validateBirthDate():boolean{
+    if(this.model.birthDay == '' || this.model.birthMonth == '' || this.model.birthYear == ''){
+      this.showErrorBirthDate = true;
+      this.errorMessageBirthDate = 'El campo de fecha de nacimiento es obligatoria';
+    }else {
+      this.showErrorBirthDate = false;
+      this.errorMessageBirthDate = '';
+    }
+    return this.showErrorBirthDate;
+  }
+  
+  validateEmail():boolean{
+    if(this.model.email == ''){
+      this.showErrorEmail = true;
+      this.errorMessageEmail = 'El campo de correo electronico es obligatorio';
+    }else if(this.model.email.length < 6 ){
+      this.showErrorEmail = true;
+      this.errorMessageEmail = 'El campo de cedula tiene que tener mas de 6 numeros';
+    }else if(!this.checkEmail(this.model.email)){
+      this.showErrorEmail = true;
+      this.errorMessageEmail = 'El campo de correo electronico es incorrecto';
+    }else{
+      this.showErrorEmail = false;
+      this.errorMessageEmail = '';
+    }
+    return this.showErrorEmail;
+  }
+  
+  validateChangePhone(){
+    this.checkNFijo = !this.checkNFijo;
+    this.validatePhoneNumber();
+  }
+  
+  validatePhoneNumber():boolean{
+    if(this.model.phoneNumber == ''){
+      this.showErrorPhoneNumber = false;
+      this.errorMessagePhoneNumber = 'El campo de número telefonico es obligatorio';
+    }else if(this.model.phoneNumber != null){
+      if(this.checkNFijo){
+        if(this.model.phoneNumber.toString().length != 7){
+          this.showErrorPhoneNumber = true;
+          this.errorMessagePhoneNumber = 'Si el número es fijo debe tener 7 números';
+        }else{
+          this.showErrorPhoneNumber = false;
+          this.errorMessagePhoneNumber = '';
+        } 
+      }else if (!this.checkNFijo){
+        if(this.model.phoneNumber.toString().length != 10){
+          this.showErrorPhoneNumber = true;
+          this.errorMessagePhoneNumber = 'Si el número es celular debe tener 10 números';
+        }else if(this.model.phoneNumber.toString().charAt(0) != '3'){
+          this.showErrorPhoneNumber = true;
+          this.errorMessagePhoneNumber = 'Si el número es celular debe empezar contener un indicativo con rango entre 300 y 399';
+        }else{
+          this.showErrorPhoneNumber = false;
+          this.errorMessagePhoneNumber = '';
+        }
+      }
+    }else{
+      this.showErrorPhoneNumber = false;
+      this.errorMessagePhoneNumber = '';
+    }
+    return this.showErrorPhoneNumber;
+  }
+  
+  checkRequiredValues():boolean {
+    
+    if(this.showErrorFirstName1 || this.showErrorLastName1 || this.showErrorIdNumber || this.showErrorBirthDate || this.showErrorEmail || this.showErrorPhoneNumber){
+      if(this.model.firstName1 && this.model.lastName1 && this.model.idNumber && this.model.birthDay || this.model.birthMonth || this.model.birthYear){
+        
+      }
+      return true;
+    }
+    
+    return false;
+  }
   
   finish():void{
     this.showBasicInfo = false;
