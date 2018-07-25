@@ -2,6 +2,42 @@
 	margin: 7%;
 }
 
+ul.categorychecklist {
+    list-style:none;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+li.popular-category{list-style: none; display:inline-block; }
+
+.bloqueCheck {
+	width: 100%;
+	float: left;
+	margin-bottom: 3%;
+}
+
+.bloqueCheck span {
+	width: 100%;
+	display: block;
+	margin-bottom: 2%;
+	font-family: Helvetica;
+	font-size: 18px;
+	color: #4a4a4a;
+}
+
+.bloqueCheck input {
+	width: 30%;
+	height: 40%;
+	border-radius: 2px;
+	border: solid 2px #f0f0f0;
+	font-family: Helvetica;
+	font-size: 20px;
+	padding: 2%;
+	display: block;
+}
+
+
 .titulo {
 	font-family: Helvetica;
 	font-size: 40px;
