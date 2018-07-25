@@ -22,3 +22,4 @@ export class InformacionFinancieraComponent implements OnInit {
   }
 
 }
+ 
