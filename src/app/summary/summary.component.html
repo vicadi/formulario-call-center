@@ -1,28 +1,43 @@
-<div class="align-center margin-top-60">
-  <div class="style-text blue-text font-40 margin-top-60">
-    ¡Genial! Tu tarjeta ha sido aprobada
-  </div>
-  <div class="icon-success margin-top-20"></div>
-  <div class="style-text gray-text font-24 margin-top-20">
-    Tu cupo actual es de
-  </div>
-  <div class="style-text gray-text font-80 ">
-    {{valueApproved}}
-  </div>
-</div>
 
-<div class="row margin-top-60">
-  <div class="margin-left-32-porc margin-right-32-porc">
-    <label class="align-justify style-text gray-text  container">El cliente aceptó de manera telefónica los términos y condiciones del contrato. La llamada quedo grabada para efectos
-      de calidad en el servicio. <span class="blue-text ">Ver documento adjunto.</span> 
-      <input type="checkbox">
-      <span class="checkmark" (click)="onSelect()" checked="checked"></span>
-    </label>
+<div class="contain-nav icon-control"></div>
+<div class=" contain-info">
+  <div class="align-center">
+    <div class="style-text blue-text font-40 margin-left-20-porc margin-right-20-porc margin-top-60">
+      La tarjeta de Carlos Andrés 
+      ha sido aprobada
+    </div>
+    <div class="icon-success margin-top-20"></div>
+    <div class="style-text gray-text font-24 margin-top-20">
+      El cupo aprobado de tu cliente es de
+    </div>
+    <div class="style-text gray-text font-80 ">
+      {{valueApproved}}
+    </div>
   </div>
-</div>
 
-<div class="row align-center margin-top-60">
-  <div>
-    <button class="btn-blue" [ngClass]="showButton ? 'btn-blue-active':'btn-blue-inactive'" (click)="finish()" [disabled]="!showButton">SIGUIENTE</button>
+  <div class="row margin-top-20 margin-left-10-porc margin-right-60-porc">
+    <div class="align-left style-text gray-text font-24 margin-top-20">
+        Recuerda 
+        <h1 class="align-left style-text gray-text font-16">
+        Pedirle a tu cliente confirme en voz alta y con firmeza que ACEPTA el cupo aprobado 
+        </h1>
+    </div>
+
   </div>
+  <div class="margin-top-20">
+      <div class="margin-right-20-porc margin-left-10-porc contain-check">
+          <label class="align-justify font-14 style-text gray-text container">El cliente acepta de manera telefónica el cupo abrobado.
+            <input type="checkbox">
+            <span class="checkmark" (click)="onSelect()" checked="checked"></span>
+          </label>
+        </div>
+        <div class="contain-buttom">
+          <div>
+            <button class="btn-blue" [ngClass]="showButton ? 'btn-blue-active':'btn-blue-inactive'" (click)="finish()" [disabled]="!showButton">SIGUIENTE</button>
+          </div>
+        </div>
+  </div>
+
+
 </div>
+  

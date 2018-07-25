@@ -1,7 +1,7 @@
 /* The container */
 
 .container {
-    display: block;
+    display: flow-root;
     position: relative;
     padding-left: 35px;
     margin-bottom: 12px;
@@ -159,27 +159,54 @@
     font-size: 24px;
   }
   
+  .font-16 {
+    font-size: 16px;
+  }
+
+  .font-14 {
+    font-size: 14px;
+  }
+
   .icon-success {
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='159' height='159' viewBox='0 0 159 159'%3e%3cg fill='none' fill-rule='nonzero' stroke='%232879D9' transform='translate(3 3)'%3e%3ccircle cx='76.5' cy='76.5' r='76.5' fill='%23FFF' stroke-width='6'/%3e%3cpath stroke-width='9' d='M40.131 79.262l30.246 28.59 47.508-63.54'/%3e%3c/g%3e%3c/svg%3e ");
-    width: 159px;
-    height: 159px;
+    background: url('../../assets/img/world.png') no-repeat;
+    width: 420px;
+    height: 280px;
     display: inline-grid;
   }
-  
+
+  .icon-control {
+    background: url('../../assets/img/controlFinish.png') no-repeat;
+    width: 420px;
+    height: 100vh;
+    display: inline-grid;
+  }
+
   .align-center {
     text-align: center;
   }
   
+  .align-left {
+    text-align: left;
+  }
+
   .align-justify {
       text-align: justify;
   }
   
-  .margin-left-32-porc {
-    margin-left: 32%;
+  .margin-left-20-porc {
+    margin-left: 20%;
   }
   
-  .margin-right-32-porc {
-    margin-right: 32%;
+  .margin-left-10-porc {
+    margin-left: 10%;
+  }
+
+  .margin-right-20-porc {
+    margin-right: 20%;
+  }
+
+  .margin-right-60-porc {
+    margin-right: 60%;
   }
   
   .margin-top-20 {
@@ -189,4 +216,25 @@
   .margin-top-60 {
     margin-top: 60px;
   }
-  
+
+  .contain-nav{
+    height: 100vh;
+    float: left;
+  }
+
+  .contain-info{
+    width: 70%;
+    height: 100vh;
+    float: left;;
+  }
+
+
+  .contain-check{
+    width: 40%;
+    float: left;
+  }
+
+  .contain-buttom{
+    width: 60%;
+    display: contents;
+  }
