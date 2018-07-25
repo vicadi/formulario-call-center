@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-informacion-financiera',
@@ -10,6 +10,8 @@ export class InformacionFinancieraComponent implements OnInit {
   showFinnancial: boolean = true;
   showSummary: boolean = false;
   errorMessage: boolean = false;
+  outcome: number;
+  income: number;
 
   constructor() { }
 
