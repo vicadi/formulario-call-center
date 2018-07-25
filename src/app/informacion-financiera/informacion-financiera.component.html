@@ -4,11 +4,11 @@
   <form>
     <div class="bloque">
         <span>¿Cuáles son tus ingresos mensuales?*</span>
-        <input type="text" maxlength="15" minlength="1" pattern="[0-9]{1,15}" required name="ingresos">
+        <input type="text" maxlength="15" minlength="1" pattern="[0-9]{1,15}" required name="ingresos" [(ngModel)]="income">
     </div>
     <div class="bloque">
         <span>¿Cuáles son tus egresos mensuales?*</span>
-        <input type="text" maxlength="15" pattern="[0-9]{1,15}" required name="egresos">
+        <input type="text" maxlength="15" pattern="[0-9]{1,15}" required name="egresos" [(ngModel)]="outcome">
     </div> 
     <div class="bloque">
         <span>¿Cuáles son tus activos?*</span>
@@ -23,4 +23,4 @@
   </form>
 </div>
 
-<app-summary *ngIf="showSummary "></app-summary>
+<app-summary [outcome]="outcome" [income]="income" *ngIf="showSummary"></app-summary>

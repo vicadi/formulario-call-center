@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input} from '@angular/core';
 
 @Component({
   selector: 'app-summary',
@@ -6,11 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./summary.component.css']
 })
 export class SummaryComponent implements OnInit {
-  showButton = false;
+
+  @Input() outcome: number;
+  @Input() income: number;
+
+  showButton: boolean =false;
+  showHome: boolean = false;
+  showSummary: boolean = true;
   valueApproved : string;
+  approved: boolean = false;
+
   constructor() { }
   ngOnInit() {
-    this.getRandomInt();
+    this.getValueApproved();
   }
  
   onSelect(): void {
@@ -21,10 +29,30 @@ export class SummaryComponent implements OnInit {
     alert('Felicitaciones, tu tarjeta esta en camino!');
   }
 
-   getRandomInt(): void {
-    var pepito = Math.floor((Math.random() * (9999999 - 1000000) + 1000000));
-    this.valueApproved = pepito.toString();
-    this.valueApproved  = '$ '+ this.valueApproved.substring(0,1)+'.'+this.valueApproved .substring(1,4)+'.'+this.valueApproved .substring(4);
+  getValueApproved(): void{
+    
+    var double = this.outcome * 2;
+    var oneHundredFifty = this.outcome * 1.5;
+    var oneHundredOne = this.outcome * 1.01;
+    
+    if(this.income >= double){
+      this.valueApproved = '$ 30.000.000'
+      this.approved = true;
+    }else if (this.income >= oneHundredFifty && this.income < double){
+      this.valueApproved = '$ 20.000.000'
+      this.approved = true;
+    }else if (this.income >= oneHundredOne && this.income < oneHundredFifty){
+      this.valueApproved = '$ 10.000.000'
+      this.approved = true;
+    }else{
+      this.valueApproved = 'NEGADO'
+      this.approved = false;
+    }
+  }
+
+  backHome(){
+    this.showSummary = false;
+    this.showHome = true;
   }
 
 }

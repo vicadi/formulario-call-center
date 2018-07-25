@@ -308,5 +308,10 @@ export class BasicinfoComponent implements OnInit{
     this.showBasicInfo = false;
     this.showFinancialInfo = true;
   }
+
+  backHome():void{
+    this.showBasicInfo = true;
+    this.showFinancialInfo = true;
+  }
   
 }
