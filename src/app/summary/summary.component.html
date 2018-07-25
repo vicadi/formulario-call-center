@@ -26,3 +26,32 @@
     <button class="btn-blue" [ngClass]="showButton ? 'btn-blue-active':'btn-blue-inactive'" (click)="finish()" [disabled]="!showButton">SIGUIENTE</button>
   </div>
 </div>
+
+<div class="align-center margin-top-60">
+  <div class="style-text blue-text font-40 margin-top-60">
+    ¡Genial! Tu tarjeta ha sido aprobada
+  </div>
+  <div class="icon-success margin-top-20"></div>
+  <div class="style-text gray-text font-24 margin-top-20">
+    Tu cupo actual es de
+  </div>
+  <div class="style-text gray-text font-80 ">
+    {{valueApproved}}
+  </div>
+</div>
+
+<div class="row margin-top-60">
+  <div class="margin-left-32-porc margin-right-32-porc">
+    <label class="align-justify style-text gray-text  container">El cliente aceptó de manera telefónica los términos y condiciones del contrato. La llamada quedo grabada para efectos
+      de calidad en el servicio. <span class="blue-text ">Ver documento adjunto.</span> 
+      <input type="checkbox">
+      <span class="checkmark" (click)="onSelect()" checked="checked"></span>
+    </label>
+  </div>
+</div>
+
+<div class="row align-center margin-top-60">
+  <div>
+    <button class="btn-blue" [ngClass]="showButton ? 'btn-blue-active':'btn-blue-inactive'" (click)="finish()" [disabled]="!showButton">SIGUIENTE</button>
+  </div>
+</div>
