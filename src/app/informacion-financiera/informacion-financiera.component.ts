@@ -10,6 +10,8 @@ export class InformacionFinancieraComponent implements OnInit {
   showFinnancial: boolean = true;
   showSummary: boolean = false;
   errorMessage: boolean = false;
+  outcome: number;
+  income: number;
 
   constructor() { }
 
