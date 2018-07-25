@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-informacion-financiera',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InformacionFinancieraComponent implements OnInit {
 
+  @Input() username: string;
   showFinnancial: boolean = true;
   showSummary: boolean = false;
   errorMessage: boolean = false;
@@ -24,3 +25,4 @@ export class InformacionFinancieraComponent implements OnInit {
   }
 
 }
+ 

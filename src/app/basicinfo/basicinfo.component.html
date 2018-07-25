@@ -1,30 +1,33 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="alignL">
-	<h1 class="Para-comenzar-ingre">Para comenzar, ingresa      
-		tu información personal</h1>
-	<div class="container">
-		<form id="usrform">
-			<table>
-				<tr class="-Label-Desc">
-					<td><label> ¿Cuál es tu primer nombre?* </label><br> <input
-						class="Rectangle -Label-Desc" type="text" name="firstName1" required [(ngModel)] = "model.firstName1" 
-						(keypress)="model.firstName1 = checkS(model.firstName1)">
-						
-					<td><label>¿Cuál es tu segundo nombre?</label><br> <input
-						class="Rectangle -Label-Desc" type="text" name="firstName2" required [(ngModel)] = "model.firstName2" 
-						(keypress)="model.firstName2 = checkS(model.firstName2)"></td>
-				</tr>
-				<tr class="-Label-Desc">
-					<td><label>¿Cuál es tu primer apellido?*</label><br> <input
-						class="Rectangle -Label-Desc" type="text" name="lastName1" required [(ngModel)] = "model.lastName1"
-						(keypress)="model.lastName1 = checkS(model.lastName1)"></td>
-					<td><label>¿Cuál es tu segundo apellido?</label><br> <input
-						class="Rectangle -Label-Desc" type="text" name="lastName2" required [(ngModel)] = "model.lastName2"
-						(keypress)="model.lastName2 = checkS(model.lastName2)"></td>
-				</tr>
-			</table>
-			<br>  <button type="submit" class="btn-blue">Continuar</button>
+<div *ngIf="showBasicInfo">
+	<div id="bloquePrincipal" *ngIf="showBasicInfo">
+		<span class="titulo">Ingresa la información básica</span> 
+		<span class="titulo">de tu cliente</span>
+		<form>
+		<div class="bloque">
+        	<span>Primer nombre*</span>
+        	<input type="text" maxlength="15" minlength="1"  required name="firstName1"  [(ngModel)]="model.firstName1">
+    	</div>
+    	<div class="bloque">
+        	<span>Segundo nombre*</span>
+        	<input type="text" maxlength="15" required name="firstName2" (keyup)="checkValidation(model.firstName2, 'segundo nombre')" [(ngModel)]="model.firstName2">
+    	</div> 
+    	<div class="bloque">
+        	<span>Primer Apellido*</span>
+        	<input type="text" maxlength="15" required name="lastName1"  [(ngModel)]="model.lastName1">
+    	</div>
+    	<div class="bloque">
+        	<span>Segundo Apellido*</span>
+        	<input type="text" maxlength="15" required name="lastName2" (keyup)="checkValidation(model.lastName2, 'segundo apellido')" [(ngModel)]="model.lastName2">
+    	</div>
+    	<div class="bloque">
+    		<span *ngIf="error">{{errorMessage}}</span>
+			<button class="btn-blue" [ngClass]="checkRequiredValues()? 'btn-blue-active':'btn-blue-inactive'" (click)="finish()" [disabled]="!checkRequiredValues()">SIGUIENTE</button>
+		</div>
 		</form>
 	</div>
 </div>
+
+<app-informacion-financiera [username]="model.firstName1" *ngIf="showFinancialInfo"></app-informacion-financiera>
+
 

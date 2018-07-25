@@ -9,10 +9,17 @@ export class SummaryComponent implements OnInit {
 
   @Input() outcome: number;
   @Input() income: number;
+  @Input() username: string;
 
   showButton: boolean =false;
+  showHome: boolean = false;
+  showSummary: boolean = true;
   valueApproved : string;
   approved: boolean = false;
+  showPurpleCard : boolean = false;
+  showBlueCard : boolean = false;
+  showWhiteCard : boolean = false;
+
 
   constructor() { }
   ngOnInit() {
@@ -36,16 +43,24 @@ export class SummaryComponent implements OnInit {
     if(this.income >= double){
       this.valueApproved = '$ 30.000.000'
       this.approved = true;
+      this.showPurpleCard = true;
     }else if (this.income >= oneHundredFifty && this.income < double){
       this.valueApproved = '$ 20.000.000'
       this.approved = true;
+      this.showBlueCard = true;
     }else if (this.income >= oneHundredOne && this.income < oneHundredFifty){
       this.valueApproved = '$ 10.000.000'
       this.approved = true;
+      this.showWhiteCard= true;
     }else{
       this.valueApproved = 'NEGADO'
       this.approved = false;
     }
+  }
+
+  backHome(){
+    this.showSummary = false;
+    this.showHome = true;
   }
 
 }
