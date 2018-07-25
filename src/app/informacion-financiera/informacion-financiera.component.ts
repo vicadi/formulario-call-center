@@ -9,13 +9,16 @@ export class InformacionFinancieraComponent implements OnInit {
 
   showFinnancial: boolean = true;
   showSummary: boolean = false;
-  errorMessage: boolean = false;
+  errorMessageIncome: boolean = false;
+  errorMessageOutcome: boolean = false;
+  errorMessageActivos: boolean = false;
+  errorMessagePasivos: boolean = false;
   outcome: number;
   income: number;
-  ingresos: string;
-  egresos: string;
-  activos: string;
-  pasivos: string;
+  activos: number;
+  pasivos: number;
+  
+  ingresosString: string='';
 
   constructor() { }
 
@@ -23,6 +26,9 @@ export class InformacionFinancieraComponent implements OnInit {
   }
 
   showComponent(){
+    if(this.income!=undefined && this.income!=null) {
+      this.errorMessageIncome = true;
+    }
     this.showSummary = true;
     this.showFinnancial = false;
   }
