@@ -1,31 +1,52 @@
-#bloquePrincipal{
-    margin: 7%;
-}
 .titulo{
-    font-family: Helvetica;
     font-size: 40px;
-    color: #0e5fbf;
     width: 100%;
     display: block;
+}
+.font-blue{
+    color: #0e5fbf;
+    font-family: Helvetica;
+}
+.padding-12{
+    padding-top: 12%;
+}
+.along{
+    width: 100%;
+    float: left;
+    margin: 3% 0 5% 0;
+}
+.font-purple{
+    font-family: Helvetica;
+    color: #8251cb;
 }
 form{
     margin-top: 7%;
     display: block;
 }
 .bloque{
-    width: 40%;
+    width: 50%;
     float: left;
     margin-bottom: 3%;
 }
 .bloque span{
     width: 100%;
-    display: block;
+    float: left;
     margin-bottom: 2%;
+}
+.font-gray{
     font-family: Helvetica;
-    font-size: 18px;
     color: #4a4a4a;
 }
+.bold{
+    font-weight:bold;
+}
+.font-coment{
+    font-family: Helvetica;
+    font-size: 12px !important;
+    color: #666666 !important;
+}
 .bloque input{
+    float: left;
     width: 70%;
     border-radius: 2px;
     border: solid 2px #f0f0f0;
@@ -34,7 +55,6 @@ form{
     padding: 2%;
 }
 .boton{
-    float: right;
     margin-bottom: -2%;
     position: absolute;
     bottom: 7%;
@@ -58,4 +78,34 @@ form{
 .btn-blue-inactive {
     background-color: #dbdbdb;
     cursor: not-allowed;
+}
+.bloque-derecho{
+    width: 60%;
+    height: 100%;
+    float: left;
+}
+.imagen-progreso{
+    height: 100vh;
+    float: left;
+    width: 40%;
+    background: url('../images/group-9.png') no-repeat;
+}
+.font-gray-6b{
+    color: #6b6b6b;
+    font-family: Helvetica;
+}
+.font-14{
+    font-size: 14px;
+}
+.font-16{
+    font-size: 16px;
+}
+.font-18{
+    font-size: 18px;
+}
+.font-24{
+    font-size: 24px;
+}
+.marginTop-10{
+    margin-top: 10%;
 }
