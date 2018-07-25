@@ -11,6 +11,7 @@ import { AppRoutingModule } from './/app-routing.module';
 
 import { FormsModule } from '@angular/forms';
 import { NavBarUserComponent } from './nav-bar-user/nav-bar-user.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NavBarUserComponent } from './nav-bar-user/nav-bar-user.component';
     InformacionFinancieraComponent,
     SummaryComponent,
     BasicinfoComponent,
-    NavBarUserComponent
+    NavBarUserComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

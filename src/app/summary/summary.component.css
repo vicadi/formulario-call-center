@@ -128,7 +128,11 @@
     background-color: #dbdbdb;
     cursor: not-allowed;
   }
-  
+
+  .denegation {
+    width: 655px;
+    height: 100px;
+  }
   .style-text {
     font-family: Helvetica;
     font-weight: normal;
@@ -141,6 +145,10 @@
   
   .blue-text {
     color: #0e5fbf;
+  }
+
+  .purple-text {
+    color: #8251cb;
   }
   
   .gray-text {
@@ -185,8 +193,17 @@
   .margin-top-20 {
     margin-top: 20px;
   }
-  
+
+  .margin-top-30 {
+    margin-top: 30px;
+  }
+
   .margin-top-60 {
     margin-top: 60px;
   }
-  
+
+  .denegation {
+    width: 655px;
+    height: 100px;
+    margin-left: 25%;
+  }
