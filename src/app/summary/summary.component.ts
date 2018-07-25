@@ -11,6 +11,8 @@ export class SummaryComponent implements OnInit {
   @Input() income: number;
 
   showButton: boolean =false;
+  showHome: boolean = false;
+  showSummary: boolean = true;
   valueApproved : string;
   approved: boolean = false;
 
@@ -46,6 +48,11 @@ export class SummaryComponent implements OnInit {
       this.valueApproved = 'NEGADO'
       this.approved = false;
     }
+  }
+
+  backHome(){
+    this.showSummary = false;
+    this.showHome = true;
   }
 
 }
