@@ -54,21 +54,17 @@
 	        	(keyup)="validateEmail()">
 			    <span *ngIf="showErrorEmail">{{errorMessageEmail}}</span>
 	    	</div>
+	    	
 	    	<div class="bloque">
-	    		<span>Número de telefono*</span>
-	    		<ul>
-	    			<li class="popular-category"><label>
-	    				<input type="checkbox" [checked]="checkNFijo" (change)="validateChangePhone()"> Fijo</label>
-	    			</li>
-	    			<li class="popular-category"><label>
-	    				<input type="checkbox" [checked]="!checkNFijo" (change)="validateChangePhone()"> Celular</label>
-	    			</li>
-	    		</ul>
-	    		
-	      		<input type="number" maxlength="15" required name="numberT" [(ngModel)]="model.phoneNumber"
+	    		<input type="checkbox" [checked]="checkNFijo" (change)="validateChangePhone()"> Fijo
+	    		<input type="checkbox" [checked]="!checkNFijo" (change)="validateChangePhone()"> Celular
+	    	</div>
+	    	<div class="bloque">
+	    		<input type="number" maxlength="15" required name="numberT" [(ngModel)]="model.phoneNumber"
 	      		(keyup)="validatePhoneNumber()">
 			    <span *ngIf="showErrorPhoneNumber">{{errorMessagePhoneNumber}}</span>
 	    	</div>
+	  
 	    	<div class="bloque">
 				<button class="btn-blue" [ngClass]="checkRequiredValues() ? 'btn-blue-active':'btn-blue-inactive'" (click)="finish()" [disabled]="!checkRequiredValues()">SIGUIENTE</button>
 			</div>
