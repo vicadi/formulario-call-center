@@ -58,6 +58,15 @@ export class BasicinfoComponent implements OnInit{
   showErrorPhoneNumber:boolean = false;
   errorMessagePhoneNumber = '';
   
+  firstName1Check = false;
+  firstName2Check = false;
+  lastName1Check = false;
+  lastName2Check = false;
+  idNumberCheck = false;
+  birthDateCheck = false;
+  emailCheck = false;
+  phoneCheck = false;
+  
   constructor() {}
 
   ngOnInit() {
@@ -101,6 +110,11 @@ export class BasicinfoComponent implements OnInit{
       this.showErrorFirstName1 = false;
       this.errorMessageFirstName1 = '';
     }
+    if(!this.showErrorFirstName1){
+      this.firstName1Check = true;
+    }else{
+      this.firstName1Check = false;
+    }
     return this.showErrorFirstName1;
   }
   
@@ -118,6 +132,11 @@ export class BasicinfoComponent implements OnInit{
         this.showErrorFirstName2 = false;
         this.errorMessageFirstName2 = '';
       }
+    }
+    if(!this.showErrorFirstName2){
+      this.firstName2Check = true;
+    }else{
+      this.firstName2Check = false;
     }
     return this.showErrorFirstName2;
   }
@@ -138,6 +157,11 @@ export class BasicinfoComponent implements OnInit{
       this.showErrorLastName1 = false;
       this.errorMessageLastName1 = '';
     }
+    if(!this.showErrorLastName1){
+      this.lastName1Check = true;
+    }else{
+      this.lastName1Check = false;
+    }
     return this.showErrorLastName1;
   }
   
@@ -156,6 +180,11 @@ export class BasicinfoComponent implements OnInit{
         this.errorMessageLastName2 = '';
       }
     }
+    if(!this.showErrorLastName2){
+      this.lastName2Check = true;
+    }else{
+      this.lastName2Check = false;
+    }
     return this.showErrorLastName2;
   }
   
@@ -169,6 +198,11 @@ export class BasicinfoComponent implements OnInit{
         this.errorMessageIdNumber = '';
       }
     }
+    if(!this.showErrorIdNumber){
+      this.idNumberCheck = true;
+    }else{
+      this.idNumberCheck = false;
+    }
     return this.showErrorIdNumber;
   }
   
@@ -179,6 +213,11 @@ export class BasicinfoComponent implements OnInit{
     }else {
       this.showErrorBirthDate = false;
       this.errorMessageBirthDate = '';
+    }
+    if(!this.showErrorBirthDate){
+      this.birthDateCheck = true;
+    }else{
+      this.birthDateCheck = false;
     }
     return this.showErrorBirthDate;
   }
@@ -196,6 +235,11 @@ export class BasicinfoComponent implements OnInit{
     }else{
       this.showErrorEmail = false;
       this.errorMessageEmail = '';
+    }
+    if(!this.showErrorEmail){
+      this.emailCheck = true;
+    }else{
+      this.emailCheck = false;
     }
     return this.showErrorEmail;
   }
@@ -234,18 +278,29 @@ export class BasicinfoComponent implements OnInit{
       this.showErrorPhoneNumber = false;
       this.errorMessagePhoneNumber = '';
     }
+    if(!this.showErrorPhoneNumber){
+      this.phoneCheck = true;
+    }else{
+      this.phoneCheck = false;
+    }
     return this.showErrorPhoneNumber;
   }
   
   checkRequiredValues():boolean {
-    
-    if(this.showErrorFirstName1 || this.showErrorLastName1 || this.showErrorIdNumber || this.showErrorBirthDate || this.showErrorEmail || this.showErrorPhoneNumber){
-      if(this.model.firstName1 && this.model.lastName1 && this.model.idNumber && this.model.birthDay || this.model.birthMonth || this.model.birthYear){
-        
-      }
+    if(this.firstName1Check && this.lastName1Check && this.idNumberCheck
+      && this.birthDateCheck && this.emailCheck && this.phoneCheck){
+        if(this.model.firstName2 != '' && this.model.firstName2 != null){
+          if(!this.firstName2Check){
+            return false;
+          }
+        }
+        if(this.model.lastName2 != '' && this.model.lastName2 != null){
+          if(!this.lastName2Check){
+            return false;
+          }
+        }
       return true;
     }
-    
     return false;
   }
   
