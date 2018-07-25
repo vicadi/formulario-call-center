@@ -20,7 +20,8 @@ import { HomeComponent } from './home/home.component';
     SummaryComponent,
     BasicinfoComponent,
     NavBarUserComponent,
-    HomeComponent
+    HomeComponent,
+    BasicinfoComponent
   ],
   imports: [
     BrowserModule,
