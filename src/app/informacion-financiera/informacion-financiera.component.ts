@@ -12,13 +12,17 @@ export class InformacionFinancieraComponent implements OnInit {
   errorMessage: boolean = false;
   outcome: number;
   income: number;
+  ingresos: string;
+  egresos: string;
+  activos: string;
+  pasivos: string;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  showComponent(ingresos:any,egresos:any,activos:any,pasivos:any){
+  showComponent(){
     this.showSummary = true;
     this.showFinnancial = false;
   }
