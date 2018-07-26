@@ -10,6 +10,7 @@ import { BasicinfoComponent } from './basicinfo/basicinfo.component';
 import { AppRoutingModule } from './/app-routing.module';
 
 import { FormsModule } from '@angular/forms';
+import { NavBarUserComponent } from './nav-bar-user/nav-bar-user.component';
 import { HomeComponent } from './home/home.component';
 
 @NgModule({
@@ -17,6 +18,8 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     InformacionFinancieraComponent,
     SummaryComponent,
+    BasicinfoComponent,
+    NavBarUserComponent,
     HomeComponent,
     BasicinfoComponent
   ],
