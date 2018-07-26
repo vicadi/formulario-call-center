@@ -1,25 +1,30 @@
 <div *ngIf="showHome">
+  <img src="../../assets/img/icon-bank.svg" class="logo">
+  <div class="text gray-text font-16 user-title">
+      <img src="../../assets/img/person.png">
+      <span>  <B> Camila Paz </B>   |    Cerrar sesión</span>
+      </div>  
+
   <div class="image_top">
-    <img src="assets/arriba.png">
+    <img src="assets/img/group-3.png" class="image">
   </div>
-  <div class="image_cards">
-    <img src="assets/cards2.png" class="cards">
-  </div>
-  <div class="body_text">
-    <p class="text main_text">No pierdas más clientes</p>
-    <p class="text second_text">Solicita de manera fácil y rápida <br/> una tarjeta de crédito en línea <br/> para tu cliente</p>
-    <p class="text second_text size_24 height_remember">Recuerda</p>
-    <p class="text second_text size_14">Por este medio sólo podrás solicitar las tres tarjetas <B>White, Cian y  <br/>Purpura</B> 
-    para tu cliente, desde $10.000.000 hasta $30.000.000.<br/><br/>
-    No olvides recordarle a tu cliente que la llamada <B>será grabada y <br/>monitoreada</B>
-    para efectos de cálidad del servicio.<br/><br/>
-    Ten en cuenta que las tarjetas solo podrán generarse a clientes con<br/>
-    productos del Banco Púrpura.
-    </p>
-  </div>
-  <div class="row align-center margin-top-60">
-    <div>
-      <button class="btn-blue" (click)="showComponent()">INICIAR PROCESO DE SOLICITUD</button>
+  <div>
+    <div class="body_text">
+      <p class="text main_text">No pierdas más clientes</p>
+      <p class="text second_text gray-text">Solicita de manera fácil y rápida <br/> una tarjeta de crédito en línea <br/> para tu cliente</p>
+      <p class="text second_text size_24 gray-text">Recuerda</p>
+      <p class="text second_text size_14 gray-text">Por este medio sólo podrás solicitar las tres tarjetas <B>White, Cian y  <br/>Purpura</B> 
+      para tu cliente, desde $10.000.000 hasta $30.000.000.<br/><br/>
+      No olvides recordarle a tu cliente que la llamada <B>será grabada y <br/>monitoreada</B>
+      para efectos de cálidad del servicio.<br/><br/>
+      Ten en cuenta que las tarjetas solo podrán generarse a clientes con<br/>
+      productos del Banco Púrpura.
+      </p>
+    </div>
+    <div class="row align-center margin-top-60">
+      <div>
+        <button class="btn-blue" (click)="showComponent()">INICIAR PROCESO DE SOLICITUD</button>
+      </div>
     </div>
   </div>
 
