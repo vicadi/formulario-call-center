@@ -1,0 +1,31 @@
+<div *ngIf="!loginSuccess">
+  <div class="contain-login-detail margin-top--8">
+    <div class="padding-right-20 padding-left-20">
+      <img src="../../assets/img/icon-bank.svg">
+      <div class="style-text blue-text font-50 margin-top-20-porc">
+        Bienvenido a Vianca
+      </div>
+      <div class="style-text gray-text font-30 margin-top-10-porc">
+        Por favor ingresa tu usuario y contraseña de red
+      </div>
+      <div>
+        <p class="style-text font-18 gray-text margin-top-10-porc">Nombre de usuario</p>
+        <input id="user" type="text" class="gray-dark-text font-22"  [ngClass]="errorUser ? 'error-input': 'style-input'" maxlength="7" [(ngModel)]="user" (keyup)="onKeyUser()">
+        <p class="message-error" *ngIf="errorUser">Tu usuario no es válido</p>
+      </div>
+      <div>
+        <p class="style-text font-18 gray-text margin-top-10-porc">Contraseña</p>
+        <input id="password" type="password" class="gray-dark-text font-22 letter-spacing-8" [ngClass]="errorPassword ? 'error-input': 'style-input'" maxlength="9" (keyup)="onKeyPassword()" [(ngModel)]="password">
+        <p class="message-error" *ngIf="errorPassword">Tu contraseña no es válida</p>
+      </div>
+      <button class="btn-blue margin-top-10-porc btn-blue-active" [ngClass]="password && user ? 'btn-blue-active':'btn-blue-inactive'"
+        [disabled]="!password && user " (click)="login()">SIGUIENTE</button>
+
+    </div>
+  </div>
+  <div class="contain-login-ico-vianca margin-top--8">
+    <img src="../../assets/img/imagen-vianca@3x.png" class="login-vianca">
+  </div>
+</div>
+
+<app-home *ngIf="loginSuccess"></app-home>

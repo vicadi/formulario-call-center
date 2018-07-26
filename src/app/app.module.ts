@@ -12,6 +12,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { NavBarUserComponent } from './nav-bar-user/nav-bar-user.component';
 import { HomeComponent } from './home/home.component';
+import { UserLoginComponent } from './user-login/user-login.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HomeComponent } from './home/home.component';
     BasicinfoComponent,
     NavBarUserComponent,
     HomeComponent,
-    BasicinfoComponent
+    BasicinfoComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
