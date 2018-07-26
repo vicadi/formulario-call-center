@@ -27,8 +27,8 @@
 }
 
 .contain-login-detail {
-  margin-left: 15%;
-  width: 35%;
+  margin-left: 10%;
+  width: 45%;
   float: left;
 }
 
@@ -90,8 +90,8 @@
   margin-top: 20%;
 }
 
-.margin-top-10-porc {
-  margin-top: 10%;
+.margin-top-5-porc {
+  margin-top: 5%;
 }
 
 .style-input {
@@ -121,6 +121,7 @@
   color: #ff3b30;
   width: 388px;
   text-align: right;
+  font-family: Helvetica;
 }
 
 .letter-spacing-8 {
