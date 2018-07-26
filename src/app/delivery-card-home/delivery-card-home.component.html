@@ -1,0 +1,31 @@
+<div class="block-85">
+  <div class="complete-block">
+    <div class="icono"></div>
+    <div class="message">
+      <span class="font-gray font-20">Recuerda</span>
+      <p class="font-gray font-16">Felicitar al cliente por la buena noticia de su aprobación, pedirle un lugar dónde desea recibir su Tarjeta de Crédito y contarle que el envío es completamente gratuito y que en tan solo 5 días podrá hacer uso de su Tarjeta de Crédito.</p>
+    </div>
+  </div>
+  <span class="along font-purple font-18">Todos los campos son obligatorios</span>
+  <form>
+    <div class="half-block">
+      <label class="font-gray-label font-18 complete-label">Ciudad</label>
+      <!--<input class="half-input" name="city" [(ngModel)]="city" (keyup)="filterValues()">-->
+      <select class="half-input select-out-arrows" name="city" [(ngModel)]="city" (keyup)="filterValues()">
+          <option value="volvo">Bogotá</option>
+          <option value="saab">Planeta Rica</option>
+          <option value="mercedes">Coveñas</option>
+        </select>
+    </div>
+    <div class="half-block">
+        <label class="font-gray-label font-18 complete-label">Barrio</label>
+        <input class="half-input" name="neighborhood" [(ngModel)]="neighborhood">
+    </div>
+    <div class="complete-block">
+      <label class="font-gray-label font-18 complete-label">Dirección</label>
+      <input class="complete-input" name="address" [(ngModel)]="address">
+      <span class="font-example font-16">Ejemplo: Carrera 13 con calle 32-13</span>
+    </div>
+    <input type="submit" value="SIGUIENTE"  (click)="showComponent()" class="boton btn-blue" [ngClass]= "city && neighborhood && address ? 'btn-blue-active':'btn-blue-inactive'">
+  </form>
+</div>
