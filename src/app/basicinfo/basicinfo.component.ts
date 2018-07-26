@@ -228,7 +228,7 @@ export class BasicinfoComponent implements OnInit {
       this.errorMessageEmail = 'El campo de correo electronico es obligatorio';
     } else if (this.model.email.length < 6 ) {
       this.showErrorEmail = true;
-      this.errorMessageEmail = 'El campo de cedula tiene que tener mas de 6 numeros';
+      this.errorMessageEmail = 'El campo de correo electronico tiene que tener mas de 6 caracteres';
     } else if (!this.checkEmail(this.model.email)) {
       this.showErrorEmail = true;
       this.errorMessageEmail = 'El campo de correo electronico es incorrecto';
