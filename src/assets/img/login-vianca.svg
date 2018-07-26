@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="603px" height="858px" viewBox="0 0 603 858" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+    <title>AD515738-A7FC-43D2-B1C8-F3098D88985F</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <linearGradient x1="0%" y1="-28.9727435%" x2="92.3967745%" y2="133.248804%" id="linearGradient-1">
+            <stop stop-color="#3023AE" offset="0%"></stop>
+            <stop stop-color="#C86DD7" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="0" y="0" width="603" height="858"></rect>
+        <linearGradient x1="116.96341%" y1="-32.6768535%" x2="52.2652866%" y2="108.860545%" id="linearGradient-4">
+            <stop stop-color="#3023AE" offset="0%"></stop>
+            <stop stop-color="#C86DD7" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1-Bienvenida" transform="translate(-603.000000, 0.000000)">
+            <g id="Imagen-Vianca" transform="translate(603.000000, 0.000000)">
+                <g id="Oval">
+                    <mask id="mask-3" fill="white">
+                        <use xlink:href="#path-2"></use>
+                    </mask>
+                    <use id="Mask" fill="url(#linearGradient-1)" fill-rule="nonzero" xlink:href="#path-2"></use>
+                    <ellipse fill="url(#linearGradient-4)" opacity="0.672098214" mask="url(#mask-3)" cx="44.5948272" cy="806" rx="356.594827" ry="356"></ellipse>
+                </g>
+                <g id="Avatar-y-mensaje-de-Bienvenida" transform="translate(59.000000, 182.000000)">
+                    <text id="La-plataforma-amiga" font-family="Helvetica" font-size="24" font-weight="normal" letter-spacing="-0.3571424" fill="#FFFFFF">
+                        <tspan x="13" y="245">La plataforma amiga que te ayudará a agilizar </tspan>
+                        <tspan x="13" y="274">el proceso de solicitud de Tarjetas de Crédito </tspan>
+                        <tspan x="13" y="303">para tus clientes.</tspan>
+                        <tspan x="13" y="332"></tspan>
+                        <tspan x="13" y="361">Durante el proceso de solicitud te estaré </tspan>
+                        <tspan x="13" y="390">dejando tips para que recuerdes prestar la </tspan>
+                        <tspan x="13" y="419">mejor atención a tus clientes.</tspan>
+                    </text>
+                    <text id="¡Hola-Soy-Vianca!" text-align= "left" font-family="Helvetica" font-size="58" font-weight="normal" line-spacing="89" letter-spacing="-0.4833328" fill="#FFFFFF">
+                        <tspan x="278.202637" y="57">¡Hola Soy</tspan>
+                        <tspan x="205" y="129.638184" font-size="77">Vianca!</tspan>
+                        <tspan x="439.029756" y="108.328125" font-size="96"> </tspan>
+                    </text>
+                    <g id="Group-6" transform="translate(0.000000, 16.000000)">
+                        <g id="Group">
+                            <rect id="Rectangle-path" stroke="#FFFFFF" stroke-width="7" x="26.0235521" y="0" width="119.45965" height="78.114641" rx="6.56"></rect>
+                            <rect id="Rectangle-path" fill="#FFFFFF" fill-rule="nonzero" transform="translate(14.824210, 37.197448) rotate(-90.000000) translate(-14.824210, -37.197448) " x="8.85122734" y="23.0624178" width="11.945965" height="28.2700606" rx="2.37"></rect>
+                            <ellipse id="Oval" fill="#FFFFFF" fill-rule="nonzero" cx="57.7550217" cy="36.0815247" rx="7.83953955" ry="7.8114641"></ellipse>
+                            <ellipse id="Oval" fill="#FFFFFF" fill-rule="nonzero" cx="113.00511" cy="37.5694226" rx="7.83953955" ry="7.8114641"></ellipse>
+                            <rect id="Rectangle-path" fill="#FFFFFF" fill-rule="nonzero" transform="translate(158.175790, 37.197448) rotate(-90.000000) translate(-158.175790, -37.197448) " x="152.202808" y="23.0624178" width="11.945965" height="28.2700606" rx="2.37"></rect>
+                            <g id="Group-5" transform="translate(11.091096, 63.979611)">
+                                <polyline id="Shape" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" points="39.5710091 42.4221875 11.1993422 42.4050908 11.1993422 68.4433045"></polyline>
+                                <ellipse id="Oval" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" cx="10.8260308" cy="76.2547686" rx="10.8260308" ry="10.7872599"></ellipse>
+                                <polyline id="Shape" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" points="114.233291 45.3808867 142.604957 45.3808867 142.604957 19.342673"></polyline>
+                                <ellipse id="Oval" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" cx="142.978269" cy="10.7872599" rx="10.8260308" ry="10.7872599"></ellipse>
+                                <path d="M86.2277508,106.384702 L69.0871784,106.384702 C53.6241126,106.384713 41.0834397,93.8085227 41.0642548,78.2824108 L41.0642548,31.328894 C50.3692542,30.2870612 59.7245074,29.7626155 69.0871784,29.7579585 L86.2103669,29.7579585 C95.5730379,29.7626155 104.928291,30.2870612 114.233291,31.328894 L114.233291,78.2824108 C114.214117,93.8017104 101.684029,106.375086 86.2277508,106.384702 Z" id="Shape" stroke="#FFFFFF" stroke-width="7"></path>
+                                <ellipse id="Oval" fill="#FFFFFF" fill-rule="nonzero" cx="76.5288384" cy="50.9605039" rx="5.59967111" ry="5.57961721"></ellipse>
+                                <ellipse id="Oval" fill="#FFFFFF" fill-rule="nonzero" cx="76.5288384" cy="68.07133" rx="5.59967111" ry="5.57961721"></ellipse>
+                                <ellipse id="Oval" fill="#FFFFFF" fill-rule="nonzero" cx="76.5288384" cy="85.1821561" rx="5.59967111" ry="5.57961721"></ellipse>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <ellipse id="Oval" stroke="#FFFFFF" stroke-width="3" opacity="0.199107143" cx="1028.9904" cy="11.5" rx="293.990398" ry="293.5"></ellipse>
+        </g>
+    </g>
+</svg>
