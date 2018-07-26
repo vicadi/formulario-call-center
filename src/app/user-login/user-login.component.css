@@ -1,0 +1,127 @@
+.btn-blue {
+  width: 394px;
+  height: 51px;
+  background-color: #2879d9;
+  font-family: Helvetica;
+  font-size: 16px;
+  cursor: pointer;
+  letter-spacing: -0.1px;
+  text-align: center;
+  color: #ffffff;
+  outline: none;
+  font-weight: bold;
+}
+
+.btn-blue-active {
+  background-color: #2879d9;
+}
+
+.btn-blue-inactive {
+  background-color: #dbdbdb;
+  cursor: not-allowed;
+}
+
+.login-vianca {
+  height: 100vh;
+  width: 100%;
+}
+
+.contain-login-detail {
+  margin-left: 15%;
+  width: 35%;
+  float: left;
+}
+
+.contain-login-ico-vianca {
+  width: 35%;
+  float: left;
+  margin-right: 15%;
+}
+
+.style-text {
+  font-family: Helvetica;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.1px;
+}
+
+.font-18 {
+  font-size: 18px;
+}
+
+.font-22 {
+  font-size: 22px;
+}
+
+.font-30 {
+  font-size: 30px;
+}
+
+.font-50 {
+  font-size: 50px;
+}
+
+.blue-text {
+  color: #0e5fbf;
+}
+
+.gray-text {
+  color: #4a4a4a;
+}
+
+.gray-dark-text {
+  color: #121212;
+}
+
+.padding-right-20 {
+  padding-right: 20px;
+}
+
+.padding-left-20 {
+  padding-left: 20px;
+}
+
+.margin-top--8 {
+  margin-top: -8px;
+}
+
+.margin-top-20-porc {
+  margin-top: 20%;
+}
+
+.margin-top-10-porc {
+  margin-top: 10%;
+}
+
+.style-input {
+  width: 388px;
+  height: 48px;
+  border-radius: 2px;
+  border: solid 2px #f0f0f0;
+}
+
+.error-input {
+    width: 388px;
+    height: 48px;
+    border-radius: 2px;
+    outline: none;
+  border: solid 2px #ff3f34;
+}
+
+.message-error {
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  margin-top: 0px;
+  letter-spacing: -0.1px;
+  text-align: left;
+  color: #ff3b30;
+}
+
+.letter-spacing-8 {
+  letter-spacing: 8px;
+}
