@@ -1,13 +1,11 @@
-.image_cards {
-  margin-right: 37px;
-  float: right;
-  margin-top: -4px;
-  width: 41.5%;
-}
 .image_top {
-  width: 88.4%;
-  margin-left: 77px;
-  margin-top: -8px;
+  margin-left: 53%;
+  margin-bottom: -67%;
+  margin-top: -46%;
+}
+
+.logo {
+  margin-left: 5%;
 }
 
 .main_text {
@@ -17,9 +15,6 @@
   color: #0e5fbf;
 }
 
-.cards {
-  width: 107%;
-}
 .text {
   font-family: Helvetica;
   font-weight: normal;
@@ -31,16 +26,25 @@
 
 .second_text {
   width: 464px;
-  height: 108px;
   font-size: 30px;
   letter-spacing: -0.2px;
-  color: #6b6b6b;
 }
 
 .size_24 {
   font-size: 24px;
 }
 
+.user-title{
+  margin: -5% 0% 0% 65%;
+  background:#f2f2f2;
+  height: 800px;
+  padding: 2% 0% 0% 21%;
+}
+
+
+.gray-text {
+  color: #6b6b6b;
+}
 .height_remember {
   height: -moz-min-content;
 }
@@ -51,6 +55,7 @@
 
 .body_text {
   margin-left: 79px;
+  margin-top: 32%;
 }
 .btn-blue {
   width: 325px;

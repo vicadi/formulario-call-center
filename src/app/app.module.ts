@@ -15,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { DeliveryCardComponent } from './delivery-card/delivery-card.component';
 import { DeliveryCardHomeComponent } from './delivery-card-home/delivery-card-home.component';
 import { DeliveryCardOfficeComponent } from './delivery-card-office/delivery-card-office.component';
+import { UserLoginComponent } from './user-login/user-login.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { DeliveryCardOfficeComponent } from './delivery-card-office/delivery-car
     BasicinfoComponent,
     DeliveryCardComponent,
     DeliveryCardHomeComponent,
-    DeliveryCardOfficeComponent
+    DeliveryCardOfficeComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
