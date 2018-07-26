@@ -1,7 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div *ngIf="showBasicInfo">
    <div class="bloque-izquierdo">
-      <img class="img" src="1.png">
+      <img class="img" src="../../assets/img/barraprog_infobasica.png">
       <div class="Mask">
          <img src="../../assets/img/icon-bank.svg">
       </div>
@@ -87,7 +87,7 @@
                <input class="size-mail" [ngClass] = "!showErrorEmail ? 'inputBasico':'inputBasicoError'" type="email" maxlength="25" required name="email" [(ngModel)]="model.email"
                (keyup)="validateEmail()">
 				<div class="float-none">
-               <span class="message-error span-size" *ngIf="showErrorEmail">{{errorMessageEmail}}</span>
+               <span class="message-error span-size text-align" *ngIf="showErrorEmail">{{errorMessageEmail}}</span>
                </div>
             </div>
          </div>
@@ -106,7 +106,7 @@
 	               <input class="padding-1 position-tel" [ngClass] = "!showErrorPhoneNumber ? 'inputBasico':'inputBasicoError'" type="number" maxlength="15" required name="numberT" [(ngModel)]="model.phoneNumber"
 	               (keyup)="validatePhoneNumber()">
 	               <div>
-	                  <p class="message-error" *ngIf="showErrorPhoneNumber">{{errorMessagePhoneNumber}}</p>
+	                  <p class="message-error text-align" *ngIf="showErrorPhoneNumber">{{errorMessagePhoneNumber}}</p>
 	               </div>
 	            </div>
          </div>
