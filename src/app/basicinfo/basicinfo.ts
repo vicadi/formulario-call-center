@@ -4,5 +4,11 @@ export class BasicInfo {
       public firstName2: string,
       public lastName1: string, 
       public lastName2: string, 
+      public idNumber: string, 
+      public birthDay: string, 
+      public birthMonth: string,
+      public birthYear: string,
+      public email: string,
+      public phoneNumber: string,
    ) {  } 
 }
