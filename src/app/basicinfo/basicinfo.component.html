@@ -3,7 +3,6 @@
    <div class="bloque-izquierdo">
       <img class="img" src="1.png">
       <div class="Mask">
-         <!--  <span class="BANCO">BANCO</span><br> <span class="PURPURA">PURPURA</span> -->
          <img src="../../assets/img/icon-bank.svg">
       </div>
    </div>
@@ -88,7 +87,7 @@
                <input class="size-mail" [ngClass] = "!showErrorEmail ? 'inputBasico':'inputBasicoError'" type="email" maxlength="25" required name="email" [(ngModel)]="model.email"
                (keyup)="validateEmail()">
 				<div class="float-none">
-               <span class="message-error " *ngIf="showErrorEmail">{{errorMessageEmail}}</span>
+               <span class="message-error span-size" *ngIf="showErrorEmail">{{errorMessageEmail}}</span>
                </div>
             </div>
          </div>

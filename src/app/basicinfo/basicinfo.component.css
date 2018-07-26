@@ -131,7 +131,7 @@
 	letter-spacing: -0.1px;
 	text-align: right;
 	color: #ff3b30;
-	width: 70%
+	width: 69%
 }
 
 .padding-1{
@@ -144,18 +144,18 @@
 }
 
 .Mask {
-  width: 77px;
-  height: 36px;
-  border-radius: 6px;
-  
-  margin-left: 63px;
-  position: absolute;
-  top: -8px;
-  left: 10px;
-  padding-top: 16px;
-  padding-bottom: 14px;
-  padding-left: 11px;
-  padding-right: 11px;
+	width: 77px;
+	height: 36px;
+	border-radius: 6px;
+	
+	margin-left: 63px;
+	position: absolute;
+	top: -8px;
+	left: 10px;
+	padding-top: 16px;
+	padding-bottom: 14px;
+	padding-left: 11px;
+	padding-right: 11px;
 }
 
 .semi-mask{
@@ -164,31 +164,35 @@
 }
 
 .BANCO {
-  font-size: 18px;
-  font-weight: 300;
-  line-height: 1;
-  
-  width: 77px;
-  height: 36px;
-  font-family: Helvetica;
-
-  font-style: normal;
-  font-stretch: normal;
-  letter-spacing: -0.1px;
-  color: #ffffff;
+	font-size: 18px;
+	font-weight: 300;
+	line-height: 1;
+	
+	width: 77px;
+	height: 36px;
+	font-family: Helvetica;
+	
+	font-style: normal;
+	font-stretch: normal;
+	letter-spacing: -0.1px;
+	color: #ffffff;
 }
 
 .PURPURA {
-  width: 77px;
-  height: 36px;
-  font-family: Helvetica;
-  font-size: 15px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.2;
-  letter-spacing: -0.1px;
-  color: #ffffff;
+	width: 77px;
+	height: 36px;
+	font-family: Helvetica;
+	font-size: 15px;
+	font-weight: bold;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.2;
+	letter-spacing: -0.1px;
+	color: #ffffff;
+}
+
+.span-size{
+	width: 196%;
 }
 
 .btn-blue {
@@ -219,15 +223,15 @@
 }
 
 input[type='radio']:checked:after {
-        width: 15px;
-        height: 15px;
-        border-radius: 15px;
-        top: -9px;
-        left: -9px;
-        position: relative;
-        background-color: #8251cb;
-        content: '';
-        display: inline-block;
-        visibility: visible;
-        border: 7px solid white;
-    }
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -9px;
+    left: -9px;
+    position: relative;
+    background-color: #8251cb;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 7px solid white;
+}
