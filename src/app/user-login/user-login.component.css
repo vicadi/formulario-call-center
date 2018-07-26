@@ -23,7 +23,7 @@
 
 .login-vianca {
   height: 100vh;
-  width: 100%;
+  width: 150%;
 }
 
 .contain-login-detail {
@@ -35,7 +35,6 @@
 .contain-login-ico-vianca {
   width: 35%;
   float: left;
-  margin-right: 15%;
 }
 
 .style-text {
@@ -103,10 +102,10 @@
 }
 
 .error-input {
-    width: 388px;
-    height: 48px;
-    border-radius: 2px;
-    outline: none;
+  width: 388px;
+  height: 48px;
+  border-radius: 2px;
+  outline: none;
   border: solid 2px #ff3f34;
 }
 
@@ -120,6 +119,8 @@
   letter-spacing: -0.1px;
   text-align: left;
   color: #ff3b30;
+  width: 388px;
+  text-align: right;
 }
 
 .letter-spacing-8 {
