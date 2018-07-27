@@ -1,10 +1,12 @@
 <div *ngIf="showSummary">
-  <div class="style-text gray-text font-16 user-title">
-      <img src="../../assets/img/person.png">
-      <span>   Camila Paz    |    Cerrar sesión</span>
+  <div class="bloque-izquierdo">
+    <img class="img" src="../../assets/img/progress-banners/barra-de-procesos-summary@3x.png">
   </div>
-    <div class="contain-nav icon-control"></div>
-  <div *ngIf="approved" class=" contain-info">
+
+  <div *ngIf="approved" class="bloque-derecho-simple">
+        <div class="margin-left-135">
+          <app-nav-bar-user></app-nav-bar-user>
+        </div>
         <div class="align-center">
           <div class="style-text blue-text font-40 margin-left-20-porc margin-right-20-porc margin-top-60">
             La tarjeta de {{username}}
@@ -36,9 +38,9 @@
         </div>
         <div class="margin-top-20">
             <div class="margin-right-20-porc margin-left-10-porc contain-check">
-                <label class="align-justify font-14 style-text gray-text container">El cliente acepta de manera telefónica el cupo abrobado.
+                <label class="align-justify font-14 style-text gray-text container" (click)="onSelect()">El cliente acepta de manera telefónica el cupo abrobado.
                   <input type="checkbox">
-                  <span class="checkmark" (click)="onSelect()" checked="checked"></span>
+                    <span (click)="onSelect()" class="checkmark" checked="checked"></span>
                 </label>
               </div>
               <div class="contain-buttom">
@@ -49,25 +51,29 @@
         </div>
   </div>
    
-  <div *ngIf="!approved" class=" contain-info">
-
-
-      <div class="align-center">
+  <div *ngIf="!approved">
+      
+      <div class="bloque-derecho align-center">
+          <div>
+              <app-nav-bar-user></app-nav-bar-user>
+            </div>
           <div class="style-text purple-text font-40 margin-top-20-porc">
-              <div>La aprobación de tu cliente no ha <br/>
+              <div class="text-align">La aprobación de tu cliente no ha <br/>
               sido posible por este medio</div>
             </div>
-            <div class="style-text gray-text font-24">
+            <div class="style-text gray-text font-24 text-align">
                 <p>Recuerda que puedes sugerirle a tu cliente realizar una<br/>
                 solicitud directamente en las oficinas del Banco Púrpura</p>
               </div>
+
+              
         </div>
- 
-    <div class="row align-center margin-top-60">
-      <div>
-        <button class="btn-blue" (click)="backHome()">VOLVER AL INICIO</button>
-      </div>
-    </div>
+        <div style="float: left; margin-left: 351px;" class="row align-center margin-top-60">
+            <div>
+              <button class="btn-blue" (click)="backHome()">VOLVER AL INICIO</button>
+            </div>
+          </div>
+
   </div>
 </div>
 <app-home *ngIf="showHome"></app-home>

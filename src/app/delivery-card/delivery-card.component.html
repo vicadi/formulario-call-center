@@ -1,10 +1,11 @@
 <div>
-  <div class="imagen-progreso">
-    <img class="img-progreso" src="../../assets/img/rectangle-2@3x.png">
-  </div>
+    <div class="bloque-izquierdo">
+        <img class="img" src="../../assets/img/progress-banners/barra-de-procesos-deliverycard@3x.png">
+    </div>
+  
   <div class="bloque-derecho">
     <app-nav-bar-user></app-nav-bar-user>
-    <h1 class="font-40 font-blue h1Center">¿Dónde desea recibir la Tarjeta de <br> Crédito tu cliente?</h1>
+    <h1 class="font-40 font-blue over-margin-bot">¿Dónde desea recibir la Tarjeta de <br> Crédito tu cliente?</h1>
     <div class="choose-both">
       <div class="choose" [ngClass]= "showHome ? 'home-active':'home-inactive'" (click)="onClickHome()"></div>
       <div class="choose" [ngClass]= "showOffice ? 'office-active':'office-inactive'" (click)="onClickOffice()"></div>

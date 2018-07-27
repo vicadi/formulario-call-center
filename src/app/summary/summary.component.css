@@ -1,6 +1,6 @@
 /* The container */
 
-.container {
+  .container {
     display: flow-root;
     position: relative;
     padding-left: 35px;
@@ -19,7 +19,46 @@
     letter-spacing: -0.1px;
     color: #6b6b6b;
   }
-  
+  .bloque-derecho {
+    width: 70%;
+    height: 100%;
+    float: left;
+    margin-left: 135px;
+  }
+  .bloque-derecho-simple {
+    width: 70%;
+    height: 100%;
+    float: left;
+    margin-left: 35px;
+  }
+  .margin-left-135{
+    margin-left: 135px !important;
+    }
+  .bloque-izquierdo{
+    height: 100%;
+    width: 20%;
+    float: left;
+  }
+  .img{
+    width: 409px;
+    height: 858px;
+    object-fit: contain;
+  }
+  .imagen-banco {
+    width: 77px;
+    height: 36px;
+    border-radius: 6px;
+    
+    margin-left: 63px;
+    position: absolute;
+    top: -8px;
+    left: 10px;
+    padding-top: 16px;
+    padding-bottom: 14px;
+    padding-left: 11px;
+    padding-right: 11px;
+  }
+
   /* Hide the browser's default checkbox */
   
   .container input {
@@ -275,4 +314,14 @@
   .user-title{
     float: right; 
     margin-right: 5%;
+  }
+
+  .text-align{
+    float: left; 
+    margin-left: 60px;
+  }
+
+  .button-align{
+    float: left; 
+    margin-left: 351px;
   }

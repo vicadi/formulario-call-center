@@ -26,20 +26,20 @@ export class BasicinfoComponent implements OnInit {
 
   showBasicInfo = true;
   showFinancialInfo = false;
-  
+
   error = true;
   errorMessage = '';
 
   daysList = [];
   monthList = [];
   yearList = [];
-  
-  showErrorFirstName1: boolean = false;
+
+  showErrorFirstName1 = false;
   errorMessageFirstName1 = '';
-  
+
   showErrorFirstName2: boolean = false;
   errorMessageFirstName2 = '';
-  
+
   showErrorLastName1: boolean = false;
   errorMessageLastName1 = '';
 

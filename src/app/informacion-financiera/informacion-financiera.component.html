@@ -1,32 +1,37 @@
 <div *ngIf="showFinnancial">
-    <div class="imagen-progreso"></div>
+    <div class="bloque-izquierdo">
+        <img class="img" src="../../assets/img/progress-banners/barra-de-procesos-infofinanciera@3x.png">
+        <div class="imagen-banco">
+           <img src="../../assets/img/icon-bank.svg">
+        </div>
+     </div>
     <div class="bloque-derecho">
         <app-nav-bar-user></app-nav-bar-user>
         <div class="padding-12">
             <span class="titulo font-blue">Ingresa la información</span>
             <span class="titulo font-blue">financiera de tu cliente</span>
         </div>
-        <span class="along font-purple font-18">Los campos con asterisco son obligatorios (*)</span>
+        <span class="along font-purple font-18">Todos los campos son obligatorios</span>
         <form>
             <div class="bloque">
-                <span class="font-gray font-18">Ingresos mensuales*</span>
+                <span class="font-gray font-18">Ingresos mensuales</span>
                 <span class="font-coment">Salario fijo, ingreso por pensión, arriendos…</span>
                 <input type="text" maxlength="16" pattern="[0-9]{1,16}" required name="ingresos" value="{{ingresos}}" (keyup)="onKeyIngresos()" [(ngModel)]="ingresos">
                 <span></span>
             </div>
             <div class="bloque">
-                <span class="font-gray font-18">Gastos mensuales*</span>
+                <span class="font-gray font-18">Gastos mensuales</span>
                 <span class="font-coment">Salida de dinero como arriendo, ocio…</span>
                 <input type="text" maxlength="16" pattern="[0-9]{1,16}" name="egresos" [(ngModel)]="egresos" value="{{egresos}}" (keyup)="onKeyEgresos()">
                 <span></span>
             </div> 
             <div class="bloque">
-                <span class="font-gray font-18">Activos*</span>
+                <span class="font-gray font-18">Activos</span>
                 <span class="font-coment">Total bienes personales como propiedad raíz y vehículo…</span>
                 <input type="text" maxlength="16" pattern="[0-9]{1,16}" required name="activos" [(ngModel)]="activos" value="{{activos}}" (keyup)="onKeyActivos()">
             </div>
             <div class="bloque">
-                <span class="font-gray font-18">Pasivos*</span>
+                <span class="font-gray font-18">Pasivos</span>
                 <span class="font-coment">Total deudas con el sector financiero o terceros…</span>
                 <input type="text" maxlength="16" pattern="[0-9]{1,16}" required name="pasivos" [(ngModel)]="pasivos" value="{{pasivos}}" (keyup)="onKeyPasivos()">
             </div>
