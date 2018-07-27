@@ -37,7 +37,7 @@
 .along{
     width: 100%;
     float: left;
-    margin: 3% 0 5% 0;
+    margin: 3% 0;
 }
 .font-purple{
     font-family: Helvetica;
@@ -108,10 +108,10 @@ form{
     padding: 2%;
 }
 .boton{
-    margin-bottom: -2%;
+    margin-bottom: 1%;
     position: absolute;
     bottom: 7%;
-    right: 11%;
+    right: 11.5%;
 }
 .btn-blue {
     width: 254px;

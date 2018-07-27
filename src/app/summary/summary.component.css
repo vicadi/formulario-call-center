@@ -283,7 +283,9 @@
   .margin-top-60 {
     margin-top: 60px;
   }
-
+  .margin-top-14 {
+    margin-top: 14%;
+  }
   .contain-nav{
     height: 100vh;
     float: left;
@@ -318,10 +320,38 @@
 
   .text-align{
     float: left; 
-    margin-left: 60px;
+    margin-left: 60px;  
   }
 
   .button-align{
     float: left; 
     margin-left: 351px;
   }
+
+.vianca {
+  width: 45px;
+  height: 45px;
+}
+.remember {
+  width: 33%;
+  border-radius: 4px;
+  background-color: rgba(0, 134, 216, 0.05);
+  padding: 12px 22px;
+}
+.remember_text {
+    margin-left: 56px;
+    margin-top: -66px;
+}
+.margin_remember {
+    margin: 2% 0% -1%;
+}
+
+.bloque_remember{
+  width: 82%;
+  float: left;
+  margin: 3% 0% 3% 10%;
+}
+.font_black{
+  font-family: Helvetica;
+  color: #2d2d2d;
+}

@@ -20,25 +20,25 @@
             <img src="./../assets/img/white-card.png" class="size-card ">
           </div>
           <div class="style-text gray-text font-24 margin-top-20">
-            El cupo aprobado de tu cliente es de
+            El cupo es de
           </div>
           <div class="style-text gray-text font-80 ">
             {{valueApproved}}
           </div>
         </div>
-      
-        <div class="row margin-top-20 margin-left-10-porc margin-right-60-porc">
-          <div class="align-left style-text gray-text font-24 margin-top-20">
-              Recuerda 
-              <h1 class="align-left style-text gray-text font-16">
-              Pedirle a tu cliente confirme en voz alta y con firmeza que ACEPTA el cupo aprobado 
-              </h1>
+        <div class="remember bloque_remember">
+          <div>
+            <img class="vianca" src="assets/img/vianca.png">
           </div>
-      
+          <div class="remember_text">
+            <p class="font_black font-24 margin_remember">Recuerda</p>
+            <p class="font_black font-14">Dále la buena noticia a tu cliente e infórmale el valor de su cupo aprobado. Pregúntale si esta de acuerdo con él.</p>
+          </div> 
         </div>
-        <div class="margin-top-20">
+      
+        <div class="margin-top-14">
             <div class="margin-right-20-porc margin-left-10-porc contain-check">
-                <label class="align-justify font-14 style-text gray-text container" (click)="onSelect()">El cliente acepta de manera telefónica el cupo abrobado.
+                <label class="align-justify font-14 style-text gray-text container" (click)="onSelect()">El cliente esta de acuerdo con el cupo aprobado.
                   <input type="checkbox">
                     <span (click)="onSelect()" class="checkmark" checked="checked"></span>
                 </label>
