@@ -86,8 +86,10 @@ export class InformacionFinancieraComponent implements OnInit {
   }
 
   showComponent(){
-    this.income = parseInt(this.ingresos.split('$')[1]);
-    this.outcome = parseInt(this.egresos.split('$')[1]);
+    /* this.income = parseInt(this.ingresos.split('$')[1]);
+    this.outcome = parseInt(this.egresos.split('$')[1]); */
+    this.income = parseInt(this.ingresos);
+    this.outcome = parseInt(this.egresos);
     this.showSummary = true;
     this.showFinnancial = false;
   }
