@@ -16,6 +16,7 @@ import { DeliveryCardComponent } from './delivery-card/delivery-card.component';
 import { DeliveryCardHomeComponent } from './delivery-card-home/delivery-card-home.component';
 import { DeliveryCardOfficeComponent } from './delivery-card-office/delivery-card-office.component';
 import { UserLoginComponent } from './user-login/user-login.component';
+import { ScoreAppComponent } from './score-app/score-app.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { UserLoginComponent } from './user-login/user-login.component';
     DeliveryCardComponent,
     DeliveryCardHomeComponent,
     DeliveryCardOfficeComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    ScoreAppComponent
   ],
   imports: [
     BrowserModule,
