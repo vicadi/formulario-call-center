@@ -190,9 +190,9 @@ export class BasicinfoComponent implements OnInit {
     }
     return this.showErrorLastName2;
   }
-  
+
   validateIdNumber(): boolean {
-    if (this.model.idNumber != '' || this.model.idNumber != null ) {
+    if (this.model.idNumber !== '' || this.model.idNumber != null ) {
       if (this.model.idNumber.toString().length < 6 ) {
         this.showErrorIdNumber = true;
         this.errorMessageIdNumber = 'El campo de cedula tiene que tener mas de 6 numeros';
@@ -208,9 +208,9 @@ export class BasicinfoComponent implements OnInit {
     }
     return this.showErrorIdNumber;
   }
-  
+
   validateBirthDate(): boolean {
-    if (this.model.birthDay == '' || this.model.birthMonth == '' || this.model.birthYear == '') {
+    if (this.model.birthDay === '' || this.model.birthMonth === '' || this.model.birthYear === '') {
       this.showErrorBirthDate = true;
       this.errorMessageBirthDate = 'El campo de fecha de nacimiento es obligatoria';
     } else {

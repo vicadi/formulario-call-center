@@ -57,7 +57,7 @@
          <div class="bloqueGrande">
             <div class="bloque">
                <span>Nº de cédula*</span>
-               <input [ngClass] = "!showErrorIdNumber ? 'inputBasico':'inputBasicoError'" type="number" maxlength="13" required name="idNumber" [(ngModel)]="model.idNumber"
+               <input [ngClass] = "!showErrorIdNumber ? 'inputBasico':'inputBasicoError'" type="number" max=9999999999 required name="idNumber" [(ngModel)]="model.idNumber"
                (keyup)="validateIdNumber()">
                <div>
                   <p class="message-error" *ngIf="showErrorIdNumber">{{errorMessageIdNumber}}</p>
