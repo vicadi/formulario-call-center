@@ -43,6 +43,24 @@
     font-family: Helvetica;
     color: #8251cb;
 }
+
+.vianca {
+    width: 45px;
+    height: 45px;
+}
+.remember {
+    width: 33%;
+    border-radius: 4px;
+    background-color: rgba(0, 134, 216, 0.05);
+    padding: 12px 22px;
+}
+.remember_text {
+    margin-left: 56px;
+    margin-top: -66px;
+}
+.margin_remember {
+    margin: 2% 0% -1%;
+}
 form{
     margin-top: 7%;
     display: block;
@@ -52,6 +70,17 @@ form{
     float: left;
     margin-bottom: 3%;
 }
+.bloque_remember{
+    width: 83%;
+    float: left;
+    margin-bottom: 3%;
+}
+.font_black{
+    font-family: Helvetica;
+    color: #2d2d2d;
+}
+
+
 .bloque span{
     width: 100%;
     float: left;
