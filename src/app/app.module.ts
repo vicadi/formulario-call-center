@@ -17,6 +17,9 @@ import { DeliveryCardHomeComponent } from './delivery-card-home/delivery-card-ho
 import { DeliveryCardOfficeComponent } from './delivery-card-office/delivery-card-office.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 
+import { CurrencyMaskModule } from 'ng2-currency-mask';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,9 +37,12 @@ import { UserLoginComponent } from './user-login/user-login.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    CurrencyMaskModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {}
+

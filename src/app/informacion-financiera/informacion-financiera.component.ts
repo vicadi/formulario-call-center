@@ -5,6 +5,7 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './informacion-financiera.component.html',
   styleUrls: ['./informacion-financiera.component.css']
 })
+
 export class InformacionFinancieraComponent implements OnInit {
 
   @Input() username: string;

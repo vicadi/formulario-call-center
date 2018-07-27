@@ -16,24 +16,25 @@
             <div class="bloque">
                 <span class="font-gray font-18">Ingresos mensuales</span>
                 <span class="font-coment">Salario fijo, ingreso por pensión, arriendos…</span>
-                <input type="text" maxlength="16" pattern="[0-9]{1,16}" required name="ingresos" value="{{ingresos}}" (keyup)="onKeyIngresos()" [(ngModel)]="ingresos">
+                <input currencyMask [options]="{ prefix: '$ ', thousands: '.', precision: 0, align: 'left' }" maxlength="16" pattern="[0-9]{1,16}" required name="ingresos" (keyup)="onKeyIngresos()" [(ngModel)]="ingresos"/>
+                <!-- <input type="text" maxlength="16" pattern="[0-9]{1,16}" required name="ingresos" value="{{ingresos}}" (keyup)="onKeyIngresos()" [(ngModel)]="ingresos"> -->
                 <span></span>
             </div>
             <div class="bloque">
                 <span class="font-gray font-18">Gastos mensuales</span>
                 <span class="font-coment">Salida de dinero como arriendo, ocio…</span>
-                <input type="text" maxlength="16" pattern="[0-9]{1,16}" name="egresos" [(ngModel)]="egresos" value="{{egresos}}" (keyup)="onKeyEgresos()">
+                <input currencyMask [options]="{ prefix: '$ ', thousands: '.', precision: 0, align: 'left' }" maxlength="16" pattern="[0-9]{1,16}" name="egresos" [(ngModel)]="egresos" (keyup)="onKeyEgresos()">
                 <span></span>
             </div> 
             <div class="bloque">
                 <span class="font-gray font-18">Activos</span>
                 <span class="font-coment">Total bienes personales como propiedad raíz y vehículo…</span>
-                <input type="text" maxlength="16" pattern="[0-9]{1,16}" required name="activos" [(ngModel)]="activos" value="{{activos}}" (keyup)="onKeyActivos()">
+                <input currencyMask [options]="{ prefix: '$ ', thousands: '.', precision: 0, align: 'left' }" maxlength="16" pattern="[0-9]{1,16}" required name="activos" [(ngModel)]="activos" (keyup)="onKeyActivos()">
             </div>
             <div class="bloque">
                 <span class="font-gray font-18">Pasivos</span>
                 <span class="font-coment">Total deudas con el sector financiero o terceros…</span>
-                <input type="text" maxlength="16" pattern="[0-9]{1,16}" required name="pasivos" [(ngModel)]="pasivos" value="{{pasivos}}" (keyup)="onKeyPasivos()">
+                <input currencyMask [options]="{ prefix: '$ ', thousands: '.', precision: 0, align: 'left' }" maxlength="16" pattern="[0-9]{1,16}" required name="pasivos" [(ngModel)]="pasivos" (keyup)="onKeyPasivos()">
             </div>
             <div class="remember bloque_remember">
               <div>
