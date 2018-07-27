@@ -56,7 +56,7 @@
       </div>
     </div>
     <!--Boton-->
-    <input type="submit" value="SIGUIENTE"  (click)="showComponent()" class="boton btn-blue" [ngClass]= "showHome ? (city && neighborhood && address ? 'btn-blue-active':'btn-blue-inactive'): (showBogota || showCovenas || showPlanetaRica ? 'btn-blue-active':'btn-blue-inactive')">
+    <input type="submit" value="SIGUIENTE"  (click)="showComponent()" class="boton btn-blue" [ngClass]= "showHome ? (city && neighborhood && address ? 'btn-blue-active':'btn-blue-inactive'): (showBogota || showCovenas || showPlanetaRica ? 'btn-blue-active':'btn-blue-inactive')" [disabled]="(showHome && (!city || !neighborhood || !address)) || (showOffice && !showBogota && !showCovenas && !showPlanetaRica)">
   </div>
 </div>
 
