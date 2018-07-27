@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="showDeliveryCard">
   <div class="imagen-progreso">
     <img class="img-progreso" src="../../assets/img/rectangle-2@3x.png">
   </div>
@@ -59,3 +59,5 @@
     <input type="submit" value="SIGUIENTE"  (click)="showComponent()" class="boton btn-blue" [ngClass]= "showHome ? (city && neighborhood && address ? 'btn-blue-active':'btn-blue-inactive'): (showBogota || showCovenas || showPlanetaRica ? 'btn-blue-active':'btn-blue-inactive')">
   </div>
 </div>
+
+<app-score-app *ngIf="!showDeliveryCard"></app-score-app>

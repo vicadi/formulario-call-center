@@ -9,6 +9,7 @@ export class DeliveryCardComponent implements OnInit {
 
   showHome: boolean = true;
   showOffice: boolean = false;
+  showDeliveryCard: boolean = true;
 
   city: string;
   neighborhood: string;
@@ -70,7 +71,7 @@ export class DeliveryCardComponent implements OnInit {
   }
 
   showComponent(){
-    alert("Tu tarjeta de crédito esta en camino");
+    this.showDeliveryCard = false;
   }
 
 }

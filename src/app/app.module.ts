@@ -14,6 +14,7 @@ import { NavBarUserComponent } from './nav-bar-user/nav-bar-user.component';
 import { HomeComponent } from './home/home.component';
 import { DeliveryCardComponent } from './delivery-card/delivery-card.component';
 import { UserLoginComponent } from './user-login/user-login.component';
+import { ScoreAppComponent } from './score-app/score-app.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { UserLoginComponent } from './user-login/user-login.component';
     HomeComponent,
     BasicinfoComponent,
     DeliveryCardComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    ScoreAppComponent
   ],
   imports: [
     BrowserModule,
