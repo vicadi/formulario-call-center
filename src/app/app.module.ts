@@ -13,9 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { NavBarUserComponent } from './nav-bar-user/nav-bar-user.component';
 import { HomeComponent } from './home/home.component';
 import { DeliveryCardComponent } from './delivery-card/delivery-card.component';
-import { DeliveryCardHomeComponent } from './delivery-card-home/delivery-card-home.component';
-import { DeliveryCardOfficeComponent } from './delivery-card-office/delivery-card-office.component';
 import { UserLoginComponent } from './user-login/user-login.component';
+import { ScoreAppComponent } from './score-app/score-app.component';
 
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 
@@ -30,9 +29,8 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
     HomeComponent,
     BasicinfoComponent,
     DeliveryCardComponent,
-    DeliveryCardHomeComponent,
-    DeliveryCardOfficeComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    ScoreAppComponent
   ],
   imports: [
     BrowserModule,

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DeliveryCardOfficeComponent } from './delivery-card-office.component';
+import { ScoreAppComponent } from './score-app.component';
 
-describe('DeliveryCardOfficeComponent', () => {
-  let component: DeliveryCardOfficeComponent;
-  let fixture: ComponentFixture<DeliveryCardOfficeComponent>;
+describe('ScoreAppComponent', () => {
+  let component: ScoreAppComponent;
+  let fixture: ComponentFixture<ScoreAppComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DeliveryCardOfficeComponent ]
+      declarations: [ ScoreAppComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DeliveryCardOfficeComponent);
+    fixture = TestBed.createComponent(ScoreAppComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

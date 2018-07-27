@@ -45,7 +45,7 @@
                 <p class="font_black font-14">Ser claro y utilizar un lenguaje simple a la hora   de pedir información financiera a tu cliente.</p>
               </div> 
             </div>
-            <input type="submit" value="SIGUIENTE"  (click)="showComponent()" class="boton btn-blue" [ngClass]= "ingresos && egresos && activos && pasivos ? 'btn-blue-active':'btn-blue-inactive'">
+            <input type="submit" value="SIGUIENTE"  (click)="showComponent()" class="boton btn-blue" [disabled]="!ingresos || !egresos || !activos || !pasivos" [ngClass]= "ingresos && egresos && activos && pasivos ? 'btn-blue-active':'btn-blue-inactive'">
         </form>
     </div>
 </div>
