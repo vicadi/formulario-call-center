@@ -4,12 +4,58 @@
   </div>
   <div class="bloque-derecho">
     <app-nav-bar-user></app-nav-bar-user>
-    <h1 class="font-40 font-blue h1Center">¿Dónde desea recibir la Tarjeta de <br> Crédito tu cliente?</h1>
+    <span class="font-40 font-blue h1Center">¿Dónde desea recibir la Tarjeta de <br> Crédito tu cliente?</span>
     <div class="choose-both">
       <div class="choose" [ngClass]= "showHome ? 'home-active':'home-inactive'" (click)="onClickHome()"></div>
       <div class="choose" [ngClass]= "showOffice ? 'office-active':'office-inactive'" (click)="onClickOffice()"></div>
     </div>
-    <app-delivery-card-home *ngIf="showHome"></app-delivery-card-home>
-    <app-delivery-card-office *ngIf="showOffice"></app-delivery-card-office>
+    <div class="remember bloque_remember">
+      <div>
+        <img class="vianca" src="assets/img/vianca.png">
+      </div> 
+      <div class="remember_text font_black font-helvetica">
+        <p class="font_black font-24 margin_remember">Recuerda</p>
+        <p class="font_black font-14 font-justify">Pídele un lugar dónde desea recibir su Tarjeta de Crédito y cuéntale que el envío es gratuito y que en 5 días hábiles podrá hacer uso de su Tarjeta de Crédito. Indícale a tu cliente que las intrucciones para la activación las podrá encontrar en el estiquer adherido a la tarjeta..</p>
+      </div>    
+    </div>
+    <!--Delivery Home-->
+    <div class="block-85" *ngIf="showHome">
+      <span class="along font-purple font-18">Todos los campos son obligatorios</span>
+      <form>
+        <div class="half-block">
+          <label class="font-gray-label font-helvetica font-18 complete-label">Ciudad</label>
+          <!--<input class="half-input" name="city" [(ngModel)]="city" (keyup)="filterValues()">-->
+          <select class="half-input select-out-arrows" name="city" [(ngModel)]="city">
+              <option value="Bogotá">Bogotá</option>
+              <option value="Coveñas">Coveñas</option>
+              <option value="Planeta Rica">Planeta Rica</option>
+            </select>
+        </div>
+        <div class="half-block">
+            <label class="font-gray-label font-helvetica font-18 complete-label">Barrio</label>
+            <input class="half-input" name="neighborhood" [(ngModel)]="neighborhood">
+        </div>
+        <div class="complete-block">
+          <label class="font-gray-label font-helvetica font-18 complete-label">Dirección</label>
+          <input class="complete-input" name="address" [(ngModel)]="address">
+          <span class="font-example font-16">Ejemplo: Carrera 13 con calle 32-13</span>
+        </div>
+      </form>
+    </div>
+    <!--Delivery Office-->
+    <div class="block-85" *ngIf="showOffice">
+      <span class="font-18 font-helvetica font-gray-label complete-block marginTop5andBottom2">Selecciona la ciudad dónde el cliente desea recibir la Tarjeta de Crédito</span>
+      <div class="choose-three">
+        <div class="choose-office" [ngClass]= "showBogota ? 'bogota-active':'bogota-inactive'" (click)="onClickBogota()"></div>
+        <div class="choose-office" [ngClass]= "showCovenas ? 'covenas-active':'covenas-inactive'" (click)="onClickCovenas()"></div>
+        <div class="choose-office" [ngClass]= "showPlanetaRica ? 'planetaRica-active':'planetaRica-inactive'" (click)="onClickPlanetaRica()"></div>
+      </div>
+      <div class="complete-block marginLeft4 height120">
+        <span class="font-24 font-gray font-helvetica font-bold complete-block">{{nameOffice}}</span>
+        <span class="font-24 font-gray font-helvetica complete-block">{{addressOffice}}</span>
+      </div>
+    </div>
+    <!--Boton-->
+    <input type="submit" value="SIGUIENTE"  (click)="showComponent()" class="boton btn-blue" [ngClass]= "showHome ? (city && neighborhood && address ? 'btn-blue-active':'btn-blue-inactive'): (showBogota || showCovenas || showPlanetaRica ? 'btn-blue-active':'btn-blue-inactive')">
   </div>
 </div>
