@@ -1,8 +1,7 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div *ngIf="showBasicInfo">
    <div class="bloque-izquierdo">
-      <img class="img" src="../../assets/img/barraprog_infobasica.png">
-      <div class="Mask">
+      <img class="img" src="../../assets/img/progress-banners/barra-de-procesos-basicinfo@3x.png">
+      <div class="imagen-banco">
          <img src="../../assets/img/icon-bank.svg">
       </div>
    </div>
@@ -57,7 +56,7 @@
          <div class="bloqueGrande">
             <div class="bloque">
                <span>Nº de cédula*</span>
-               <input [ngClass] = "!showErrorIdNumber ? 'inputBasico':'inputBasicoError'" type="number" maxlength="13" required name="idNumber" [(ngModel)]="model.idNumber"
+               <input [ngClass] = "!showErrorIdNumber ? 'inputBasico':'inputBasicoError'" type="number" max=9999999999 required name="idNumber" [(ngModel)]="model.idNumber"
                (keyup)="validateIdNumber()">
                <div>
                   <p class="message-error" *ngIf="showErrorIdNumber">{{errorMessageIdNumber}}</p>
@@ -111,7 +110,8 @@
 	            </div>
          </div>
             <div class="position-btn">
-               <button class="btn-blue" [ngClass]="checkRequiredValues() ? 'btn-blue-active':'btn-blue-inactive'" (click)="finish()" [disabled]="!checkRequiredValues()">SIGUIENTE</button>
+               <button class="btn-blue" [ngClass]="checkRequiredValues() ? 'btn-blue-active':'btn-blue-inactive'" (click)="finish()" 
+               [disabled]="!checkRequiredValues()" >SIGUIENTE</button>
             </div>
       </form>
    </div>

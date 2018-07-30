@@ -1,6 +1,6 @@
 /* The container */
 
-.container {
+  .container {
     display: flow-root;
     position: relative;
     padding-left: 35px;
@@ -19,7 +19,46 @@
     letter-spacing: -0.1px;
     color: #6b6b6b;
   }
-  
+  .bloque-derecho {
+    width: 70%;
+    height: 100%;
+    float: left;
+    margin-left: 135px;
+  }
+  .bloque-derecho-simple {
+    width: 70%;
+    height: 100%;
+    float: left;
+    margin-left: 35px;
+  }
+  .margin-left-135{
+    margin-left: 135px !important;
+    }
+  .bloque-izquierdo{
+    height: 100%;
+    width: 20%;
+    float: left;
+  }
+  .img{
+    width: 409px;
+    height: 858px;
+    object-fit: contain;
+  }
+  .imagen-banco {
+    width: 77px;
+    height: 36px;
+    border-radius: 6px;
+    
+    margin-left: 63px;
+    position: absolute;
+    top: -8px;
+    left: 10px;
+    padding-top: 16px;
+    padding-bottom: 14px;
+    padding-left: 11px;
+    padding-right: 11px;
+  }
+
   /* Hide the browser's default checkbox */
   
   .container input {
@@ -244,7 +283,9 @@
   .margin-top-60 {
     margin-top: 60px;
   }
-
+  .margin-top-14 {
+    margin-top: 14%;
+  }
   .contain-nav{
     height: 100vh;
     float: left;
@@ -276,3 +317,41 @@
     float: right; 
     margin-right: 5%;
   }
+
+  .text-align{
+    float: left; 
+    margin-left: 60px;  
+  }
+
+  .button-align{
+    float: left; 
+    margin-left: 351px;
+  }
+
+.vianca {
+  width: 45px;
+  height: 45px;
+}
+.remember {
+  width: 33%;
+  border-radius: 4px;
+  background-color: rgba(0, 134, 216, 0.05);
+  padding: 12px 22px;
+}
+.remember_text {
+    margin-left: 56px;
+    margin-top: -66px;
+}
+.margin_remember {
+    margin: 2% 0% -1%;
+}
+
+.bloque_remember{
+  width: 82%;
+  float: left;
+  margin: 3% 0% 3% 10%;
+}
+.font_black{
+  font-family: Helvetica;
+  color: #2d2d2d;
+}

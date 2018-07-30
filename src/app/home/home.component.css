@@ -1,11 +1,26 @@
 .image_top {
   margin-left: 53%;
   margin-bottom: -67%;
-  margin-top: -46%;
+  margin-top: -50%;
 }
 
 .logo {
   margin-left: 5%;
+}
+
+.vianca {
+  width: 45px;
+  height: 45px;
+}
+.remember {
+  width: 33%;
+  border-radius: 4px;
+  background-color: rgba(0, 134, 216, 0.05);
+  padding: 12px 22px;
+}
+.remember_text {
+  margin-left: 56px;
+  margin-top: -76px;
 }
 
 .main_text {
@@ -30,8 +45,13 @@
   letter-spacing: -0.2px;
 }
 
+.black_text {
+  color: #2d2d2d;
+}
+
 .size_24 {
   font-size: 24px;
+  margin-bottom: -7px;
 }
 
 .user-title{
@@ -49,14 +69,21 @@
   height: -moz-min-content;
 }
 
-.size_14 {
-  font-size: 14px;
+.size_16 {
+  font-size: 16px;
 }
-
+.intermediate {
+  margin-top: -2%;
+}
 .body_text {
   margin-left: 79px;
   margin-top: 32%;
 }
+
+.btn {
+  margin-top: -4%;
+}
+
 .btn-blue {
   width: 325px;
   height: 51px;

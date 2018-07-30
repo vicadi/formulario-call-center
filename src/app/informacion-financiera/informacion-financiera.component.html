@@ -1,42 +1,52 @@
 <div *ngIf="showFinnancial">
-    <div class="imagen-progreso"></div>
+    <div class="bloque-izquierdo">
+        <img class="img" src="../../assets/img/progress-banners/barra-de-procesos-infofinanciera@3x.png">
+        <div class="imagen-banco">
+           <img src="../../assets/img/icon-bank.svg">
+        </div>
+    </div>
     <div class="bloque-derecho">
         <app-nav-bar-user></app-nav-bar-user>
         <div class="padding-12">
             <span class="titulo font-blue">Ingresa la información</span>
             <span class="titulo font-blue">financiera de tu cliente</span>
         </div>
-        <span class="along font-purple font-18">Los campos con asterisco son obligatorios (*)</span>
+        <span class="along font-purple font-18">Todos los campos son obligatorios</span>
         <form>
             <div class="bloque">
-                <span class="font-gray font-18">Ingresos mensuales*</span>
+                <span class="font-gray font-18">Ingresos mensuales</span>
                 <span class="font-coment">Salario fijo, ingreso por pensión, arriendos…</span>
-                <input type="text" maxlength="16" pattern="[0-9]{1,16}" required name="ingresos" value="{{ingresos}}" (keyup)="onKeyIngresos()" [(ngModel)]="ingresos">
+                <input currencyMask [options]="{ prefix: '$ ', thousands: '.', precision: 0, align: 'left' }" maxlength="16" pattern="[0-9]{1,16}" required name="ingresos" [(ngModel)]="ingresos"/>
+                <!-- <input type="text" maxlength="16" pattern="[0-9]{1,16}" required name="ingresos" value="{{ingresos}}" (keyup)="onKeyIngresos()" [(ngModel)]="ingresos"> -->
                 <span></span>
             </div>
             <div class="bloque">
-                <span class="font-gray font-18">Gastos mensuales*</span>
+                <span class="font-gray font-18">Gastos mensuales</span>
                 <span class="font-coment">Salida de dinero como arriendo, ocio…</span>
-                <input type="text" maxlength="16" pattern="[0-9]{1,16}" name="egresos" [(ngModel)]="egresos" value="{{egresos}}" (keyup)="onKeyEgresos()">
+                <input currencyMask [options]="{ prefix: '$ ', thousands: '.', precision: 0, align: 'left' }" maxlength="16" pattern="[0-9]{1,16}" name="egresos" [(ngModel)]="egresos" >
                 <span></span>
             </div> 
             <div class="bloque">
-                <span class="font-gray font-18">Activos*</span>
+                <span class="font-gray font-18">Activos</span>
                 <span class="font-coment">Total bienes personales como propiedad raíz y vehículo…</span>
-                <input type="text" maxlength="16" pattern="[0-9]{1,16}" required name="activos" [(ngModel)]="activos" value="{{activos}}" (keyup)="onKeyActivos()">
+                <input currencyMask [options]="{ prefix: '$ ', thousands: '.', precision: 0, align: 'left' }" maxlength="16" pattern="[0-9]{1,16}" required name="activos" [(ngModel)]="activos" >
             </div>
             <div class="bloque">
-                <span class="font-gray font-18">Pasivos*</span>
+                <span class="font-gray font-18">Pasivos</span>
                 <span class="font-coment">Total deudas con el sector financiero o terceros…</span>
-                <input type="text" maxlength="16" pattern="[0-9]{1,16}" required name="pasivos" [(ngModel)]="pasivos" value="{{pasivos}}" (keyup)="onKeyPasivos()">
+                <input currencyMask [options]="{ prefix: '$ ', thousands: '.', precision: 0, align: 'left' }" maxlength="16" pattern="[0-9]{1,16}" required name="pasivos" [(ngModel)]="pasivos" >
             </div>
-            <div class="bloque marginTop-10">
-                <span class="font-gray-6b font-24 bold">Recuerda</span>
-                <p class="font-gray-6b font-14">Ser claro y utilizar un lenguaje simple a la hora de pedir información financiera a tu cliente.</p>
+            <div class="remember bloque_remember">
+              <div>
+                <img class="vianca" src="assets/img/vianca.png">
+              </div>
+              <div class="remember_text">
+                <p class="font_black font-24 margin_remember">Recuerda</p>
+                <p class="font_black font-14">Ser claro y utilizar un lenguaje simple a la hora   de pedir información financiera a tu cliente.</p>
+              </div> 
             </div>
             <input type="submit" value="SIGUIENTE"  (click)="showComponent()" class="boton btn-blue" [disabled]="!ingresos || !egresos || !activos || !pasivos" [ngClass]= "ingresos && egresos && activos && pasivos ? 'btn-blue-active':'btn-blue-inactive'">
         </form>
     </div>
 </div>
-
 <app-summary [outcome]="outcome" [income]="income" [username]="username" *ngIf="showSummary"></app-summary>

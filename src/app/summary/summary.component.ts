@@ -60,7 +60,7 @@ export class SummaryComponent implements OnInit {
     }
   }
 
-  backHome(){
+  backHome() {
     this.showSummary = false;
     this.showHome = true;
   }
