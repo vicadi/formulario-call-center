@@ -18,6 +18,8 @@ import { ScoreAppComponent } from './score-app/score-app.component';
 
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    CurrencyMaskModule
+    CurrencyMaskModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
