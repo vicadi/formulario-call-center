@@ -1,6 +1,6 @@
 <div *ngIf="showDeliveryCard">
-  <div class="imagen-progreso">
-    <img class="img-progreso" src="../../assets/img/rectangle-2@3x.png">
+  <div class="bloque-izquierdo">
+      <img class="img" src="../../assets/img/progress-banners/barra-de-procesos-deliverycard@3x.png">
   </div>
   <div class="bloque-derecho">
     <app-nav-bar-user></app-nav-bar-user>
@@ -36,7 +36,7 @@
             <input class="half-input" name="neighborhood" [(ngModel)]="neighborhood">
         </div>
         <div class="complete-block">
-          <label class="font-gray-label font-helvetica font-18 complete-label">Dirección</label>
+          <label style="margin-bottom: 1%;" class="font-gray-label font-helvetica font-18 complete-label">Dirección</label>
           <input class="complete-input" name="address" [(ngModel)]="address">
           <span class="font-example font-16">Ejemplo: Carrera 13 con calle 32-13</span>
         </div>
