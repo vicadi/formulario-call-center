@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BasicInfo } from './basicinfo';
-import { FormsModule, ControlValueAccessor } from '@angular/forms';
 
-import { ChangeDetectorRef } from '@angular/core';
-
-
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -13,6 +11,7 @@ import { ChangeDetectorRef } from '@angular/core';
   styleUrls: ['./basicinfo.component.css']
 })
 
+@Injectable()
 export class BasicinfoComponent implements OnInit {
   model = new BasicInfo('', '', '', '', '', '', '', '', '', '');
 
@@ -26,6 +25,9 @@ export class BasicinfoComponent implements OnInit {
 
   showBasicInfo = true;
   showFinancialInfo = false;
+
+  showCedula = true;
+  showInfo = false;
 
   error = true;
   errorMessage = '';
@@ -45,19 +47,21 @@ export class BasicinfoComponent implements OnInit {
 
   showErrorLastName2: boolean = false;
   errorMessageLastName2 = '';
-  
+
   showErrorIdNumber: boolean = false;
   errorMessageIdNumber = '';
-  
+
   showErrorBirthDate: boolean = false;
   errorMessageBirthDate = '';
-  
+
   showErrorEmail: boolean = false;
   errorMessageEmail = '';
-  
+
   showErrorPhoneNumber: boolean = false;
   errorMessagePhoneNumber = '';
-  
+
+  submitted = false;
+
   firstName1Check = false;
   firstName2Check = false;
   lastName1Check = false;
@@ -66,23 +70,24 @@ export class BasicinfoComponent implements OnInit {
   birthDateCheck = false;
   emailCheck = false;
   phoneCheck = false;
-  
-  constructor() {}
+
+  constructor (private http: HttpClient) { }
 
   ngOnInit() {
     this.daysList = Array(31).fill(0).map((x, i) => i + 1);
-    this.monthList = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre', ];
+    this.monthList = ['Enero', 'Febrero', 'Marzo', 'Abril',
+      'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre', ];
     this.yearList = Array(69).fill(0).map((x, i) => i + 1950);
   }
-  
-  checkS(value): boolean {    
+
+  checkS(value): boolean {
     if (!value.match(/[^a-zA-ZñÑ\s]+/g)) {
       return true;
     } else {
       return false;
     }
-  } 
-  
+  }
+
   checkEmail(value): boolean {
     if (value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,6})+$/g)) {
       return true;
@@ -90,14 +95,17 @@ export class BasicinfoComponent implements OnInit {
       return false;
     }
   }
-  
-  submitted = false;
   onSubmit() { this.submitted = true; }
-  
+
+  loadIdNumber() {
+    this.showCedula = false;
+    this.showInfo = true;
+  }
+
   validateFirstName1(): boolean {
     const value = this.model.firstName1;
-    
-    if (value == '') {
+
+    if (value === '') {
       this.showErrorFirstName1 = true;
       this.errorMessageFirstName1 = 'El campo de primer nombre es obligatorio';
     } else if (value.length < 3) {
@@ -192,6 +200,10 @@ export class BasicinfoComponent implements OnInit {
   }
 
   validateIdNumber(): boolean {
+    this.model.idNumber = this.model.idNumber.replace(/[^$0-9]/g, '');
+    if (this.model.idNumber.length > 10) {
+      this.model.idNumber = this.model.idNumber.substring(0, 10);
+    }
     if (this.model.idNumber !== '' || this.model.idNumber != null ) {
       if (this.model.idNumber.toString().length < 6 ) {
         this.showErrorIdNumber = true;
@@ -306,7 +318,7 @@ export class BasicinfoComponent implements OnInit {
     }
     return false;
   }
-  
+
   finish(): void {
     this.showBasicInfo = false;
     this.showFinancialInfo = true;
@@ -316,5 +328,4 @@ export class BasicinfoComponent implements OnInit {
     this.showBasicInfo = true;
     this.showFinancialInfo = true;
   }
-  
 }
