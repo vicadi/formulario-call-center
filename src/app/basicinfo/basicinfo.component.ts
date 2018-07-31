@@ -200,6 +200,10 @@ export class BasicinfoComponent implements OnInit {
   }
 
   validateIdNumber(): boolean {
+    this.model.idNumber = this.model.idNumber.replace(/[^$0-9]/g, '');
+    if (this.model.idNumber.length > 10) {
+      this.model.idNumber = this.model.idNumber.substring(0, 10);
+    }
     if (this.model.idNumber !== '' || this.model.idNumber != null ) {
       if (this.model.idNumber.toString().length < 6 ) {
         this.showErrorIdNumber = true;

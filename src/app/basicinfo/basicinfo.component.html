@@ -16,16 +16,16 @@
         <div class="bloqueGrande bloqueCedula">
             <div class="bloque">
                 <span>Nº de cédula*</span>
-                <input style="width: 218px; height: 29px;" [class.inputDisabled]="!showCedula" [ngClass] = "!showErrorIdNumber ? 'inputBasico':'inputBasicoError'" type="number" 
+                <input style="width: 218px; height: 29px;" [class.inputDisabled]="!showCedula" [ngClass] = "!showErrorIdNumber ? 'inputBasico':'inputBasicoError'" type="text" 
                 max=999999999 required name="idNumber" [(ngModel)]="model.idNumber" (keyup)="validateIdNumber()" [disabled]=!showCedula>
-                    <div>
-                        <p style="width: 100%;" class="message-error" *ngIf="showErrorIdNumber">{{errorMessageIdNumber}}</p>
-                    </div>
+                <div>
+                    <p style="width: 100%;" class="message-error" *ngIf="showErrorIdNumber">{{errorMessageIdNumber}}</p>
+                </div>
             </div>
             <div class="position-btn">
                     <button class="btn-blue botonCedula" [ngClass]="showCedula ? 'btn-blue-active botonCedula':'btn-blue-inactive botonCedula'" (click)="loadIdNumber()" 
                     [disabled]="!showCedula" >CONTINUAR</button>
-                </div>
+            </div>
         </div>
       </div>
       <div *ngIf="showInfo">
