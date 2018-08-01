@@ -1,0 +1,74 @@
+version: 2
+
+jobs:
+  buildAndTest:
+    docker:
+      - image: jasonlll88/node_angularcli:1.2
+    working_directory: ~/formulario-call-center
+    steps:
+      - checkout
+      - restore_cache:
+          key: formulario-call-center-nodemodule-{{ checksum "package.json" }}
+      - run:
+          command: |
+              if [[ "$(git log -1 | head -6 | egrep 'master-release' | echo $(tr -d ' '))" = *"master-release"* ]]; then
+                echo "Ignoring release"
+                if [ ! -d ./node_modules ]; then
+                  mkdir ./node_modules
+                fi
+              else
+                npm install
+                ng test
+              fi
+      - save_cache:
+          key: formulario-call-center-nodemodule-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+
+      - persist_to_workspace:
+          root: /home/circleci
+          paths:
+            - formulario-call-center/node_modules
+            - .aws
+
+  deployQA:
+    docker:
+      - image: jasonlll88/node_angularcli:1.2
+    working_directory: ~/formulario-call-center
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/
+      - deploy:
+          name: Deploy QA
+          command: |
+              # Setting up AWS profiles for AWS CLI
+              PATH=$PATH:~/.local/bin
+              export AWS_DEFAULT_REGION=us-east-1
+              aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID --profile qa
+              aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY --profile qa
+              export AWS_PROFILE=qa
+              # Build and deploy to S3
+              ng build --prod --environment qa
+              aws s3 cp dist/ s3://bdb-qa-digi-prueba --recursive
+  
+  
+workflows:
+  version: 2
+  deployPayrollLoan:
+    jobs:
+      - buildAndTest:
+          filters:
+            branches:
+              only:
+                - /.*master.*/
+
+      - deployQA:
+          requires:
+            - sonar
+            - buildAndTest
+          filters:
+            branches:
+              only:
+                - /.*master.*/
+ 
