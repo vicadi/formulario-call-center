@@ -1,8 +1,7 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div *ngIf="showBasicInfo">
    <div class="bloque-izquierdo">
-      <img class="img" src="1.png">
-      <div class="Mask">
+      <img class="img" src="../../assets/img/progress-banners/barra-de-procesos-basicinfo@3x.png">
+      <div class="imagen-banco">
          <img src="../../assets/img/icon-bank.svg">
       </div>
    </div>
@@ -13,107 +12,118 @@
       <span class="titulo">Ingresa la información personal</span> <span
          class="titulo">de tu cliente</span>
       <p class="asterisco">Los campos con asterisco son obligatorios (*)</p>
-      <form>
-         <div class="bloqueGrande">
+      <div>
+        <div class="bloqueGrande bloqueCedula">
             <div class="bloque">
-               <span>Primer nombre*</span> 
-               <input
-               [(ngModel)]="model.firstName1" (keyup)="validateFirstName1()"
-               [ngClass]="!showErrorFirstName1 ? 'inputBasico':'inputBasicoError'"
-               type="text" maxlength="15" required name="firstName1"><br>
-               <!-- <div>-->
-                  <p class="message-error" [hidden]="!showErrorFirstName1">{{errorMessageFirstName1}}</p>
-               <!-- </div> -->
+                <span>Nº de cédula*</span>
+                <input style="width: 218px; height: 29px;" [class.inputDisabled]="!showCedula" [ngClass] = "!showErrorIdNumber ? 'inputBasico':'inputBasicoError'" type="text" 
+                max=999999999 required name="idNumber" [(ngModel)]="model.idNumber" (keyup)="validateIdNumber()" [disabled]=!showCedula>
+                <div>
+                    <p style="width: 100%;" class="message-error" *ngIf="showErrorIdNumber">{{errorMessageIdNumber}}</p>
+                </div>
             </div>
-            <div class="bloque">
-               <span>Segundo nombre</span> <input 
-               [ngClass]="!showErrorFirstName2 ? 'inputBasico':'inputBasicoError'"
-               type="text" maxlength="15" required name="firstName2"
-               [(ngModel)]="model.firstName2" (keyup)="validateFirstName2()">
-               <div>
-                  <p class="message-error" [hidden]="!showErrorFirstName2">{{errorMessageFirstName2}}</p>
-               </div>
-            </div>
-         </div>
-         <div class="bloqueGrande">
-            <div class="bloque">
-               <span>Primer apellido*</span>
-               <input [ngClass] = "!showErrorLastName1 ? 'inputBasico':'inputBasicoError'" type="text" maxlength="15" required name="lastName1"  [(ngModel)]="model.lastName1"
-               (keyup)="validateLastName1()">
-               <div>
-                  <p class="message-error" [hidden]="!showErrorLastName1">{{errorMessageLastName1}}</p>
-               </div>
-            </div>
-            <div class="bloque">
-               <span>Segundo apellido</span>
-               <input [ngClass] = "!showErrorLastName2 ? 'inputBasico':'inputBasicoError'" type="text" maxlength="15" required name="lastName2" [(ngModel)]="model.lastName2"
-               (keyup)="validateLastName2()">
-               <div>
-                  <p class="message-error" [hidden]="!showErrorLastName2">{{errorMessageLastName2}}</p>
-               </div>
-            </div>
-         </div>
-         <br>
-         <div class="bloqueGrande">
-            <div class="bloque">
-               <span>Nº de cédula*</span>
-               <input [ngClass] = "!showErrorIdNumber ? 'inputBasico':'inputBasicoError'" type="number" maxlength="13" required name="idNumber" [(ngModel)]="model.idNumber"
-               (keyup)="validateIdNumber()">
-               <div>
-                  <p class="message-error" *ngIf="showErrorIdNumber">{{errorMessageIdNumber}}</p>
-               </div>
-            </div>
-            <div class="bloque">
-               <span>Fecha de nacimiento*</span>
-               <div style="float:left;">
-                  <select  class="inputBasico" name="birthDay" [(ngModel)]="model.birthDay" (change)="validateBirthDate()">
-                  	  <option name="birthDayS" *ngFor="let day of daysList" [ngValue]="day">{{day}}</option>
-	               </select>
-	               <select  class="inputBasico" name="birthMonth" [(ngModel)]="model.birthMonth" (change)="validateBirthDate()">
-	                  <option name="birthDayS" *ngFor="let month of monthList" [ngValue]="month">{{month}}</option>
-	               </select>
-	               <select  class="inputBasico" name="birthYear" [(ngModel)]="model.birthYear" (change)="validateBirthDate()">
-	                  <option name="birthDayS" *ngFor="let year of yearList" [ngValue]="year">{{year}}</option>
-	               </select>
-	           </div>
-               <div>
-                  <p class="message-error" *ngIf="showErrorBirthDate">{{errorMessageBirthDate}}</p>
-               </div>
-            </div>
-         </div>
-         <div class="bloqueGrande">
-            <div class="bloqueMail">
-               <span>Correo electrónico*</span>
-               <input class="size-mail" [ngClass] = "!showErrorEmail ? 'inputBasico':'inputBasicoError'" type="email" maxlength="25" required name="email" [(ngModel)]="model.email"
-               (keyup)="validateEmail()">
-				<div class="float-none">
-               <span class="message-error span-size" *ngIf="showErrorEmail">{{errorMessageEmail}}</span>
-               </div>
-            </div>
-         </div>
-         <div class="bloqueGrande">
-         	   <span class="span-mail">Número de teléfono*</span>	
-         	   <br>
-         	   <div class="inputBasico padding-1">
-	         	   <div class="style-radio">
-	         	   	<input  type="radio" [checked]="checkNFijo" (change)="validateChangePhone()"> Fijo
-	         	   </div>
-	         	   <div class="style-radio">
-	         	   <input type="radio" [checked]="!checkNFijo" (change)="validateChangePhone()"> Celular
-	         	   </div>
-         	   </div>
-         	   <div>
-	               <input class="padding-1 position-tel" [ngClass] = "!showErrorPhoneNumber ? 'inputBasico':'inputBasicoError'" type="number" maxlength="15" required name="numberT" [(ngModel)]="model.phoneNumber"
-	               (keyup)="validatePhoneNumber()">
-	               <div>
-	                  <p class="message-error" *ngIf="showErrorPhoneNumber">{{errorMessagePhoneNumber}}</p>
-	               </div>
-	            </div>
-         </div>
             <div class="position-btn">
-               <button class="btn-blue" [ngClass]="checkRequiredValues() ? 'btn-blue-active':'btn-blue-inactive'" (click)="finish()" [disabled]="!checkRequiredValues()">SIGUIENTE</button>
+                    <button class="btn-blue botonCedula" [ngClass]="showCedula ? 'btn-blue-active botonCedula':'btn-blue-inactive botonCedula'" (click)="loadIdNumber()" 
+                    [disabled]="!showCedula" >CONTINUAR</button>
             </div>
-      </form>
+        </div>
+      </div>
+      <div *ngIf="showInfo">
+        <form>
+            <div class="bloqueGrande">
+                <div class="bloque">
+                <span>Primer nombre*</span> 
+                <input
+                [(ngModel)]="model.firstName1" (keyup)="validateFirstName1()"
+                [ngClass]="!showErrorFirstName1 ? 'inputBasico':'inputBasicoError'"
+                type="text" maxlength="15" required name="firstName1"><br>
+                <!-- <div>-->
+                    <p class="message-error" [hidden]="!showErrorFirstName1">{{errorMessageFirstName1}}</p>
+                <!-- </div> -->
+                </div>
+                <div class="bloque">
+                <span>Segundo nombre</span> <input 
+                [ngClass]="!showErrorFirstName2 ? 'inputBasico':'inputBasicoError'"
+                type="text" maxlength="15" required name="firstName2"
+                [(ngModel)]="model.firstName2" (keyup)="validateFirstName2()">
+                <div>
+                    <p class="message-error" [hidden]="!showErrorFirstName2">{{errorMessageFirstName2}}</p>
+                </div>
+                </div>
+            </div>
+            <div class="bloqueGrande">
+                <div class="bloque">
+                <span>Primer apellido*</span>
+                <input [ngClass] = "!showErrorLastName1 ? 'inputBasico':'inputBasicoError'" type="text" maxlength="15" required name="lastName1"  [(ngModel)]="model.lastName1"
+                (keyup)="validateLastName1()">
+                <div>
+                    <p class="message-error" [hidden]="!showErrorLastName1">{{errorMessageLastName1}}</p>
+                </div>
+                </div>
+                <div class="bloque">
+                <span>Segundo apellido</span>
+                <input [ngClass] = "!showErrorLastName2 ? 'inputBasico':'inputBasicoError'" type="text" maxlength="15" required name="lastName2" [(ngModel)]="model.lastName2"
+                (keyup)="validateLastName2()">
+                <div>
+                    <p class="message-error" [hidden]="!showErrorLastName2">{{errorMessageLastName2}}</p>
+                </div>
+                </div>
+            </div>
+            <br>
+            <div class="bloqueGrande">
+                <div style="margin-bottom: 10px;" class="bloque">
+                    <span>Fecha de nacimiento*</span>
+                    <div style="float:left;">
+                        <select  class="inputBasico" name="birthDay" [(ngModel)]="model.birthDay" (change)="validateBirthDate()">
+                            <option name="birthDayS" *ngFor="let day of daysList" [ngValue]="day">{{day}}</option>
+                        </select>
+                        <select  class="inputBasico" name="birthMonth" [(ngModel)]="model.birthMonth" (change)="validateBirthDate()">
+                            <option name="birthDayS" *ngFor="let month of monthList" [ngValue]="month">{{month}}</option>
+                        </select>
+                        <select  style="margin-right: 10px;" class="inputBasico" name="birthYear" [(ngModel)]="model.birthYear" (change)="validateBirthDate()">
+                            <option name="birthDayS" *ngFor="let year of yearList" [ngValue]="year">{{year}}</option>
+                        </select>
+                    </div>
+                <div>
+                    <p class="message-error" *ngIf="showErrorBirthDate">{{errorMessageBirthDate}}</p>
+                </div>
+                </div>
+            </div>
+            <div class="bloqueGrande">
+                <div class="bloqueMail">
+                <span>Correo electrónico*</span>
+                <input class="size-mail" [ngClass] = "!showErrorEmail ? 'inputBasico':'inputBasicoError'" type="email" maxlength="25" required name="email" [(ngModel)]="model.email"
+                (keyup)="validateEmail()">
+                    <div class="float-none">
+                <span class="message-error span-size text-align" *ngIf="showErrorEmail">{{errorMessageEmail}}</span>
+                </div>
+                </div>
+            </div>
+            <div class="bloqueGrande">
+                <span class="span-mail">Número de teléfono*</span>	
+                <br>
+                <div class="inputBasico padding-1">
+                    <div class="style-radio">
+                        <input  type="radio" [checked]="checkNFijo" (change)="validateChangePhone()"> Fijo
+                    </div>
+                    <div class="style-radio">
+                    <input type="radio" [checked]="!checkNFijo" (change)="validateChangePhone()"> Celular
+                    </div>
+                </div>
+                <div>
+                    <input class="padding-1 position-tel" [ngClass] = "!showErrorPhoneNumber ? 'inputBasico':'inputBasicoError'" type="number" maxlength="15" required name="numberT" [(ngModel)]="model.phoneNumber"
+                    (keyup)="validatePhoneNumber()">
+                    <div>
+                        <p class="message-error text-align error-message-phone" *ngIf="showErrorPhoneNumber">{{errorMessagePhoneNumber}}</p>
+                    </div>
+                    </div>
+            </div>
+                <div class="position-btn">
+                <button class="btn-blue" [ngClass]="checkRequiredValues() ? 'btn-blue-active':'btn-blue-inactive'" (click)="finish()" 
+                [disabled]="!checkRequiredValues()" >SIGUIENTE</button>
+                </div>
+        </form>
+      </div>
    </div>
 </div>
 <app-informacion-financiera [username]="model.firstName1"

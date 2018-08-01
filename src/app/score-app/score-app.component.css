@@ -1,0 +1,149 @@
+.style-text {
+  font-family: Helvetica;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  letter-spacing: -0.3px;
+}
+
+.blue-text {
+  color: #0e5fbf;
+}
+
+.purple-text {
+  color: #8251cb;
+}
+
+.gray-text {
+  color: #959595;
+}
+
+.gray-dark-text {
+  color: #4a4a4a;
+}
+
+.padding-right-20 {
+  padding-right: 20px;
+}
+
+.padding-left-20 {
+  padding-left: 20px;
+}
+
+.margin-top-10-porc{
+    margin-top: 10%;
+}
+
+.margin-top-3-porc{
+    margin-top: 3%;
+}
+
+
+.margin-top--8 {
+  margin-top: -8px;
+}
+
+.margin-left--8 {
+  margin-left: -8px;
+}
+
+.margin-top-20-porc {
+  margin-top: 20%;
+}
+
+.margin-top-5-porc {
+  margin-top: 5%;
+}
+
+.font-40 {
+  font-size: 40px;
+}
+
+.font-24 {
+  font-size: 24px;
+}
+
+.font-18 {
+  font-size: 18px;
+}
+
+.font-16 {
+  font-size: 16px;
+}
+
+.contain-login-ico-vianca {
+  width: 25%;
+  float: left;
+}
+
+.contain-login-detail {
+  margin-left: 10%;
+  width: 55%;
+  float: left;
+  margin-right: 10%;
+}
+
+.progress-score {
+  height: 100vh;
+  width: 100%;
+}
+
+.position-star {
+  margin-left: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.btn-blue {
+  width: 250px;
+  height: 51px;
+  background-color: #2879d9;
+  font-family: Helvetica;
+  font-size: 16px;
+  cursor: pointer;
+  letter-spacing: -0.1px;
+  text-align: center;
+  color: #ffffff;
+  outline: none;
+  font-weight: bold;
+  margin-right: -7px;
+}
+
+.btn-blue-active {
+  background-color: #2879d9;
+}
+
+.btn-blue-inactive {
+  background-color: #dbdbdb;
+  cursor: not-allowed;
+}
+
+.text-area {
+    width: 100%;
+    height: 180px;
+    border-radius: 2px;
+    margin-top: 8px;
+    border: solid 2px #f0f0f0;
+  }
+
+.float-right{
+    float: right;
+    margin-top: 12vh;
+}
+
+.bloque-izquierdo{
+	height: 100%;
+	width: 20%;
+    float: left;
+}
+.img{
+	width: 409px;
+  	height: 858px;
+  	object-fit: contain;
+}
+.img-progreso{
+    width: 100%;
+    height: 100%;
+}
+

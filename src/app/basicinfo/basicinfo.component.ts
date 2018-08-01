@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BasicInfo } from './basicinfo';
-import { FormsModule, ControlValueAccessor } from '@angular/forms';
 
-import { ChangeDetectorRef } from '@angular/core';
-
-
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -13,6 +11,7 @@ import { ChangeDetectorRef } from '@angular/core';
   styleUrls: ['./basicinfo.component.css']
 })
 
+@Injectable()
 export class BasicinfoComponent implements OnInit {
   model = new BasicInfo('', '', '', '', '', '', '', '', '', '');
 
@@ -26,38 +25,43 @@ export class BasicinfoComponent implements OnInit {
 
   showBasicInfo = true;
   showFinancialInfo = false;
-  
+
+  showCedula = true;
+  showInfo = false;
+
   error = true;
   errorMessage = '';
 
   daysList = [];
   monthList = [];
   yearList = [];
-  
-  showErrorFirstName1: boolean = false;
+
+  showErrorFirstName1 = false;
   errorMessageFirstName1 = '';
-  
+
   showErrorFirstName2: boolean = false;
   errorMessageFirstName2 = '';
-  
+
   showErrorLastName1: boolean = false;
   errorMessageLastName1 = '';
 
   showErrorLastName2: boolean = false;
   errorMessageLastName2 = '';
-  
+
   showErrorIdNumber: boolean = false;
   errorMessageIdNumber = '';
-  
+
   showErrorBirthDate: boolean = false;
   errorMessageBirthDate = '';
-  
+
   showErrorEmail: boolean = false;
   errorMessageEmail = '';
-  
+
   showErrorPhoneNumber: boolean = false;
   errorMessagePhoneNumber = '';
-  
+
+  submitted = false;
+
   firstName1Check = false;
   firstName2Check = false;
   lastName1Check = false;
@@ -66,23 +70,24 @@ export class BasicinfoComponent implements OnInit {
   birthDateCheck = false;
   emailCheck = false;
   phoneCheck = false;
-  
-  constructor() {}
+
+  constructor (private http: HttpClient) { }
 
   ngOnInit() {
     this.daysList = Array(31).fill(0).map((x, i) => i + 1);
-    this.monthList = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre', ];
+    this.monthList = ['Enero', 'Febrero', 'Marzo', 'Abril',
+      'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre', ];
     this.yearList = Array(69).fill(0).map((x, i) => i + 1950);
   }
-  
-  checkS(value): boolean {    
+
+  checkS(value): boolean {
     if (!value.match(/[^a-zA-ZñÑ\s]+/g)) {
       return true;
     } else {
       return false;
     }
-  } 
-  
+  }
+
   checkEmail(value): boolean {
     if (value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,6})+$/g)) {
       return true;
@@ -90,14 +95,17 @@ export class BasicinfoComponent implements OnInit {
       return false;
     }
   }
-  
-  submitted = false;
   onSubmit() { this.submitted = true; }
-  
+
+  loadIdNumber() {
+    this.showCedula = false;
+    this.showInfo = true;
+  }
+
   validateFirstName1(): boolean {
     const value = this.model.firstName1;
-    
-    if (value == '') {
+
+    if (value === '') {
       this.showErrorFirstName1 = true;
       this.errorMessageFirstName1 = 'El campo de primer nombre es obligatorio';
     } else if (value.length < 3) {
@@ -120,8 +128,10 @@ export class BasicinfoComponent implements OnInit {
 
   validateFirstName2(): boolean {
     const value = this.model.firstName2;
-
-    if (value !== '') {
+    if (value === null || value === '') {
+        this.showErrorFirstName2 = false;
+        this.errorMessageFirstName2 = '';
+    } else if (value !== '') {
       if (value.length < 3) {
         this.showErrorFirstName2 = true;
         this.errorMessageFirstName2 = 'El campo de segundo nombre tiene que tener mas de 3 letras';
@@ -140,11 +150,10 @@ export class BasicinfoComponent implements OnInit {
     }
     return this.showErrorFirstName2;
   }
-  
+
   validateLastName1(): boolean {
     const value = this.model.lastName1;
-    
-    if (value == '') {
+    if (value === '') {
       this.showErrorLastName1 = true;
       this.errorMessageLastName1 = 'El campo de primer apellido es obligatorio';
     } else if (value.length < 3) {
@@ -164,11 +173,13 @@ export class BasicinfoComponent implements OnInit {
     }
     return this.showErrorLastName1;
   }
-  
+
   validateLastName2(): boolean {
     const value = this.model.lastName2;
-    
-    if (value != '') {
+    if (value === null || value === '') {
+        this.showErrorLastName2 = false;
+        this.errorMessageLastName2 = '';
+    } else if (value !== '') {
       if (value.length < 3) {
         this.showErrorLastName2 = true;
         this.errorMessageLastName2 = 'El campo de segundo apellido tiene que tener mas de 3 letras';
@@ -187,9 +198,13 @@ export class BasicinfoComponent implements OnInit {
     }
     return this.showErrorLastName2;
   }
-  
+
   validateIdNumber(): boolean {
-    if (this.model.idNumber != '' || this.model.idNumber != null ) {
+    this.model.idNumber = this.model.idNumber.replace(/[^$0-9]/g, '');
+    if (this.model.idNumber.length > 10) {
+      this.model.idNumber = this.model.idNumber.substring(0, 10);
+    }
+    if (this.model.idNumber !== '' || this.model.idNumber != null ) {
       if (this.model.idNumber.toString().length < 6 ) {
         this.showErrorIdNumber = true;
         this.errorMessageIdNumber = 'El campo de cedula tiene que tener mas de 6 numeros';
@@ -205,9 +220,9 @@ export class BasicinfoComponent implements OnInit {
     }
     return this.showErrorIdNumber;
   }
-  
+
   validateBirthDate(): boolean {
-    if (this.model.birthDay == '' || this.model.birthMonth == '' || this.model.birthYear == '') {
+    if (this.model.birthDay === '' || this.model.birthMonth === '' || this.model.birthYear === '') {
       this.showErrorBirthDate = true;
       this.errorMessageBirthDate = 'El campo de fecha de nacimiento es obligatoria';
     } else {
@@ -221,9 +236,9 @@ export class BasicinfoComponent implements OnInit {
     }
     return this.showErrorBirthDate;
   }
-  
+
   validateEmail(): boolean {
-    if (this.model.email == '') {
+    if (this.model.email === '') {
       this.showErrorEmail = true;
       this.errorMessageEmail = 'El campo de correo electronico es obligatorio';
     } else if (this.model.email.length < 6 ) {
@@ -243,21 +258,21 @@ export class BasicinfoComponent implements OnInit {
     }
     return this.showErrorEmail;
   }
-  
+
   validateChangePhone() {
     this.checkNFijo = !this.checkNFijo;
     this.validatePhoneNumber();
   }
-  
+
   validatePhoneNumber(): boolean {
     if (this.model.phoneNumber == '') {
       this.showErrorPhoneNumber = false;
-      this.errorMessagePhoneNumber = 'El campo de número telefonico es obligatorio';
+      this.errorMessagePhoneNumber = 'El número es obligatorio';
     } else if (this.model.phoneNumber != null) {
       if (this.checkNFijo) {
         if (this.model.phoneNumber.toString().length != 7) {
           this.showErrorPhoneNumber = true;
-          this.errorMessagePhoneNumber = 'Si el número es fijo debe tener 7 números';
+          this.errorMessagePhoneNumber = 'El número debe tener 7 números';
         } else {
           this.showErrorPhoneNumber = false;
           this.errorMessagePhoneNumber = '';
@@ -265,10 +280,10 @@ export class BasicinfoComponent implements OnInit {
       } else if (!this.checkNFijo) {
         if (this.model.phoneNumber.toString().length != 10) {
           this.showErrorPhoneNumber = true;
-          this.errorMessagePhoneNumber = 'Si el número es celular debe tener 10 números';
+          this.errorMessagePhoneNumber = 'El número debe tener 10 números';
         } else if (this.model.phoneNumber.toString().charAt(0) != '3') {
           this.showErrorPhoneNumber = true;
-          this.errorMessagePhoneNumber = 'Si el número es celular debe empezar contener un indicativo con rango entre 300 y 399';
+          this.errorMessagePhoneNumber = 'El número debe comenzar entre un rango de 300 y 399';
         } else {
           this.showErrorPhoneNumber = false;
           this.errorMessagePhoneNumber = '';
@@ -303,7 +318,7 @@ export class BasicinfoComponent implements OnInit {
     }
     return false;
   }
-  
+
   finish(): void {
     this.showBasicInfo = false;
     this.showFinancialInfo = true;
@@ -313,5 +328,4 @@ export class BasicinfoComponent implements OnInit {
     this.showBasicInfo = true;
     this.showFinancialInfo = true;
   }
-  
 }

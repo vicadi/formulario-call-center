@@ -35,6 +35,14 @@
 	color: #8251cb;
 	margin-bottom: 34px;
 }
+.botonCedula{
+	position: absolute;
+    float: left;
+    top: 302px;
+    right: 442px;
+	width: 14.3% !important;
+	height: 45px !important;
+}
 
 .bloque-derecho {
 	width: 70%;
@@ -71,7 +79,7 @@
 
 .bloqueMail{
     float: left;
-    margin-bottom: 3%;
+    margin-bottom: 1%;
 }
 .bloqueMail span{
     float: left;
@@ -84,7 +92,6 @@
     font-size: 22px;
     padding: 2%;
 }
-
 
 .inputBasico {
 	float: left;
@@ -112,7 +119,6 @@
 .bloqueGrande{
 	float: left;
 	width: 90%;
-	margin-bottom: 10px;
 }
 
 .inputBasicoError {
@@ -123,15 +129,26 @@
     padding: 2%;
 	border: solid 1px #ff3f34;
 	outline: none;
+	margin-right: 10px;
 }
 
 .message-error {
+	font-family: Helvetica;
 	font-size: 10px;
 	margin-top: 0px;
 	letter-spacing: -0.1px;
-	text-align: right;
+	text-align: justify;
 	color: #ff3b30;
-	width: 69%
+	width: 75%
+}
+
+.text-align {
+	text-align: left !important;
+}
+
+.error-message-phone{
+	float: left;
+	margin-left: 293px;
 }
 
 .padding-1{
@@ -143,7 +160,7 @@
     width: 42%;
 }
 
-.Mask {
+.imagen-banco {
 	width: 77px;
 	height: 36px;
 	border-radius: 6px;
@@ -215,6 +232,17 @@
     cursor: not-allowed;
 }
 
+.bloqueCedula{
+	width: 65.39%; 
+	margin-bottom: 20px;
+	padding-bottom: 20px; 
+	border-style: none none groove none; 
+	border-color: #8251cb;
+}
+
+.inputDisabled{
+	background-color: #dbdbdb;
+}
 
 .position-btn{
 	float: right;

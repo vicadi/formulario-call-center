@@ -19,6 +19,7 @@ export class SummaryComponent implements OnInit {
   showPurpleCard : boolean = false;
   showBlueCard : boolean = false;
   showWhiteCard : boolean = false;
+  showDeliveryCard: boolean = false;
 
 
   constructor() { }
@@ -31,7 +32,8 @@ export class SummaryComponent implements OnInit {
   }
 
   finish(): void {
-    alert('Felicitaciones, tu tarjeta esta en camino!');
+    this.showDeliveryCard = true;
+    this.showSummary = false;
   }
 
   getValueApproved(): void{
@@ -58,7 +60,7 @@ export class SummaryComponent implements OnInit {
     }
   }
 
-  backHome(){
+  backHome() {
     this.showSummary = false;
     this.showHome = true;
   }

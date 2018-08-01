@@ -3,6 +3,30 @@
     width: 100%;
     display: block;
 }
+.bloque-izquierdo{
+	height: 100%;
+	width: 20%;
+    float: left;
+}
+.img{
+	width: 409px;
+  	height: 858px;
+  	object-fit: contain;
+}
+.imagen-banco {
+	width: 77px;
+	height: 36px;
+	border-radius: 6px;
+	
+	margin-left: 63px;
+	position: absolute;
+	top: -8px;
+	left: 10px;
+	padding-top: 16px;
+	padding-bottom: 14px;
+	padding-left: 11px;
+	padding-right: 11px;
+}
 .font-blue{
     color: #0e5fbf;
     font-family: Helvetica;
@@ -13,11 +37,29 @@
 .along{
     width: 100%;
     float: left;
-    margin: 3% 0 5% 0;
+    margin: 3% 0;
 }
 .font-purple{
     font-family: Helvetica;
     color: #8251cb;
+}
+
+.vianca {
+    width: 45px;
+    height: 45px;
+}
+.remember {
+    width: 33%;
+    border-radius: 4px;
+    background-color: rgba(0, 134, 216, 0.05);
+    padding: 12px 22px;
+}
+.remember_text {
+    margin-left: 56px;
+    margin-top: -66px;
+}
+.margin_remember {
+    margin: 2% 0% -1%;
 }
 form{
     margin-top: 7%;
@@ -28,6 +70,17 @@ form{
     float: left;
     margin-bottom: 3%;
 }
+.bloque_remember{
+    width: 83%;
+    float: left;
+    margin-bottom: 3%;
+}
+.font_black{
+    font-family: Helvetica;
+    color: #2d2d2d;
+}
+
+
 .bloque span{
     width: 100%;
     float: left;
@@ -55,10 +108,10 @@ form{
     padding: 2%;
 }
 .boton{
-    margin-bottom: -2%;
+    margin-bottom: 1%;
     position: absolute;
     bottom: 7%;
-    right: 7%;
+    right: 11.5%;
 }
 .btn-blue {
     width: 254px;
@@ -80,9 +133,10 @@ form{
     cursor: not-allowed;
 }
 .bloque-derecho{
-    width: 60%;
-    height: 100%;
-    float: left;
+    width: 70%;
+	height: 100%;
+	float: left;
+	margin-left: 135px;
 }
 .imagen-progreso{
     height: 100vh;
@@ -108,5 +162,5 @@ form{
     font-size: 24px;
 }
 .marginTop-10{
-    margin-top: 10%;
+    margin-top: 7%;
 }
