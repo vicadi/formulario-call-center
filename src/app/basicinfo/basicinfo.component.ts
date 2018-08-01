@@ -320,6 +320,7 @@ export class BasicinfoComponent implements OnInit {
   }
 
   finish(): void {
+    sessionStorage.setItem('identityNumberCustomer', this.model.idNumber)
     sessionStorage.setItem('nameCustomer', this.model.firstName1)
     sessionStorage.setItem('middleNameCustomer', this.model.firstName2)
     sessionStorage.setItem('lastNameCustomer', this.model.lastName1)

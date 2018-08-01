@@ -49,7 +49,6 @@ export class UserLoginComponent implements OnInit {
     if(this.user == 'cpazro2'){
       if(this.password  =='Bogota12'){
         sessionStorage.setItem('userCall', this.user)
-        sessionStorage.setItem('passwordCall', this.password)
         this.loginSuccess = true;
       }else{
         this.errorPassword = true;
