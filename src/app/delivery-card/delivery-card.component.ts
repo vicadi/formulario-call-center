@@ -50,6 +50,7 @@ export class DeliveryCardComponent implements OnInit {
     this.showBogota = true;
     this.showCovenas = false;
     this.showPlanetaRica = false;
+    sessionStorage.setItem('cityCurrierCustomer', 'Bogotá')
     this.nameOffice = this.names[0];
     this.addressOffice = this.addresses[0];
   }
@@ -59,6 +60,7 @@ export class DeliveryCardComponent implements OnInit {
     this.showCovenas = true;
     this.showPlanetaRica = false;
     this.nameOffice = this.names[1];
+    sessionStorage.setItem('cityCurrierCustomer', 'Coveñas')
     this.addressOffice = this.addresses[1];
   }
 
@@ -66,12 +68,20 @@ export class DeliveryCardComponent implements OnInit {
     this.showBogota = false;
     this.showCovenas = false;
     this.showPlanetaRica = true;
+    sessionStorage.setItem('cityCurrierCustomer', 'Planeta Rica')
     this.nameOffice = this.names[2];
     this.addressOffice = this.addresses[2];
   }
 
   showComponent(){
     this.showDeliveryCard = false;
+    if(this.showOffice){
+      sessionStorage.setItem('officeCurrierCustomer', this.nameOffice)
+      sessionStorage.setItem('addressCurrierCustomer', this.addressOffice)
+    } else{
+      sessionStorage.setItem('cityCurrierCustomer', this.city)
+      sessionStorage.setItem('neighborhoodCurrierCustomer', this.neighborhood)
+      sessionStorage.setItem('addressCurrierCustomer', this.address)
+    }   
   }
-
 }

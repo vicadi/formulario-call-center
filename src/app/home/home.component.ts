@@ -13,10 +13,16 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    //clear session
+    // this.clearSession()
   }
 
   showComponent(){
     this.showHome = false;
     this.showBasicInfo = true;
+  }
+
+  clearSession(){
+    sessionStorage.clear();
   }
 }
