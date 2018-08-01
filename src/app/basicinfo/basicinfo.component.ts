@@ -74,9 +74,6 @@ export class BasicinfoComponent implements OnInit {
   constructor (private http: HttpClient) { }
 
   ngOnInit() {
-    console.log('data session storage')
-    console.log(sessionStorage.getItem('userCall'))
-    console.log(sessionStorage.getItem('passwordCall'))
     this.daysList = Array(31).fill(0).map((x, i) => i + 1);
     this.monthList = ['Enero', 'Febrero', 'Marzo', 'Abril',
       'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre', ];

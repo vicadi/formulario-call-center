@@ -26,8 +26,6 @@ export class ScoreAppComponent implements OnInit {
   finishProccess() {
     this.finish = true;
     sessionStorage.setItem('scoreObservationCustomer', this.observation)
-    console.log('sessionStorage')
-    console.log(sessionStorage)
   }
 
   selectStar(idStar: Number) {
