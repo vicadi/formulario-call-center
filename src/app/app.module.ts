@@ -15,7 +15,6 @@ import { HomeComponent } from './home/home.component';
 import { DeliveryCardComponent } from './delivery-card/delivery-card.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { ScoreAppComponent } from './score-app/score-app.component';
-
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 
 import { HttpClientModule } from '@angular/common/http';

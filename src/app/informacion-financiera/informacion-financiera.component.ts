@@ -86,8 +86,11 @@ export class InformacionFinancieraComponent implements OnInit {
   }
 
   showComponent(){
-    /* this.income = parseInt(this.ingresos.split('$')[1]);
-    this.outcome = parseInt(this.egresos.split('$')[1]); */
+    sessionStorage.setItem('incomeCustomer', this.ingresos)
+    sessionStorage.setItem('outcomeNameCustomer', this.egresos)
+    sessionStorage.setItem('assetsCustomer', this.activos)
+    sessionStorage.setItem('liabilitiesCustomer', this.pasivos)
+
     this.income = parseInt(this.ingresos);
     this.outcome = parseInt(this.egresos);
     this.showSummary = true;

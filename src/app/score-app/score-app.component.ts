@@ -8,6 +8,7 @@ import { IfStmt } from '../../../node_modules/@angular/compiler';
 })
 export class ScoreAppComponent implements OnInit {
 
+  observation : string = '';
   selectStarYet : boolean = false;
   showStarOne: string = '../../assets/img/star-1.png';
   showStarTwo: string = '../../assets/img/star-2.png';
@@ -19,11 +20,12 @@ export class ScoreAppComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
+    sessionStorage.setItem('scoreCustomer', '0')
   }
 
   finishProccess() {
     this.finish = true;
+    sessionStorage.setItem('scoreObservationCustomer', this.observation)
   }
 
   selectStar(idStar: Number) {
@@ -33,17 +35,20 @@ export class ScoreAppComponent implements OnInit {
       case 1:
         this.showStarOne = '../../assets/img/star-1-purple.png';
         this.selectStarYet = true;
+        sessionStorage.setItem('scoreCustomer', '1')
         break;
       case 2:
         this.showStarOne = '../../assets/img/star-1-purple.png';
         this.showStarTwo = '../../assets/img/star-2-purple.png';
         this.selectStarYet = true;
+        sessionStorage.setItem('scoreCustomer', '2')
         break;
       case 3:
         this.showStarOne = '../../assets/img/star-1-purple.png';
         this.showStarTwo = '../../assets/img/star-2-purple.png';
         this.showStarThree = '../../assets/img/star-3-purple.png';
         this.selectStarYet = true;
+        sessionStorage.setItem('scoreCustomer', '3')
         break;
       case 4:
         this.showStarOne = '../../assets/img/star-1-purple.png';
@@ -51,6 +56,7 @@ export class ScoreAppComponent implements OnInit {
         this.showStarThree = '../../assets/img/star-3-purple.png';
         this.showStarFour = '../../assets/img/star-4-purple.png';
         this.selectStarYet = true;
+        sessionStorage.setItem('scoreCustomer', '4')
         break;
       case 5:
         this.showStarOne = '../../assets/img/star-1-purple.png';
@@ -59,6 +65,7 @@ export class ScoreAppComponent implements OnInit {
         this.showStarFour = '../../assets/img/star-4-purple.png';
         this.showStarFive = '../../assets/img/star-5-purple.png';
         this.selectStarYet = true;
+        sessionStorage.setItem('scoreCustomer', '5')
         break;
       default:
         break;

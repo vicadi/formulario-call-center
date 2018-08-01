@@ -34,6 +34,8 @@ export class SummaryComponent implements OnInit {
   finish(): void {
     this.showDeliveryCard = true;
     this.showSummary = false;
+    sessionStorage.setItem('valueApprovedCustomer', this.valueApproved)
+    sessionStorage.setItem('checkCustomer', 'true')
   }
 
   getValueApproved(): void{
