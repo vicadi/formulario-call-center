@@ -45,7 +45,7 @@ jobs:
   
 workflows:
   version: 2
-  deployPayrollLoan:
+  deployFormulario:
     jobs:
       - buildAndTest:
           filters:
