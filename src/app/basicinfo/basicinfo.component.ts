@@ -70,6 +70,9 @@ export class BasicinfoComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
+    console.log('data session storage')
+    console.log(sessionStorage.getItem('userCall'))
+    console.log(sessionStorage.getItem('passwordCall'))
     this.daysList = Array(31).fill(0).map((x, i) => i + 1);
     this.monthList = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre', ];
     this.yearList = Array(69).fill(0).map((x, i) => i + 1950);
@@ -308,6 +311,14 @@ export class BasicinfoComponent implements OnInit {
   }
   
   finish(): void {
+    sessionStorage.setItem('nameCustomer', this.model.firstName1)
+    sessionStorage.setItem('middleNameCustomer', this.model.firstName2)
+    sessionStorage.setItem('lastNameCustomer', this.model.lastName1)
+    sessionStorage.setItem('secondLastNameCustomer', this.model.lastName2)
+    sessionStorage.setItem('mailCustomer', this.model.email)
+    sessionStorage.setItem('phoneTypeCustomer', this.checkNFijo? 'Phone':'Cellphone')
+    sessionStorage.setItem('phoneNumberCustomer', this.model.phoneNumber)
+    sessionStorage.setItem('birthDayCustomer', this.model.birthDay +'/'+ this.model.birthMonth + '/'+ this.model.birthYear)
     this.showBasicInfo = false;
     this.showFinancialInfo = true;
   }
