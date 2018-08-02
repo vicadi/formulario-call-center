@@ -11,26 +11,16 @@ jobs:
           key: formulario-call-center-nodemodule-{{ checksum "package.json" }}
       - run:
           command: |
-              if [[ "$(git log -1 | head -6 | egrep 'master-release' | echo $(tr -d ' '))" = *"master-release"* ]]; then
-                echo "Ignoring release"
-                if [ ! -d ./node_modules ]; then
-                  mkdir ./node_modules
-                fi
-              else
                 npm install
-                ng test
-              fi
       - save_cache:
           key: formulario-call-center-nodemodule-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-
       - persist_to_workspace:
           root: /home/circleci
           paths:
             - formulario-call-center/node_modules
             - .aws
-
   deployQA:
     docker:
       - image: jasonlll88/node_angularcli:1.2
@@ -49,13 +39,13 @@ jobs:
               aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY --profile qa
               export AWS_PROFILE=qa
               # Build and deploy to S3
-              ng build --prod --environment qa
-              aws s3 cp dist/ s3://bdb-qa-digi-prueba --recursive
+              ng build --prod
+              aws s3 cp dist/* s3://bdb-qa-digi-prueba --recursive
   
   
 workflows:
   version: 2
-  deployPayrollLoan:
+  deployFormulario:
     jobs:
       - buildAndTest:
           filters:
@@ -65,7 +55,6 @@ workflows:
 
       - deployQA:
           requires:
-            - sonar
             - buildAndTest
           filters:
             branches:
