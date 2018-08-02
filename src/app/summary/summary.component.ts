@@ -1,4 +1,8 @@
 import { Component, OnInit , Input} from '@angular/core';
+import { Router } from '@angular/router'
+
+import { SummaryService } from './summary.service';
+import { timingSafeEqual } from 'crypto';
 
 @Component({
   selector: 'app-summary',
@@ -14,17 +18,25 @@ export class SummaryComponent implements OnInit {
   showButton: boolean =false;
   showHome: boolean = false;
   showSummary: boolean = true;
-  valueApproved : string;
+  valueApproved : String;
   approved: boolean = false;
   showPurpleCard : boolean = false;
   showBlueCard : boolean = false;
   showWhiteCard : boolean = false;
   showDeliveryCard: boolean = false;
 
+  constructor(private summaryService: SummaryService) { };
 
-  constructor() { }
   ngOnInit() {
-    this.getValueApproved();
+    this.summaryService.obtaingApproved(this.income, this.outcome).subscribe(
+      data => {
+        this.valueApproved = data;
+        this.getValueApproved();
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
  
   onSelect(): void {
@@ -39,25 +51,9 @@ export class SummaryComponent implements OnInit {
   }
 
   getValueApproved(): void{
-    
-    var double = this.outcome * 2;
-    var oneHundredFifty = this.outcome * 1.5;
-    var oneHundredOne = this.outcome * 1.01;
-    
-    if(this.income >= double){
-      this.valueApproved = '$ 30.000.000'
+    if (this.valueApproved != "NEGADO") {
       this.approved = true;
-      this.showPurpleCard = true;
-    }else if (this.income >= oneHundredFifty && this.income < double){
-      this.valueApproved = '$ 20.000.000'
-      this.approved = true;
-      this.showBlueCard = true;
-    }else if (this.income >= oneHundredOne && this.income < oneHundredFifty){
-      this.valueApproved = '$ 10.000.000'
-      this.approved = true;
-      this.showWhiteCard= true;
-    }else{
-      this.valueApproved = 'NEGADO'
+    } else {
       this.approved = false;
     }
   }

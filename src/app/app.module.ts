@@ -3,11 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { InformacionFinancieraComponent } from './informacion-financiera/informacion-financiera.component';
-import { SummaryComponent } from './summary/summary.component';
 
 import { BasicinfoComponent } from './basicinfo/basicinfo.component';
 
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 
 import { FormsModule } from '@angular/forms';
 import { NavBarUserComponent } from './nav-bar-user/nav-bar-user.component';
@@ -15,9 +14,12 @@ import { HomeComponent } from './home/home.component';
 import { DeliveryCardComponent } from './delivery-card/delivery-card.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { ScoreAppComponent } from './score-app/score-app.component';
+import { SummaryComponent } from './summary/summary.component';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 
 import { HttpClientModule } from '@angular/common/http';
+import { SummaryService } from './summary/summary.service';
+import { HttpModule } from '../../node_modules/@angular/http';
 
 
 @NgModule({
@@ -35,12 +37,13 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     AppRoutingModule,
     FormsModule,
     CurrencyMaskModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [SummaryService],
   bootstrap: [AppComponent]
 })
 
