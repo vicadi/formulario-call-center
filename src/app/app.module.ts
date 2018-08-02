@@ -12,6 +12,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { NavBarUserComponent } from './nav-bar-user/nav-bar-user.component';
 import { HomeComponent } from './home/home.component';
+import { DeliveryCardService } from './delivery-card/delivery-card.service';
 import { DeliveryCardComponent } from './delivery-card/delivery-card.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { ScoreAppComponent } from './score-app/score-app.component';
@@ -19,6 +20,7 @@ import { ScoreAppComponent } from './score-app/score-app.component';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '../../node_modules/@angular/http';
 
 
 @NgModule({
@@ -39,9 +41,10 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     CurrencyMaskModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [DeliveryCardService],
   bootstrap: [AppComponent]
 })
 

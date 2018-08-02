@@ -26,10 +26,8 @@
           <label class="font-gray-label font-helvetica font-18 complete-label">Ciudad</label>
           <!--<input class="half-input" name="city" [(ngModel)]="city" (keyup)="filterValues()">-->
           <select class="half-input select-out-arrows" name="city" [(ngModel)]="city">
-              <option value="Bogotá">Bogotá</option>
-              <option value="Coveñas">Coveñas</option>
-              <option value="Planeta Rica">Planeta Rica</option>
-            </select>
+              <option value="{{c}}" *ngFor="let c of cities">{{c}}</option>
+          </select>
         </div>
         <div class="half-block">
             <label class="font-gray-label font-helvetica font-18 complete-label">Barrio</label>
@@ -56,6 +54,7 @@
       </div>
     </div>
     <!--Boton-->
+    <span>{{cities}}</span>
     <input type="submit" value="SIGUIENTE"  (click)="showComponent()" class="boton btn-blue" [ngClass]= "showHome ? (city && neighborhood && address ? 'btn-blue-active':'btn-blue-inactive'): (showBogota || showCovenas || showPlanetaRica ? 'btn-blue-active':'btn-blue-inactive')" [disabled]="(showHome && (!city || !neighborhood || !address)) || (showOffice && !showBogota && !showCovenas && !showPlanetaRica)">
   </div>
 </div>

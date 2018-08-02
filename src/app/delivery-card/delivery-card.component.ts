@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DeliveryCardService } from './delivery-card.service';
 
 @Component({
   selector: 'app-delivery-card',
@@ -23,9 +24,25 @@ export class DeliveryCardComponent implements OnInit {
   nameOffice: string = '';
   addressOffice: string = '';
 
-  constructor() { }
+  cities: String[]=[];
+
+  constructor(private deliveryCardService: DeliveryCardService) {  }
 
   ngOnInit() {
+    this.generateCities();
+  }
+
+  generateCities(){
+    this.deliveryCardService.getCities().subscribe(
+      data => {
+        for(let obj of data){
+          this.cities.push(obj.name);
+        }
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   onClickHome(){
