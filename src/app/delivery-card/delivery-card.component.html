@@ -24,8 +24,7 @@
       <form>
         <div class="half-block">
           <label class="font-gray-label font-helvetica font-18 complete-label">Ciudad</label>
-          <!--<input class="half-input" name="city" [(ngModel)]="city" (keyup)="filterValues()">-->
-          <select class="half-input select-out-arrows" name="city" [(ngModel)]="city">
+          <select class="half-input select-out-arrows" name="city" [(ngModel)]="city" selected="false">
               <option value="{{c}}" *ngFor="let c of cities">{{c}}</option>
           </select>
         </div>
@@ -35,27 +34,43 @@
         </div>
         <div class="complete-block">
           <label style="margin-bottom: 1%;" class="font-gray-label font-helvetica font-18 complete-label">Dirección</label>
-          <input class="complete-input" name="address" [(ngModel)]="address">
-          <span class="font-example font-16">Ejemplo: Carrera 13 con calle 32-13</span>
+          <div class="complete-block"> 
+            <select class="appearance-input select-out-arrows width18 marginRight2" name="listAddress1" [(ngModel)]="listAddress1" (ngModelChange)="generateListAdds2()">
+              <option value="{{la.name}}+{{la.type}}" *ngFor="let la of listAdds1">{{la.name}}</option>
+            </select>
+            <input class="appearance-input width12-5 marginRight2" name="address1" [(ngModel)]="address1">
+            <select class="appearance-input select-out-arrows width18 marginRight2" name="listAddress2" [(ngModel)]="listAddress2">
+              <option value="{{la.name}}" *ngFor="let la of listAdds2">{{la.name}}</option>
+            </select>
+            <input class="appearance-input width28-5 marginRight2" name="address2" [(ngModel)]="address2">
+          </div>
+          <span class="font-example font-16">Ejemplo: Carrera 13 Calle 32-13</span>
         </div>
       </form>
     </div>
     <!--Delivery Office-->
     <div class="block-85" *ngIf="showOffice">
       <span class="font-18 font-helvetica font-gray-label complete-block marginTop5andBottom2">Selecciona la ciudad dónde el cliente desea recibir la Tarjeta de Crédito</span>
-      <div class="choose-three">
-        <div class="choose-office" [ngClass]= "showBogota ? 'bogota-active':'bogota-inactive'" (click)="onClickBogota()"></div>
-        <div class="choose-office" [ngClass]= "showCovenas ? 'covenas-active':'covenas-inactive'" (click)="onClickCovenas()"></div>
-        <div class="choose-office" [ngClass]= "showPlanetaRica ? 'planetaRica-active':'planetaRica-inactive'" (click)="onClickPlanetaRica()"></div>
+      <div class="half-block marginTop5andBottom2">
+        <label class="font-gray-label font-helvetica font-18 complete-label">Ciudad</label>
+          <select class="half-input select-out-arrows" name="cityOffice" [(ngModel)]="cityOffice" (ngModelChange)="generateOffices()">
+              <option value="{{c}}" *ngFor="let c of cities">{{c}}</option>
+          </select>  
       </div>
-      <div class="complete-block marginLeft4 height120">
+      <div class="half-block marginTop5andBottom2">
+        <label class="font-gray-label font-helvetica font-18 complete-label">Oficina</label>
+          <select class="half-input select-out-arrows" name="office" [(ngModel)]="office" (ngModelChange)="generateNameAndAddress()">
+              <option value="{{o.nameOffice}}+{{o.address}}" *ngFor="let o of offices">{{o.nameOffice}}</option>
+          </select>
+      </div>
+      <div class="complete-block height120">
         <span class="font-24 font-gray font-helvetica font-bold complete-block">{{nameOffice}}</span>
         <span class="font-24 font-gray font-helvetica complete-block">{{addressOffice}}</span>
       </div>
     </div>
     <!--Boton-->
     <span>{{cities}}</span>
-    <input type="submit" value="SIGUIENTE"  (click)="showComponent()" class="boton btn-blue" [ngClass]= "showHome ? (city && neighborhood && address ? 'btn-blue-active':'btn-blue-inactive'): (showBogota || showCovenas || showPlanetaRica ? 'btn-blue-active':'btn-blue-inactive')" [disabled]="(showHome && (!city || !neighborhood || !address)) || (showOffice && !showBogota && !showCovenas && !showPlanetaRica)">
+    <input type="submit" value="SIGUIENTE"  (click)="showComponent()" class="boton btn-blue" [ngClass]= "showHome ? (city && neighborhood && listAddress1 && address1 && listAddress2 && address2 ? 'btn-blue-active':'btn-blue-inactive'): (cityOffice && office ? 'btn-blue-active':'btn-blue-inactive')" [disabled]="(showHome && (!city || !neighborhood || !listAddress1 || !address1 || !listAddress2 || !address2)) || (showOffice && (!cityOffice || !office))">
   </div>
 </div>
 
