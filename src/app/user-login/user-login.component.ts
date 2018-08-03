@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { LoginService } from './user-login.service';
+
 @Component({
   selector: 'app-user-login',
   templateUrl: './user-login.component.html',
@@ -11,8 +13,9 @@ export class UserLoginComponent implements OnInit {
   password: string = '';
   errorUser: boolean = false;
   errorPassword: boolean = false;
+  response: string = null;
 
-  constructor() { }
+  constructor(private loginService: LoginService) { };
 
   ngOnInit() {
   }
@@ -29,37 +32,33 @@ export class UserLoginComponent implements OnInit {
     }
   }
 
-  login(){
-    if(this.user != undefined && this.user.length == 7){
-      if(this.password != undefined && this.password.length >1 && this.password.length <= 9){
-        this.validLogin();
-      }else{
-        this.password = '';
+  login() {
+    this.loginService.loginUser(this.user, this.password).subscribe(
+      data => {
+        this.response = data;
+        this.checkLogin();
+      },
+      error => {
+        this.errorUser = true;
+        this.user = '';
         this.errorPassword = true;
+        this.password = '';
+        this.response = null;
       }
-    }else {
+    );
+  }
+
+  checkLogin() {
+    if (this.response !== null) {
+      sessionStorage.setItem('userCall', this.response);
+      this.loginSuccess = true;
+    } else {
       this.errorUser = true;
-      this.user='';
-      this.password = '';
+      this.user = '';
       this.errorPassword = true;
+      this.password = '';
+      this.response = null;
     }
   }
 
-  validLogin(){
-    if(this.user == 'cpazro2'){
-      if(this.password  =='Bogota12'){
-        sessionStorage.setItem('userCall', this.user)
-        this.loginSuccess = true;
-      }else{
-        this.errorPassword = true;
-        this.password='';
-      }
-    }else {
-      this.errorUser = true;
-      this.user='';
-      this.errorPassword = true;
-      this.password='';
-    }
-  }
-  
 }

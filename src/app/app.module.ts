@@ -17,6 +17,7 @@ import { CustomerService} from './services/customer.service';
 import { CheckService } from './services/check.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SummaryService } from './summary/summary.service';
+import { LoginService } from './user-login/user-login.service';
 import { HttpModule } from '../../node_modules/@angular/http';
 
 
@@ -42,7 +43,7 @@ import { HttpModule } from '../../node_modules/@angular/http';
     HttpClientModule,
     HttpModule
   ],
-  providers: [CustomerService, CheckService, SummaryService, DeliveryCardService ],
+  providers: [CustomerService, CheckService, SummaryService, DeliveryCardService, LoginService],
   bootstrap: [AppComponent]
 })
 
