@@ -122,6 +122,14 @@ export class BasicinfoComponent implements OnInit {
           this.model.birthYear = arrayDate[2] ;
          }
          sessionStorage.setItem('customerExist', 'true')
+         this.validateFirstName1()
+          this.validateFirstName2()
+          this.validateLastName1()
+          this.validateLastName2()
+          this.validateIdNumber()
+          this.validateBirthDate()
+          this.validateEmail()
+          this.validatePhoneNumber()
       },
       error => {
           sessionStorage.setItem('customerExist', 'false')
