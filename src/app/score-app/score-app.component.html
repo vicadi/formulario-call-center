@@ -24,7 +24,9 @@
         <div class="style-text gray-dark-text font-18 margin-top-10-porc">
             Deja los comentarios de tu cliente si así lo desea
           </div>
-          <textarea class="text-area style-text gray-dark-text font-16" [(ngModel)]="observation"></textarea>
+          <div>
+            <textarea class="text-area style-text gray-dark-text font-16" [(ngModel)]="score.observation"></textarea>
+          </div>
           <div class="margin-top-3-porc float-right">
             <button class="btn-blue"  [ngClass]="selectStarYet ? 'btn-blue-active':'btn-blue-inactive'"  [disabled]="!selectStarYet" (click)="finishProccess()">ENVIAR  Y FINALIZAR</button>
           </div>
