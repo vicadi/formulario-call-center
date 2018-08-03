@@ -114,7 +114,7 @@ export class BasicinfoComponent implements OnInit {
          this.model.lastName2  = result.secondLastName ? result.secondLastName :'';
          this.model.email  = result.email ? result.email :'';
          this.model.phoneNumber  = result.numberPhone ? result.numberPhone :'';
-         this.checkNFijo  = result.numberPhone && result.numberPhone == 'phone' ? false:true;
+         this.checkNFijo  = result.typePhone && result.typePhone == 'Phone' ? true:false;
          if(result.birthDate != null){
           let arrayDate =  result.birthDate.split("/")
           this.model.birthDay = arrayDate[0];
@@ -122,20 +122,20 @@ export class BasicinfoComponent implements OnInit {
           this.model.birthYear = arrayDate[2] ;
          }
          sessionStorage.setItem('customerExist', 'true')
-          console.log('resultado consulta', result);
       },
       error => {
+          sessionStorage.setItem('customerExist', 'false')
           if(error.status == '404'){
             console.log('cliente no encontrado');
-            sessionStorage.setItem('customerExist', 'false')
+          }else{
+            console.log('Se presento un error con el servicio', error.status, 'Desc ', error.message);
           }
       }
-  );
+    );
   }
 
   validateFirstName1(): boolean {
     const value = this.model.firstName1;
-
     if (value === '') {
       this.showErrorFirstName1 = true;
       this.errorMessageFirstName1 = 'El campo de primer nombre es obligatorio';
