@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { NavBarUserComponent } from './nav-bar-user/nav-bar-user.component';
 import { HomeComponent } from './home/home.component';
+import { DeliveryCardService } from './delivery-card/delivery-card.service';
 import { DeliveryCardComponent } from './delivery-card/delivery-card.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { ScoreAppComponent } from './score-app/score-app.component';
@@ -38,9 +39,10 @@ import { HttpModule } from '../../node_modules/@angular/http';
     AppRoutingModule,
     FormsModule,
     CurrencyMaskModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpModule
   ],
-  providers: [CustomerService, CheckService, SummaryService ],
+  providers: [CustomerService, CheckService, SummaryService, DeliveryCardService ],
   bootstrap: [AppComponent]
 })
 

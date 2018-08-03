@@ -263,3 +263,25 @@ select{
 .planetaRica-inactive{
     background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='196' height='61' viewBox='0 0 196 61'%3e%3cdefs%3e%3crect id='a' width='195.768' height='60.865' rx='2'/%3e%3c/defs%3e%3cg fill='none' fill-rule='evenodd'%3e%3crect width='193.768' height='58.865' x='1' y='1' stroke='%23F0F0F0' stroke-width='2' rx='2'/%3e%3ctext fill='%23949494' font-family='Helvetica' font-size='22' letter-spacing='-.092'%3e%3ctspan x='17' y='38'%3ePlaneta Rica%3c/tspan%3e%3c/text%3e%3c/g%3e%3c/svg%3e") no-repeat;
 }
+.width12-5{
+    width: 12.5%;
+    float: left;
+} 
+.width18{
+    width: 18%;
+    float: left;
+} 
+.width28-5{
+    width: 28.5%;
+    float: left;
+} 
+.appearance-input{
+    border-radius: 2px;
+    border: solid 2px #f0f0f0;
+    font-family: Helvetica;
+    font-size: 22px;
+    padding: 1%;
+}
+.marginRight2{
+    margin-right: 2%;
+}
