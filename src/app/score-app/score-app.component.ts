@@ -32,6 +32,7 @@ export class ScoreAppComponent implements OnInit {
     this.finish = true;
     sessionStorage.setItem('scoreObservationCustomer', this.observation);
     this.score.scoreValue = +sessionStorage.getItem('scoreCustomer');
+    this.score.authorize_id = +sessionStorage.getItem('codeProcess');
     this.createScore();
   }
 

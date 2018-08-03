@@ -99,6 +99,7 @@ export class SummaryComponent implements OnInit {
     };
     this.checkService.saveCheckCustomer(requestDto).subscribe(
       result => {
+        sessionStorage.setItem('codeProcess', result.codeProcess);
         console.log('Check sucess', result);
       },
       error => {
