@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BasicInfo } from './basicinfo';
-
+import { BasicInfo} from './basicinfo';
+import { CustomerService } from '../services/customer.service';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -13,6 +13,8 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class BasicinfoComponent implements OnInit {
+
+  dataResponse: any
   model = new BasicInfo('', '', '', '', '', '', '', '', '', '');
 
   birthDay = '';
@@ -71,7 +73,7 @@ export class BasicinfoComponent implements OnInit {
   emailCheck = false;
   phoneCheck = false;
 
-  constructor (private http: HttpClient) { }
+  constructor (private http: HttpClient, private customerService : CustomerService) { }
 
   ngOnInit() {
     this.daysList = Array(31).fill(0).map((x, i) => i + 1);
@@ -98,13 +100,42 @@ export class BasicinfoComponent implements OnInit {
   onSubmit() { this.submitted = true; }
 
   loadIdNumber() {
+    this.validCustomer();
     this.showCedula = false;
     this.showInfo = true;
   }
 
+  validCustomer(){
+    this.customerService.getCustomer(this.model.idNumber).subscribe(
+      result => {
+        this.model.firstName1 = result.firstName ? result.firstName :'';
+         this.model.firstName2  = result.middleName ? result.middleName :'';
+         this.model.lastName1  = result.lastName ? result.lastName :'';
+         this.model.lastName2  = result.secondLastName ? result.secondLastName :'';
+         this.model.email  = result.email ? result.email :'';
+         this.model.phoneNumber  = result.numberPhone ? result.numberPhone :'';
+         this.checkNFijo  = result.typePhone && result.typePhone == 'Phone' ? true:false;
+         if(result.birthDate != null){
+          let arrayDate =  result.birthDate.split("/")
+          this.model.birthDay = arrayDate[0];
+          this.model.birthMonth = arrayDate[1] ;
+          this.model.birthYear = arrayDate[2] ;
+         }
+         sessionStorage.setItem('customerExist', 'true')
+      },
+      error => {
+          sessionStorage.setItem('customerExist', 'false')
+          if(error.status == '404'){
+            console.log('cliente no encontrado');
+          }else{
+            console.log('Se presento un error con el servicio', error.status, 'Desc ', error.message);
+          }
+      }
+    );
+  }
+
   validateFirstName1(): boolean {
     const value = this.model.firstName1;
-
     if (value === '') {
       this.showErrorFirstName1 = true;
       this.errorMessageFirstName1 = 'El campo de primer nombre es obligatorio';

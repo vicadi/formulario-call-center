@@ -1,13 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { InformacionFinancieraComponent } from './informacion-financiera/informacion-financiera.component';
-
 import { BasicinfoComponent } from './basicinfo/basicinfo.component';
-
 import { AppRoutingModule } from './app-routing.module';
-
 import { FormsModule } from '@angular/forms';
 import { NavBarUserComponent } from './nav-bar-user/nav-bar-user.component';
 import { HomeComponent } from './home/home.component';
@@ -16,7 +12,8 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { ScoreAppComponent } from './score-app/score-app.component';
 import { SummaryComponent } from './summary/summary.component';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
-
+import { CustomerService} from './services/customer.service';
+import { CheckService } from './services/check.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SummaryService } from './summary/summary.service';
 import { HttpModule } from '../../node_modules/@angular/http';
@@ -43,7 +40,7 @@ import { HttpModule } from '../../node_modules/@angular/http';
     CurrencyMaskModule,
     HttpClientModule
   ],
-  providers: [SummaryService],
+  providers: [CustomerService, CheckService, SummaryService ],
   bootstrap: [AppComponent]
 })
 

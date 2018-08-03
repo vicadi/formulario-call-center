@@ -92,7 +92,7 @@
             <div class="bloqueGrande">
                 <div class="bloqueMail">
                 <span>Correo electrónico*</span>
-                <input class="size-mail" [ngClass] = "!showErrorEmail ? 'inputBasico':'inputBasicoError'" type="email" maxlength="25" required name="email" [(ngModel)]="model.email"
+                <input class="size-mail" [ngClass] = "!showErrorEmail ? 'inputBasico':'inputBasicoError'" type="email" maxlength="50" required name="email" [(ngModel)]="model.email"
                 (keyup)="validateEmail()">
                     <div class="float-none">
                 <span class="message-error span-size text-align" *ngIf="showErrorEmail">{{errorMessageEmail}}</span>

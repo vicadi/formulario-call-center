@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IfStmt } from '../../../node_modules/@angular/compiler';
+import { IfStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-score-app',
