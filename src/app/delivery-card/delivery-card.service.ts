@@ -7,7 +7,7 @@ import { Http, Response } from "@angular/http";
 @Injectable()
 export class DeliveryCardService {
  
-  private apiUrl = 'http://localhost:8080/';
+  private apiUrl = 'http://localhost:8081/';
  
   constructor(private http: Http) { }
  

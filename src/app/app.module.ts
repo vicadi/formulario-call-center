@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SummaryService } from './summary/summary.service';
 import { LoginService } from './user-login/user-login.service';
 import { HttpModule } from '../../node_modules/@angular/http';
+import { ScoreService } from './score-app/score-app.service';
 
 
 @NgModule({
@@ -43,7 +44,7 @@ import { HttpModule } from '../../node_modules/@angular/http';
     HttpClientModule,
     HttpModule
   ],
-  providers: [CustomerService, CheckService, SummaryService, DeliveryCardService, LoginService],
+  providers: [CustomerService, CheckService, SummaryService, DeliveryCardService, ScoreService, LoginService],
   bootstrap: [AppComponent]
 })
 

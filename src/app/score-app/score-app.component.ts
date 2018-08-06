@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IfStmt } from '@angular/compiler';
+import { Router } from '@angular/router';
 
+import { Score } from '../models/score.model';
+import { ScoreService } from './score-app.service';
 @Component({
   selector: 'app-score-app',
   templateUrl: './score-app.component.html',
@@ -19,7 +22,9 @@ export class ScoreAppComponent implements OnInit {
   showStarFive: string = '../../assets/img/star-5.png';
   finish: boolean = false;
   
-  constructor() { }
+  score: Score = new Score();
+
+  constructor(private scoreService: ScoreService) { }
 
   ngOnInit() {
     sessionStorage.setItem('scoreCustomer', '0')
@@ -27,8 +32,18 @@ export class ScoreAppComponent implements OnInit {
 
   finishProccess() {
     this.finish = true;
-    sessionStorage.setItem('scoreObservationCustomer', this.observation)
+    sessionStorage.setItem('scoreObservationCustomer', this.observation);
+    this.score.scoreValue = +sessionStorage.getItem('scoreCustomer');
+    this.score.authorizeId = +sessionStorage.getItem('codeProcess');
+    this.createScore();
   }
+
+  createScore(): void {
+    this.scoreService.saveScore(this.score)
+        .subscribe( data => {
+          alert("Score saved successfully.");
+        });
+  };
 
   selectStar(idStar: Number) {
     this.selectStarYet = !this.selectStar;
