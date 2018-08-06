@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { BasicInfo} from './basicinfo';
 import { CustomerService } from '../services/customer.service';
 import { Injectable } from '@angular/core';
@@ -13,6 +13,8 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class BasicinfoComponent implements OnInit {
+
+  @Input() user : string;
 
   dataResponse: any
   model = new BasicInfo('', '', '', '', '', '', '', '', '', '');

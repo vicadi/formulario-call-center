@@ -7,7 +7,7 @@
    </div>
    <div class="bloque-derecho">
       <div>
-         <app-nav-bar-user></app-nav-bar-user>
+         <app-nav-bar-user [user]="user"></app-nav-bar-user>
       </div>
       <span class="titulo">Ingresa la información personal</span> <span
          class="titulo">de tu cliente</span>
@@ -126,5 +126,5 @@
       </div>
    </div>
 </div>
-<app-informacion-financiera [username]="model.firstName1"
+<app-informacion-financiera [user]="user" [username]="model.firstName1"
 *ngIf="showFinancialInfo"></app-informacion-financiera>

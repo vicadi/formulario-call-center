@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { IfStmt } from '@angular/compiler';
 
 @Component({
@@ -7,6 +7,8 @@ import { IfStmt } from '@angular/compiler';
   styleUrls: ['./score-app.component.css']
 })
 export class ScoreAppComponent implements OnInit {
+
+  @Input() user : string;
 
   observation : string = '';
   selectStarYet : boolean = false;

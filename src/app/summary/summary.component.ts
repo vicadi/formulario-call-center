@@ -1,7 +1,7 @@
 import { Component, OnInit , Input} from '@angular/core';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 import { SummaryService } from './summary.service';
-import { timingSafeEqual } from 'crypto';
+
 import { CustomerService } from '../services/customer.service'
 import { CheckService } from '../services/check.service'
 
@@ -15,6 +15,7 @@ export class SummaryComponent implements OnInit {
   @Input() outcome: number;
   @Input() income: number;
   @Input() username: string;
+  @Input() user : string;
 
   showButton: boolean =false;
   showHome: boolean = false;
