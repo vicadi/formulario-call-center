@@ -8,6 +8,7 @@ export class BasicInfo {
       public birthDay: string, 
       public birthMonth: string,
       public birthYear: string,
+      public dateOfBirth: string,
       public email: string,
       public phoneNumber: string,
    ) {  } 

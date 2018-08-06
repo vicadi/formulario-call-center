@@ -73,17 +73,7 @@
             <div class="bloqueGrande">
                 <div style="margin-bottom: 10px;" class="bloque">
                     <span>Fecha de nacimiento*</span>
-                    <div style="float:left;">
-                        <select  class="inputBasico" name="birthDay" [(ngModel)]="model.birthDay" (change)="validateBirthDate()">
-                            <option name="birthDayS" *ngFor="let day of daysList" [ngValue]="day">{{day}}</option>
-                        </select>
-                        <select  class="inputBasico" name="birthMonth" [(ngModel)]="model.birthMonth" (change)="validateBirthDate()">
-                            <option name="birthDayS" *ngFor="let month of monthList" [ngValue]="month">{{month}}</option>
-                        </select>
-                        <select  style="margin-right: 10px;" class="inputBasico" name="birthYear" [(ngModel)]="model.birthYear" (change)="validateBirthDate()">
-                            <option name="birthDayS" *ngFor="let year of yearList" [ngValue]="year">{{year}}</option>
-                        </select>
-                    </div>
+                    <input id="dateOfBirth" name="dateOfBirth" [(ngModel)]="model.dateOfBirth" type="date" placeholder="dd-MM-yyyy" required>
                 <div>
                     <p class="message-error" *ngIf="showErrorBirthDate">{{errorMessageBirthDate}}</p>
                 </div>

@@ -3,6 +3,8 @@ import { BasicInfo} from './basicinfo';
 import { CustomerService } from '../services/customer.service';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
+import { ThrowStmt } from '../../../node_modules/@angular/compiler';
 
 
 @Component({
@@ -15,7 +17,7 @@ import { HttpClient } from '@angular/common/http';
 export class BasicinfoComponent implements OnInit {
 
   dataResponse: any
-  model = new BasicInfo('', '', '', '', '', '', '', '', '', '');
+  model = new BasicInfo('', '', '', '', '', '', '', '', '', '', '');
 
   birthDay = '';
   birthMonth = '';
@@ -117,9 +119,10 @@ export class BasicinfoComponent implements OnInit {
          this.checkNFijo  = result.typePhone && result.typePhone == 'Phone' ? true:false;
          if(result.birthDate != null){
           let arrayDate =  result.birthDate.split("/")
-          this.model.birthDay = arrayDate[0];
-          this.model.birthMonth = arrayDate[1] ;
-          this.model.birthYear = arrayDate[2] ;
+          this.model.birthDay = arrayDate[0]< 10 ? '0'+arrayDate[0] : arrayDate[0];
+          this.model.birthMonth = this.monthList.indexOf(arrayDate[1]) < 10 ? '0' + this.monthList.indexOf(arrayDate[1]).toFixed(0) : this.monthList.indexOf(arrayDate[1]).toFixed(0);
+          this.model.birthYear = arrayDate[2];
+          this.model.dateOfBirth = this.model.birthYear + '-' +'09' + '-' + this.model.birthDay;
          }
          sessionStorage.setItem('customerExist', 'true')
          this.validateFirstName1()
@@ -127,7 +130,6 @@ export class BasicinfoComponent implements OnInit {
           this.validateLastName1()
           this.validateLastName2()
           this.validateIdNumber()
-          this.validateBirthDate()
           this.validateEmail()
           this.validatePhoneNumber()
       },
@@ -260,22 +262,6 @@ export class BasicinfoComponent implements OnInit {
     return this.showErrorIdNumber;
   }
 
-  validateBirthDate(): boolean {
-    if (this.model.birthDay === '' || this.model.birthMonth === '' || this.model.birthYear === '') {
-      this.showErrorBirthDate = true;
-      this.errorMessageBirthDate = 'El campo de fecha de nacimiento es obligatoria';
-    } else {
-      this.showErrorBirthDate = false;
-      this.errorMessageBirthDate = '';
-    }
-    if (!this.showErrorBirthDate) {
-      this.birthDateCheck = true;
-    } else {
-      this.birthDateCheck = false;
-    }
-    return this.showErrorBirthDate;
-  }
-
   validateEmail(): boolean {
     if (this.model.email === '') {
       this.showErrorEmail = true;
@@ -342,7 +328,7 @@ export class BasicinfoComponent implements OnInit {
   
   checkRequiredValues(): boolean {
     if (this.firstName1Check && this.lastName1Check && this.idNumberCheck
-      && this.birthDateCheck && this.emailCheck && this.phoneCheck) {
+       && this.emailCheck && this.phoneCheck) {
         if (this.model.firstName2 != '' && this.model.firstName2 != null) {
           if (!this.firstName2Check) {
             return false;
@@ -359,15 +345,15 @@ export class BasicinfoComponent implements OnInit {
   }
 
   finish(): void {
-    sessionStorage.setItem('identityNumberCustomer', this.model.idNumber)
-    sessionStorage.setItem('nameCustomer', this.model.firstName1)
-    sessionStorage.setItem('middleNameCustomer', this.model.firstName2)
-    sessionStorage.setItem('lastNameCustomer', this.model.lastName1)
-    sessionStorage.setItem('secondLastNameCustomer', this.model.lastName2)
-    sessionStorage.setItem('mailCustomer', this.model.email)
-    sessionStorage.setItem('phoneTypeCustomer', this.checkNFijo? 'Phone':'Cellphone')
-    sessionStorage.setItem('phoneNumberCustomer', this.model.phoneNumber)
-    sessionStorage.setItem('birthDayCustomer', this.model.birthDay +'/'+ this.model.birthMonth + '/'+ this.model.birthYear)
+    sessionStorage.setItem('identityNumberCustomer', this.model.idNumber);
+    sessionStorage.setItem('nameCustomer', this.model.firstName1);
+    sessionStorage.setItem('middleNameCustomer', this.model.firstName2);
+    sessionStorage.setItem('lastNameCustomer', this.model.lastName1);
+    sessionStorage.setItem('secondLastNameCustomer', this.model.lastName2);
+    sessionStorage.setItem('mailCustomer', this.model.email);
+    sessionStorage.setItem('phoneTypeCustomer', this.checkNFijo? 'Phone':'Cellphone');
+    sessionStorage.setItem('phoneNumberCustomer', this.model.phoneNumber);
+    sessionStorage.setItem('birthDayCustomer', this.model.dateOfBirth);
     this.showBasicInfo = false;
     this.showFinancialInfo = true;
   }
