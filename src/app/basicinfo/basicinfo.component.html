@@ -23,8 +23,8 @@
                 </div>
             </div>
             <div class="position-btn">
-                    <button class="btn-blue botonCedula" [ngClass]="showCedula ? 'btn-blue-active botonCedula':'btn-blue-inactive botonCedula'" (click)="loadIdNumber()" 
-                    [disabled]="!showCedula" >CONTINUAR</button>
+                    <button class="btn-blue botonCedula" [ngClass]="validateContinue() ? 'btn-blue-active botonCedula':'btn-blue-inactive botonCedula'" (click)="loadIdNumber()" 
+                    [disabled]="!validateContinue()" >CONTINUAR</button>
             </div>
         </div>
       </div>

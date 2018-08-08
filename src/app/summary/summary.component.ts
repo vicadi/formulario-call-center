@@ -1,11 +1,6 @@
 import { Component, OnInit , Input} from '@angular/core';
-<<<<<<< HEAD
 import { Router } from '@angular/router';
 import { SummaryService } from './summary.service';
-
-=======
-import { SummaryService } from './summary.service';
->>>>>>> a1398902f869c69e4df17ac672c069e88cb6a6b1
 import { CustomerService } from '../services/customer.service'
 import { CheckService } from '../services/check.service'
 

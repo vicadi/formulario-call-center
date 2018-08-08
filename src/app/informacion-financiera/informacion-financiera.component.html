@@ -16,25 +16,29 @@
             <div class="bloque">
                 <span class="font-gray font-18">Ingresos mensuales</span>
                 <span class="font-coment">Salario fijo, ingreso por pensión, arriendos…</span>
-                <input currencyMask [options]="{ prefix: '$ ', thousands: '.', precision: 0, align: 'left' }" maxlength="16" pattern="[0-9]{1,16}" required name="ingresos" [(ngModel)]="ingresos"/>
+                <input currencyMask [options]="{ prefix: '$ ', thousands: '.', precision: 0, align: 'left' }" maxlength="16" pattern="[0-9]{1,16}" required name="ingresos" [(ngModel)]="ingresos"
+                    [ngClass] = "ingresos === '' ? 'whiteText':'blackText'"/>
                 <!-- <input type="text" maxlength="16" pattern="[0-9]{1,16}" required name="ingresos" value="{{ingresos}}" (keyup)="onKeyIngresos()" [(ngModel)]="ingresos"> -->
                 <span></span>
             </div>
             <div class="bloque">
                 <span class="font-gray font-18">Gastos mensuales</span>
                 <span class="font-coment">Salida de dinero como arriendo, ocio…</span>
-                <input currencyMask [options]="{ prefix: '$ ', thousands: '.', precision: 0, align: 'left' }" maxlength="16" pattern="[0-9]{1,16}" name="egresos" [(ngModel)]="egresos" >
+                <input currencyMask  [options]="{ prefix: '$ ', thousands: '.', precision: 0, align: 'left' }" maxlength="16" pattern="[0-9]{1,16}" name="egresos" [(ngModel)]="egresos" 
+                    [ngClass] = "egresos === '' ? 'whiteText':'blackText'"/>
                 <span></span>
             </div> 
             <div class="bloque">
                 <span class="font-gray font-18">Activos</span>
                 <span class="font-coment">Total bienes personales como propiedad raíz y vehículo…</span>
-                <input currencyMask [options]="{ prefix: '$ ', thousands: '.', precision: 0, align: 'left' }" maxlength="16" pattern="[0-9]{1,16}" required name="activos" [(ngModel)]="activos" >
+                <input currencyMask [options]="{ prefix: '$ ', thousands: '.', precision: 0, align: 'left' }" maxlength="16" pattern="[0-9]{1,16}" required name="activos" [(ngModel)]="activos"
+                    [ngClass] = "activos === '' ? 'whiteText':'blackText'"/>
             </div>
             <div class="bloque">
                 <span class="font-gray font-18">Pasivos</span>
                 <span class="font-coment">Total deudas con el sector financiero o terceros…</span>
-                <input currencyMask [options]="{ prefix: '$ ', thousands: '.', precision: 0, align: 'left' }" maxlength="16" pattern="[0-9]{1,16}" required name="pasivos" [(ngModel)]="pasivos" >
+                <input currencyMask [options]="{ prefix: '$ ', thousands: '.', precision: 0, align: 'left' }" maxlength="16" pattern="[0-9]{1,16}" required name="pasivos" [(ngModel)]="pasivos" 
+                    [ngClass] = "pasivos === '' ? 'whiteText':'blackText'"/>
             </div>
             <div class="remember bloque_remember">
               <div>

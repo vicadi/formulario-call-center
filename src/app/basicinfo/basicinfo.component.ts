@@ -32,6 +32,7 @@ export class BasicinfoComponent implements OnInit {
 
   showCedula = true;
   showInfo = false;
+  blockCedButton = true;
 
   error = true;
   errorMessage = '';
@@ -240,6 +241,20 @@ export class BasicinfoComponent implements OnInit {
     return this.showErrorLastName2;
   }
 
+  validateContinue(): boolean {
+    if (!this.showCedula) {
+      return false;
+    }
+    if (this.blockCedButton) {
+      return false;
+    }
+    if (this.showErrorIdNumber) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   validateIdNumber(): boolean {
     this.model.idNumber = this.model.idNumber.replace(/[^$0-9]/g, '');
     if (this.model.idNumber.length > 10) {
@@ -259,6 +274,7 @@ export class BasicinfoComponent implements OnInit {
     } else {
       this.idNumberCheck = false;
     }
+    this.blockCedButton = false;
     return this.showErrorIdNumber;
   }
 
