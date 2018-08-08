@@ -1,8 +1,8 @@
 import { Component, OnInit , Input} from '@angular/core';
 import { Router } from '@angular/router';
 import { SummaryService } from './summary.service';
-import { CustomerService } from '../services/customer.service'
-import { CheckService } from '../services/check.service'
+import { CustomerService } from '../services/customer.service';
+import { CheckService } from '../services/check.service';
 
 @Component({
   selector: 'app-summary',
