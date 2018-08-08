@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DeliveryCardService } from './delivery-card.service';
 
 @Component({
@@ -7,6 +7,8 @@ import { DeliveryCardService } from './delivery-card.service';
   styleUrls: ['./delivery-card.component.css']
 })
 export class DeliveryCardComponent implements OnInit {
+
+  @Input() user : string;
 
   showHome: boolean = true;
   showOffice: boolean = false;

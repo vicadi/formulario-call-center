@@ -2,7 +2,7 @@
   <img src="../../assets/img/icon-bank.svg" class="logo">
   <div class="text gray-text font-16 user-title">
       <img src="../../assets/img/person.png">
-      <span>  <B> Camila Paz </B>   |    Cerrar sesión</span>
+      <span>  <B> {{name}} </B>   |    Cerrar sesión</span>
       </div>  
 
   <div class="image_top">
@@ -36,4 +36,4 @@
   </div>
 
 </div>
-<app-basicinfo *ngIf="showBasicInfo"></app-basicinfo>
+<app-basicinfo [user]="user" *ngIf="showBasicInfo"></app-basicinfo>

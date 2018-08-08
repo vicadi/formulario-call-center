@@ -13,7 +13,8 @@ export class UserLoginComponent implements OnInit {
   password: string = '';
   errorUser: boolean = false;
   errorPassword: boolean = false;
-  response: string = null;
+  response: any = null;
+  userName = null;
 
   constructor(private loginService: LoginService) { };
 
@@ -51,6 +52,7 @@ export class UserLoginComponent implements OnInit {
   checkLogin() {
     if (this.response !== null) {
       sessionStorage.setItem('userCall', this.response);
+      this.userName = this.response;
       this.loginSuccess = true;
     } else {
       this.errorUser = true;

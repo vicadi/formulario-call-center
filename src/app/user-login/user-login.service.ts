@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { Http, Headers, Response, RequestOptionsArgs, RequestMethod} from "@angular/http";
  
 @Injectable()
-export class LoginService {
+export class LoginService { 
  
   private apiUrl = 'http://localhost:8084/login';
  

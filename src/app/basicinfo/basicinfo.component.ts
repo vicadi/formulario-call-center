@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { BasicInfo} from './basicinfo';
 import { CustomerService } from '../services/customer.service';
 import { Injectable } from '@angular/core';
@@ -16,6 +16,8 @@ import { ThrowStmt } from '../../../node_modules/@angular/compiler';
 @Injectable()
 export class BasicinfoComponent implements OnInit {
 
+  @Input() user : string;
+
   dataResponse: any
   model = new BasicInfo('', '', '', '', '', '', '', '', '', '', '');
 
@@ -32,6 +34,7 @@ export class BasicinfoComponent implements OnInit {
 
   showCedula = true;
   showInfo = false;
+  blockCedButton = true;
 
   error = true;
   errorMessage = '';
@@ -240,6 +243,20 @@ export class BasicinfoComponent implements OnInit {
     return this.showErrorLastName2;
   }
 
+  validateContinue(): boolean {
+    if (!this.showCedula) {
+      return false;
+    }
+    if (this.blockCedButton) {
+      return false;
+    }
+    if (this.showErrorIdNumber) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   validateIdNumber(): boolean {
     this.model.idNumber = this.model.idNumber.replace(/[^$0-9]/g, '');
     if (this.model.idNumber.length > 10) {
@@ -259,6 +276,7 @@ export class BasicinfoComponent implements OnInit {
     } else {
       this.idNumberCheck = false;
     }
+    this.blockCedButton = false;
     return this.showErrorIdNumber;
   }
 

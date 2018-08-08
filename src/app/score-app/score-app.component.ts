@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { IfStmt } from '@angular/compiler';
 import { Router } from '@angular/router';
 
@@ -10,6 +10,8 @@ import { ScoreService } from './score-app.service';
   styleUrls: ['./score-app.component.css']
 })
 export class ScoreAppComponent implements OnInit {
+
+  @Input() user : string;
 
   observation : string = '';
   selectStarYet : boolean = false;
