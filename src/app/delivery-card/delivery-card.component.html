@@ -3,7 +3,7 @@
       <img class="img" src="../../assets/img/progress-banners/barra-de-procesos-deliverycard@3x.png">
   </div>
   <div class="bloque-derecho">
-    <app-nav-bar-user [user]="user"></app-nav-bar-user>
+    <app-nav-bar-user></app-nav-bar-user>
     <span class="font-40 font-blue h1Center">¿Dónde desea recibir la Tarjeta de <br> Crédito tu cliente?</span>
     <div class="choose-both">
       <div class="choose" [ngClass]= "showHome ? 'home-active':'home-inactive'" (click)="onClickHome()"></div>
@@ -74,4 +74,4 @@
   </div>
 </div>
 
-<app-score-app [user]="user" *ngIf="!showDeliveryCard"></app-score-app>
+<app-score-app *ngIf="!showDeliveryCard"></app-score-app>

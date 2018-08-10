@@ -12,8 +12,8 @@ export class LoginService {
 
   constructor(private http: Http) { }
 
-  public loginUser(username, password): Observable<any> {
-    return this.http.get(this.apiUrl + '?username=' + username + '&password=' + password)
-        .map((response: Response) => response.text());
+  loginUser(username, password): Observable<any> {
+    return this.http.get(this.apiUrl + '?username=' + username + '&password=' + password) ;
   }
+
 }

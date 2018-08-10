@@ -8,36 +8,40 @@ import { LoginService } from './user-login.service';
   styleUrls: ['./user-login.component.css']
 })
 export class UserLoginComponent implements OnInit {
-  loginSuccess: boolean = false;
-  user: string = '';
-  password: string = '';
-  errorUser: boolean = false;
-  errorPassword: boolean = false;
+  loginSuccess = false;
+  user = '';
+  password = '';
+  errorUser = false;
+  errorPassword = false;
   response: any = null;
   userName = null;
 
-  constructor(private loginService: LoginService) { };
+  constructor(private loginService: LoginService) { }
 
   ngOnInit() {
+    this.clearSession();
   }
 
-  onKeyUser(){
-    if(this.user.length > 0){
-      this.errorUser= false;
+  onKeyUser() {
+    if (this.user.length > 0) {
+      this.errorUser = false;
     }
   }
 
   onKeyPassword() {
-    if(this.password.length > 0){
-      this.errorPassword= false;
+    if (this.password.length > 0) {
+      this.errorPassword = false;
     }
   }
 
   login() {
     this.loginService.loginUser(this.user, this.password).subscribe(
       data => {
-        this.response = data;
-        this.checkLogin();
+        const response = JSON.parse(data._body);
+        sessionStorage.setItem('userCall', response.name);
+        sessionStorage.setItem('idUserCall', response.id);
+        this.userName = response.username;
+        this.loginSuccess = true;
       },
       error => {
         this.errorUser = true;
@@ -49,18 +53,8 @@ export class UserLoginComponent implements OnInit {
     );
   }
 
-  checkLogin() {
-    if (this.response !== null) {
-      sessionStorage.setItem('userCall', this.response);
-      this.userName = this.response;
-      this.loginSuccess = true;
-    } else {
-      this.errorUser = true;
-      this.user = '';
-      this.errorPassword = true;
-      this.password = '';
-      this.response = null;
-    }
-  }
 
+  clearSession() {
+    sessionStorage.clear();
+  }
 }

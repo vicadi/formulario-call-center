@@ -13,7 +13,7 @@ export class ScoreService {
 
   private apiUrl = 'https://b8s81nz8wa.execute-api.us-east-1.amazonaws.com/qa/score/';
 
-  public saveScore(score) {
+  saveScore(score) {
     return this.http.post<Score>(this.apiUrl, score);
   }
 }

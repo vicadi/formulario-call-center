@@ -8,21 +8,15 @@ import { Component, OnInit, Input} from '@angular/core';
 
 export class HomeComponent implements OnInit {
   name: any = '';
-  user: any = '';
-
-  @Input() userName: string;
-
+  userCall: any = '';
   showHome = true;
   showBasicInfo  = false;
 
   constructor() { }
 
   ngOnInit() {
-    this.user = this.userName;
-    this.name = JSON.parse(this.userName);
+    this.userCall = sessionStorage.getItem('userCall');
     this.name = this.name.name;
-    //clear session
-    // this.clearSession()
   }
 
   showComponent() {
@@ -30,7 +24,5 @@ export class HomeComponent implements OnInit {
     this.showBasicInfo = true;
   }
 
-  clearSession() {
-    sessionStorage.clear();
-  }
+
 }

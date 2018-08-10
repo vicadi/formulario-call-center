@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="bloque-derecho">
-        <app-nav-bar-user [user]="user"></app-nav-bar-user>
+        <app-nav-bar-user></app-nav-bar-user>
         <div class="padding-12">
             <span class="titulo font-blue">Ingresa la información</span>
             <span class="titulo font-blue">financiera de tu cliente</span>
@@ -53,4 +53,4 @@
         </form>
     </div>
 </div>
-<app-summary [user]="user" [outcome]="outcome" [income]="income" [username]="username" *ngIf="showSummary"></app-summary>
+<app-summary [outcome]="outcome" [income]="income" [username]="username" *ngIf="showSummary"></app-summary>
