@@ -30,7 +30,7 @@ export class SummaryComponent implements OnInit {
   ngOnInit() {
     this.summaryService.obtaingApproved(this.income, this.outcome).subscribe(
       data => {
-        this.valueApproved = data;
+        this.valueApproved = data._body;
         this.getValueApproved();
       },
       error => {
