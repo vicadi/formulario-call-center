@@ -7,13 +7,13 @@ import { Component, OnInit, Input} from '@angular/core';
 })
 
 export class HomeComponent implements OnInit {
-  name: any = "Camilita";
-  user: any = "";
+  name: any = '';
+  user: any = '';
 
-  @Input() userName : string;
+  @Input() userName: string;
 
-  showHome: boolean = true;
-  showBasicInfo: boolean = false;
+  showHome = true;
+  showBasicInfo  = false;
 
   constructor() { }
 
@@ -25,12 +25,12 @@ export class HomeComponent implements OnInit {
     // this.clearSession()
   }
 
-  showComponent(){
+  showComponent() {
     this.showHome = false;
     this.showBasicInfo = true;
   }
 
-  clearSession(){
+  clearSession() {
     sessionStorage.clear();
   }
 }
