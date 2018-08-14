@@ -16,9 +16,8 @@ import { ThrowStmt } from '../../../node_modules/@angular/compiler';
 @Injectable()
 export class BasicinfoComponent implements OnInit {
 
-  @Input() user : string;
-
-  dataResponse: any
+  userCall: string;
+  dataResponse: any;
   model = new BasicInfo('', '', '', '', '', '', '', '', '', '', '');
 
   birthDay = '';
@@ -46,25 +45,25 @@ export class BasicinfoComponent implements OnInit {
   showErrorFirstName1 = false;
   errorMessageFirstName1 = '';
 
-  showErrorFirstName2: boolean = false;
+  showErrorFirstName2 = false;
   errorMessageFirstName2 = '';
 
-  showErrorLastName1: boolean = false;
+  showErrorLastName1 = false;
   errorMessageLastName1 = '';
 
-  showErrorLastName2: boolean = false;
+  showErrorLastName2 = false;
   errorMessageLastName2 = '';
 
-  showErrorIdNumber: boolean = false;
+  showErrorIdNumber = false;
   errorMessageIdNumber = '';
 
-  showErrorBirthDate: boolean = false;
+  showErrorBirthDate = false;
   errorMessageBirthDate = '';
 
-  showErrorEmail: boolean = false;
+  showErrorEmail = false;
   errorMessageEmail = '';
 
-  showErrorPhoneNumber: boolean = false;
+  showErrorPhoneNumber = false;
   errorMessagePhoneNumber = '';
 
   submitted = false;
@@ -78,9 +77,10 @@ export class BasicinfoComponent implements OnInit {
   emailCheck = false;
   phoneCheck = false;
 
-  constructor (private http: HttpClient, private customerService : CustomerService) { }
+  constructor (private http: HttpClient, private customerService: CustomerService) { }
 
   ngOnInit() {
+    this.userCall = sessionStorage.getItem('userCall');
     this.daysList = Array(31).fill(0).map((x, i) => i + 1);
     this.monthList = ['Enero', 'Febrero', 'Marzo', 'Abril',
       'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre', ];
@@ -110,37 +110,38 @@ export class BasicinfoComponent implements OnInit {
     this.showInfo = true;
   }
 
-  validCustomer(){
+  validCustomer() {
     this.customerService.getCustomer(this.model.idNumber).subscribe(
       result => {
-        this.model.firstName1 = result.firstName ? result.firstName :'';
-         this.model.firstName2  = result.middleName ? result.middleName :'';
-         this.model.lastName1  = result.lastName ? result.lastName :'';
-         this.model.lastName2  = result.secondLastName ? result.secondLastName :'';
-         this.model.email  = result.email ? result.email :'';
-         this.model.phoneNumber  = result.numberPhone ? result.numberPhone :'';
-         this.checkNFijo  = result.typePhone && result.typePhone == 'Phone' ? true:false;
-         if(result.birthDate != null){
-          let arrayDate =  result.birthDate.split("/")
-          this.model.birthDay = arrayDate[0]< 10 ? '0'+arrayDate[0] : arrayDate[0];
-          this.model.birthMonth = this.monthList.indexOf(arrayDate[1]) < 10 ? '0' + this.monthList.indexOf(arrayDate[1]).toFixed(0) : this.monthList.indexOf(arrayDate[1]).toFixed(0);
+        this.model.firstName1 = result.firstName ? result.firstName : '';
+         this.model.firstName2  = result.middleName ? result.middleName : '';
+         this.model.lastName1  = result.lastName ? result.lastName : '';
+         this.model.lastName2  = result.secondLastName ? result.secondLastName : '';
+         this.model.email  = result.email ? result.email : '';
+         this.model.phoneNumber  = result.numberPhone ? result.numberPhone : '';
+         this.checkNFijo  = result.typePhone && result.typePhone === 'Phone' ? true : false;
+         if (result.birthDate != null) {
+          const arrayDate =  result.birthDate.split('/');
+          this.model.birthDay = arrayDate[0] < 10 ? '0' + arrayDate[0] : arrayDate[0];
+          this.model.birthMonth = this.monthList.indexOf(arrayDate[1]) < 10 ? '0' +
+          this.monthList.indexOf(arrayDate[1]).toFixed(0) : this.monthList.indexOf(arrayDate[1]).toFixed(0);
           this.model.birthYear = arrayDate[2];
-          this.model.dateOfBirth = this.model.birthYear + '-' +'09' + '-' + this.model.birthDay;
+          this.model.dateOfBirth = this.model.birthYear + '-' + '09' + '-' + this.model.birthDay;
          }
-         sessionStorage.setItem('customerExist', 'true')
-         this.validateFirstName1()
-          this.validateFirstName2()
-          this.validateLastName1()
-          this.validateLastName2()
-          this.validateIdNumber()
-          this.validateEmail()
-          this.validatePhoneNumber()
+         sessionStorage.setItem('customerExist', 'true');
+         this.validateFirstName1();
+          this.validateFirstName2();
+          this.validateLastName1();
+          this.validateLastName2();
+          this.validateIdNumber();
+          this.validateEmail();
+          this.validatePhoneNumber();
       },
       error => {
-          sessionStorage.setItem('customerExist', 'false')
-          if(error.status == '404'){
+          sessionStorage.setItem('customerExist', 'false');
+          if (error.status === '404') {
             console.log('cliente no encontrado');
-          }else{
+          } else {
             console.log('Se presento un error con el servicio', error.status, 'Desc ', error.message);
           }
       }
@@ -308,23 +309,23 @@ export class BasicinfoComponent implements OnInit {
   }
 
   validatePhoneNumber(): boolean {
-    if (this.model.phoneNumber == '') {
+    if (this.model.phoneNumber === '') {
       this.showErrorPhoneNumber = false;
       this.errorMessagePhoneNumber = 'El número es obligatorio';
     } else if (this.model.phoneNumber != null) {
       if (this.checkNFijo) {
-        if (this.model.phoneNumber.toString().length != 7) {
+        if (this.model.phoneNumber.toString().length !== 7) {
           this.showErrorPhoneNumber = true;
           this.errorMessagePhoneNumber = 'El número debe tener 7 números';
         } else {
           this.showErrorPhoneNumber = false;
           this.errorMessagePhoneNumber = '';
-        } 
+        }
       } else if (!this.checkNFijo) {
-        if (this.model.phoneNumber.toString().length != 10) {
+        if (this.model.phoneNumber.toString().length !== 10) {
           this.showErrorPhoneNumber = true;
           this.errorMessagePhoneNumber = 'El número debe tener 10 números';
-        } else if (this.model.phoneNumber.toString().charAt(0) != '3') {
+        } else if (this.model.phoneNumber.toString().charAt(0) !== '3') {
           this.showErrorPhoneNumber = true;
           this.errorMessagePhoneNumber = 'El número debe comenzar entre un rango de 300 y 399';
         } else {
@@ -343,16 +344,16 @@ export class BasicinfoComponent implements OnInit {
     }
     return this.showErrorPhoneNumber;
   }
-  
+
   checkRequiredValues(): boolean {
     if (this.firstName1Check && this.lastName1Check && this.idNumberCheck
        && this.emailCheck && this.phoneCheck) {
-        if (this.model.firstName2 != '' && this.model.firstName2 != null) {
+        if (this.model.firstName2 !== '' && this.model.firstName2 != null) {
           if (!this.firstName2Check) {
             return false;
           }
         }
-        if (this.model.lastName2 != '' && this.model.lastName2 != null) {
+        if (this.model.lastName2 !== '' && this.model.lastName2 != null) {
           if (!this.lastName2Check) {
             return false;
           }
@@ -369,7 +370,7 @@ export class BasicinfoComponent implements OnInit {
     sessionStorage.setItem('lastNameCustomer', this.model.lastName1);
     sessionStorage.setItem('secondLastNameCustomer', this.model.lastName2);
     sessionStorage.setItem('mailCustomer', this.model.email);
-    sessionStorage.setItem('phoneTypeCustomer', this.checkNFijo? 'Phone':'Cellphone');
+    sessionStorage.setItem('phoneTypeCustomer', this.checkNFijo ? 'Phone' : 'Cellphone');
     sessionStorage.setItem('phoneNumberCustomer', this.model.phoneNumber);
     sessionStorage.setItem('birthDayCustomer', this.model.dateOfBirth);
     this.showBasicInfo = false;

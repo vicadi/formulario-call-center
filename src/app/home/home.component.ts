@@ -7,30 +7,22 @@ import { Component, OnInit, Input} from '@angular/core';
 })
 
 export class HomeComponent implements OnInit {
-  name: any = "Camilita";
-  user: any = "";
-
-  @Input() userName : string;
-
-  showHome: boolean = true;
-  showBasicInfo: boolean = false;
+  name: any = '';
+  userCall: any = '';
+  showHome = true;
+  showBasicInfo  = false;
 
   constructor() { }
 
   ngOnInit() {
-    this.user = this.userName;
-    this.name = JSON.parse(this.userName);
+    this.userCall = sessionStorage.getItem('userCall');
     this.name = this.name.name;
-    //clear session
-    // this.clearSession()
   }
 
-  showComponent(){
+  showComponent() {
     this.showHome = false;
     this.showBasicInfo = true;
   }
 
-  clearSession(){
-    sessionStorage.clear();
-  }
+
 }

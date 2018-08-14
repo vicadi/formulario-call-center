@@ -8,11 +8,10 @@ import { DeliveryCardService } from './delivery-card.service';
 })
 export class DeliveryCardComponent implements OnInit {
 
-  @Input() user : string;
-
-  showHome: boolean = true;
-  showOffice: boolean = false;
-  showDeliveryCard: boolean = true;
+  userCall: string;
+  showHome = true;
+  showOffice = false;
+  showDeliveryCard = true;
 
   city: string;
   neighborhood: string;
@@ -24,8 +23,8 @@ export class DeliveryCardComponent implements OnInit {
   cityOffice: string;
   office: string;
 
-  nameOffice: string = '';
-  addressOffice: string = '';
+  nameOffice = '';
+  addressOffice = '';
 
   cities: string[] = [];
   listAdds1: string[] = [];
@@ -35,15 +34,16 @@ export class DeliveryCardComponent implements OnInit {
   constructor(private deliveryCardService: DeliveryCardService) {  }
 
   ngOnInit() {
+    this.userCall = sessionStorage.getItem('userCall');
     this.generateCities();
     this.generateListAdds1();
   }
 
-  generateCities(){
+  generateCities() {
     this.cities = [];
     this.deliveryCardService.getCities().subscribe(
       data => {
-        for(let obj of data){
+        for (const obj of data) {
           this.cities.push(obj.name);
         }
       },
@@ -53,11 +53,11 @@ export class DeliveryCardComponent implements OnInit {
     );
   }
 
-  generateListAdds1(){
+  generateListAdds1() {
     this.listAdds1 = [];
     this.deliveryCardService.getListAdd().subscribe(
       data => {
-        for(let obj of data){
+        for (const obj of data) {
           this.listAdds1.push(obj);
         }
       },
@@ -67,12 +67,12 @@ export class DeliveryCardComponent implements OnInit {
     );
   }
 
-  generateListAdds2(){
+  generateListAdds2() {
     this.listAdds2 = [];
-    let type = this.listAddress1.split("+")[1];
+    const type = this.listAddress1.split('+')[1];
     this.deliveryCardService.getListAddByType(type).subscribe(
       data => {
-        for(let obj of data){
+        for (const obj of data) {
           this.listAdds2.push(obj);
         }
       },
@@ -82,14 +82,14 @@ export class DeliveryCardComponent implements OnInit {
     );
   }
 
-  generateOffices(){
+  generateOffices() {
     this.offices = [];
     this.nameOffice = '';
     this.addressOffice = '';
     this.office = '';
     this.deliveryCardService.getOffice(this.cityOffice).subscribe(
       data => {
-        for(let obj of data){
+        for (const obj of data) {
           this.offices.push(obj);
         }
       },
@@ -99,19 +99,19 @@ export class DeliveryCardComponent implements OnInit {
     );
   }
 
-  onClickHome(){
+  onClickHome() {
     this.showHome = true;
     this.showOffice = false;
-    this.city='';
-    this.neighborhood='';
-    this.listAddress1='';
-    this.listAddress1='';
-    this.listAddress2='';
-    this.address1='';
-    this.address2='';
+    this.city = '';
+    this.neighborhood = '';
+    this.listAddress1 = '';
+    this.listAddress1 = '';
+    this.listAddress2 = '';
+    this.address1 = '';
+    this.address2 = '';
   }
 
-  onClickOffice(){
+  onClickOffice() {
     this.showHome = false;
     this.showOffice = true;
     this.nameOffice = '';
@@ -120,25 +120,25 @@ export class DeliveryCardComponent implements OnInit {
     this.office = '';
   }
 
-  showComponent(){
+  showComponent() {
     this.showDeliveryCard = false;
-    if(this.showOffice){
-      sessionStorage.setItem('officeCurrierCustomer', this.nameOffice)
-      sessionStorage.setItem('addressCurrierCustomer', this.addressOffice)
-    } else{
+    if (this.showOffice) {
+      sessionStorage.setItem('officeCurrierCustomer', this.nameOffice);
+      sessionStorage.setItem('addressCurrierCustomer', this.addressOffice);
+    } else {
       this.generateAddress();
-      sessionStorage.setItem('cityCurrierCustomer', this.city)
-      sessionStorage.setItem('neighborhoodCurrierCustomer', this.neighborhood)
+      sessionStorage.setItem('cityCurrierCustomer', this.city);
+      sessionStorage.setItem('neighborhoodCurrierCustomer', this.neighborhood);
       sessionStorage.setItem('addressCurrierCustomer', this.address);
-    }   
+    }
   }
 
-  generateAddress(){
-    this.address = this.listAddress1+' '+this.address1+' '+this.listAddress2+' '+this.address2;
+  generateAddress() {
+    this.address = this.listAddress1 + ' ' + this.address1 + ' ' + this.listAddress2 + ' ' + this.address2;
   }
 
-  generateNameAndAddress(){
-    this.nameOffice = this.office.split("+")[0];
-    this.addressOffice = this.office.split("+")[1];
+  generateNameAndAddress() {
+    this.nameOffice = this.office.split('+')[0];
+    this.addressOffice = this.office.split('+')[1];
   }
 }

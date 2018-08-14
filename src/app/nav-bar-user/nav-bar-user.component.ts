@@ -6,14 +6,17 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./nav-bar-user.component.css']
 })
 export class NavBarUserComponent implements OnInit {
-  name : string = 'Camila Paz';
-
-  @Input() user : string;
+  name = 'Camila Paz';
 
   constructor() { }
 
   ngOnInit() {
-    this.name = JSON.parse(this.user).name;
+    this.getUserName();
+  }
+
+  getUserName() {
+    console.log('userCall', this.name );
+    this.name = sessionStorage.getItem('userCall');
   }
 
 }

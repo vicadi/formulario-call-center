@@ -5,7 +5,7 @@
 
   <div *ngIf="approved" class="bloque-derecho-simple">
         <div class="margin-left-135">
-          <app-nav-bar-user [user]="user" ></app-nav-bar-user>
+          <app-nav-bar-user></app-nav-bar-user>
         </div>
         <div class="align-center">
           <div class="style-text blue-text font-40 margin-left-20-porc margin-right-20-porc margin-top-60">
@@ -55,7 +55,7 @@
       
       <div class="bloque-derecho align-center">
           <div>
-              <app-nav-bar-user [user]="user"></app-nav-bar-user>
+              <app-nav-bar-user></app-nav-bar-user>
             </div>
           <div class="style-text purple-text font-40 margin-top-20-porc">
               <div class="text-align">La aprobación de tu cliente no ha <br/>
@@ -76,4 +76,4 @@
 </div>
 <app-home *ngIf="showHome"></app-home>
 
-<app-delivery-card [user]="user" *ngIf="showDeliveryCard"></app-delivery-card>
+<app-delivery-card *ngIf="showDeliveryCard"></app-delivery-card>

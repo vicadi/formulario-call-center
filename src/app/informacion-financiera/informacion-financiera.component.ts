@@ -8,89 +8,90 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class InformacionFinancieraComponent implements OnInit {
 
-  @Input() user: string;
   @Input() username: string;
-  showFinnancial: boolean = true;
-  showSummary: boolean = false;
-  errorMessageIncome: boolean = false;
-  errorMessageOutcome: boolean = false;
-  errorMessageActivos: boolean = false;
-  errorMessagePasivos: boolean = false
-  ingresos: string ='';
-  egresos: string ='';
-  activos: string ='';
-  pasivos: string ='';
+  showFinnancial = true;
+  showSummary = false;
+  errorMessageIncome = false;
+  errorMessageOutcome = false;
+  errorMessageActivos = false;
+  errorMessagePasivos = false;
+  ingresos = '';
+  egresos = '';
+  activos = '';
+  pasivos = '';
   income: number;
   outcome: number;
   temporal: any;
   anterior: any;
+  userCall: string;
 
   constructor() { }
 
   ngOnInit() {
+    this.userCall = sessionStorage.getItem('userCall');
   }
 
   onKeyIngresos() {
-    this.ingresos=this.ingresos.replace(/[^$0-9]/g, "");
-    if(this.ingresos.length>0){
+    this.ingresos = this.ingresos.replace(/[^$0-9]/g, '');
+    if (this.ingresos.length > 0) {
         this.temporal = this.ingresos.split('$');
-        if (this.temporal.length>1) {
-          if(parseInt(this.temporal[1])>0){
-            this.ingresos = '$' + this.temporal[1];   
-          }else{
-            this.ingresos=''; 
+        if (this.temporal.length > 1) {
+          if (parseInt (this.temporal[1]) > 0) {
+            this.ingresos = '$' + this.temporal[1];
+          } else {
+            this.ingresos = '';
           }
-        }else{
-          if(parseInt(this.temporal[0])>0){
-            this.ingresos = '$' + this.temporal[0];   
-          }else{
-            this.ingresos=''; 
+        } else {
+          if ( parseInt(this.temporal[0]) >0) {
+            this.ingresos = '$' + this.temporal[0];
+          } else {
+            this.ingresos = '';
           }
         }
     }
   }
 
   onKeyEgresos() {
-    this.egresos=this.egresos.replace(/[^$0-9]/g, "");
-    if(this.egresos.length>0){
+    this.egresos = this.egresos.replace(/[^$0-9]/g, '');
+    if (this.egresos.length > 0) {
       this.temporal = this.egresos.split('$');
-      if (this.temporal.length>1) {
-        this.egresos = '$' + this.temporal[1];   
-      }else{
+      if (this.temporal.length > 1) {
+        this.egresos = '$' + this.temporal[1];
+      } else {
         this.egresos = '$' + this.temporal[0];
       }
     }
   }
 
   onKeyActivos() {
-    this.activos=this.activos.replace(/[^$0-9]/g, "");
-    if(this.activos.length>0){
+    this.activos = this.activos.replace(/[^$0-9]/g, '');
+    if (this.activos.length > 0) {
       this.temporal = this.activos.split('$');
-      if (this.temporal.length>1) {
-        this.activos = '$' + this.temporal[1];   
-      }else{
+      if (this.temporal.length > 1) {
+        this.activos = '$' + this.temporal[1];
+      } else {
         this.activos = '$' + this.temporal[0];
       }
     }
   }
 
   onKeyPasivos() {
-    this.pasivos=this.pasivos.replace(/[^$0-9]/g, "");
-    if(this.pasivos.length>0){
+    this.pasivos = this.pasivos.replace(/[^$0-9]/g, '');
+    if (this.pasivos.length > 0) {
       this.temporal = this.pasivos.split('$');
-      if (this.temporal.length>1) {
-        this.pasivos = '$' + this.temporal[1];   
-      }else{
+      if (this.temporal.length > 1) {
+        this.pasivos = '$' + this.temporal[1];
+      } else {
         this.pasivos = '$' + this.temporal[0];
       }
     }
   }
 
   showComponent(){
-    sessionStorage.setItem('incomeCustomer', this.ingresos)
-    sessionStorage.setItem('outcomeNameCustomer', this.egresos)
-    sessionStorage.setItem('assetsCustomer', this.activos)
-    sessionStorage.setItem('liabilitiesCustomer', this.pasivos)
+    sessionStorage.setItem('incomeCustomer', this.ingresos);
+    sessionStorage.setItem('outcomeNameCustomer', this.egresos);
+    sessionStorage.setItem('assetsCustomer', this.activos);
+    sessionStorage.setItem('liabilitiesCustomer', this.pasivos);
 
     this.income = parseInt(this.ingresos);
     this.outcome = parseInt(this.egresos);
@@ -107,4 +108,3 @@ export class InformacionFinancieraComponent implements OnInit {
   }
 
 }
- 

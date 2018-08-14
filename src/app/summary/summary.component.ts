@@ -14,23 +14,24 @@ export class SummaryComponent implements OnInit {
   @Input() outcome: number;
   @Input() income: number;
   @Input() username: string;
-  @Input() user : string;
 
-  showButton: boolean =false;
-  showHome: boolean = false;
-  showSummary: boolean = true;
-  valueApproved : string;
-  approved: boolean = false;
-  showPurpleCard : boolean = false;
-  showBlueCard : boolean = false;
-  showWhiteCard : boolean = false;
-  showDeliveryCard: boolean = false;
+  userCall: string;
+  showButton = false;
+  showHome = false;
+  showSummary = true;
+  valueApproved: string;
+  approved = false;
+  showPurpleCard = false;
+  showBlueCard = false;
+  showWhiteCard = false;
+  showDeliveryCard = false;
 
   constructor(private customerService: CustomerService, private checkService: CheckService, private summaryService: SummaryService) { }
   ngOnInit() {
+    this.userCall = sessionStorage.getItem('userCall');
     this.summaryService.obtaingApproved(this.income, this.outcome).subscribe(
       data => {
-        this.valueApproved = data;
+        this.valueApproved = data._body;
         this.getValueApproved();
       },
       error => {
@@ -38,7 +39,7 @@ export class SummaryComponent implements OnInit {
       }
     );
   }
- 
+
   onSelect(): void {
     this.showButton = !this.showButton;
   }
@@ -46,32 +47,32 @@ export class SummaryComponent implements OnInit {
   finish(): void {
     this.showDeliveryCard = true;
     this.showSummary = false;
-    sessionStorage.setItem('checkCustomer', 'true')
-    sessionStorage.setItem('valueApprovedCustomer', this.valueApproved)
-    var customerExist = sessionStorage.getItem('customerExist');
+    sessionStorage.setItem('checkCustomer', 'true');
+    sessionStorage.setItem('valueApprovedCustomer', this.valueApproved);
+    const customerExist = sessionStorage.getItem('customerExist');
     const requestDto = {
-      "identitynumber":sessionStorage.getItem('identityNumberCustomer'),
-      "firstName":sessionStorage.getItem('nameCustomer'),
-      "middleName":sessionStorage.getItem('middleNameCustomer'),
-      "lastName":sessionStorage.getItem('lastNameCustomer'),
-      "secondLastName":sessionStorage.getItem('secondLastNameCustomer'),
-      "email":sessionStorage.getItem('mailCustomer'),
-      "typePhone":sessionStorage.getItem('phoneTypeCustomer'),
-      "numberPhone":sessionStorage.getItem('phoneNumberCustomer'),
-      "birthDate":sessionStorage.getItem('birthDayCustomer')
+      'identitynumber': sessionStorage.getItem('identityNumberCustomer'),
+      'firstName': sessionStorage.getItem('nameCustomer'),
+      'middleName': sessionStorage.getItem('middleNameCustomer'),
+      'lastName': sessionStorage.getItem('lastNameCustomer'),
+      'secondLastName': sessionStorage.getItem('secondLastNameCustomer'),
+      'email': sessionStorage.getItem('mailCustomer'),
+      'typePhone': sessionStorage.getItem('phoneTypeCustomer'),
+      'numberPhone': sessionStorage.getItem('phoneNumberCustomer'),
+      'birthDate' : sessionStorage.getItem('birthDayCustomer')
     };
-    if(customerExist != null && customerExist == 'true'){
+    if (customerExist != null && customerExist === 'true') {
       this.updateCustomer(requestDto);
-    }else{
+    } else {
       this.createCustomer(requestDto);
     }
   }
 
-  createCustomer(requestDto){
+  createCustomer(requestDto) {
     this.customerService.createCustomer(requestDto).subscribe(
       result => {
         console.log('Customer created');
-        this.saveCheck()
+        this.saveCheck();
       },
       error => {
         console.log('FAIL CREATE CUSTOMER');
@@ -79,11 +80,11 @@ export class SummaryComponent implements OnInit {
     );
   }
 
-  updateCustomer(requestDto){
+  updateCustomer(requestDto) {
     this.customerService.updateCustomer(requestDto).subscribe(
       result => {
         console.log('Customer updated', result);
-        this.saveCheck()
+        this.saveCheck();
       },
       error => {
         console.log('FAil UPDATE CUSTOMER');
@@ -91,11 +92,11 @@ export class SummaryComponent implements OnInit {
     );
   }
 
-  saveCheck(){
+  saveCheck() {
     const requestDto = {
-      "typeCreditCard":sessionStorage.getItem('typeCreditCard'),
-      "userId": '1',
-      "customerId":sessionStorage.getItem('identityNumberCustomer')
+      'typeCreditCard': sessionStorage.getItem('typeCreditCard'),
+      'userId': sessionStorage.getItem('idUserCall'),
+      'customerId': sessionStorage.getItem('identityNumberCustomer')
     };
     this.checkService.saveCheckCustomer(requestDto).subscribe(
       result => {
@@ -109,18 +110,18 @@ export class SummaryComponent implements OnInit {
   }
 
 
-  getValueApproved(): void{
-    if (this.valueApproved != "NEGADO") {
+  getValueApproved(): void {
+    if (this.valueApproved !== 'NEGADO') {
       this.approved = true;
-      if (this.valueApproved == "$ 30.000.000") {
+      if (this.valueApproved === '$ 30.000.000') {
         this.showPurpleCard = true;
-        sessionStorage.setItem('typeCreditCard', 'Purple')
-      }else if (this.valueApproved == "$ 20.000.000") {
+        sessionStorage.setItem('typeCreditCard', 'Purple');
+      } else if (this.valueApproved === '$ 20.000.000') {
         this.showBlueCard = true;
-        sessionStorage.setItem('typeCreditCard', 'Blue')
-      }else {
+        sessionStorage.setItem('typeCreditCard', 'Blue');
+      } else {
         this.showWhiteCard = true;
-        sessionStorage.setItem('typeCreditCard', 'White')
+        sessionStorage.setItem('typeCreditCard', 'White');
       }
     } else {
       this.approved = false;
